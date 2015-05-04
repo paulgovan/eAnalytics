@@ -3,11 +3,10 @@ Interactive and dynamic web analytics for the energy industry
 
 Version 0.1 
 # Features
-* Create interactive risk network models in the cloud
-* Learn the structure of your network with powerful structural learning algorithms
-* Learn the paramaters of your network with effective paramater learning methods
-* Measure the importance of connections in your network with node and network measures
-* Generate data from your network and export to your favorite app
+* Profile: take an overview of the industry
+* Performance: measure key performance indicators
+* Trends: identify changes in the industry over time
+* Explorer: discover new relationships in the data
 
 # Documentation
 This README includes information on getting started with the app.
