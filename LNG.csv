@@ -1,0 +1,27 @@
+,lon,lat,Location,Company,Capacity,Type,Status
+1,-90.065918,25.304304,Gulf of Mexico,Main Pass McMoran Exp,1,Import,Not under construction
+2,-80.7980353,28.404449,Offshore Florida,Hoegh LNG - Port Dolphin Energy,1.2,Import,Not under construction
+3,-90.065918,25.304304,Gulf of Mexico,TORP Technology - Bienville LNG,1.4,Import,Not under construction
+4,-97.396381,27.8005828,"Corpus Christi, TX",Cheniere - Corpus Christi LNG,0.4,Import,Not under construction
+5,-93.6509005,30.5639831,"Sabine, TX",Cheniere/Sabine Pass LNG,2.76,Export,Under construction
+6,-93.3420996,29.9960464,"Hackberry, LA",Sempra - Cameron LNG,1.7,Export,Under construction
+7,-95.3596617,28.9541368,"Freeport, TX",Freeport LNG Dev/Freeport LNG Expansion/FLNG Liquefaction,1.8,Export,Under construction
+8,-76.3810601,38.3845677,"Cove Point, MD",Dominion - Cove Point LNG,0.82,Export,Under construction
+9,-97.396381,27.8005828,"Corpus Christi, TX",Cheniere - Corpus Christi LNG,2.14,Export,Under construction
+10,-71.0536625,42.40843,"Everett, MA",GDF SUEZ - DOMAC,1.04,Import,Existing
+11,-76.3810601,38.3845677,"Cove Point, MD",Dominion - Cove Point LNG,1.8,Import,Existing
+12,-81.0028998,32.0876607,"Elba Island, GA",El Paso - Southern LNG,1.6,Import,Existing
+13,-93.2173758,30.2265949,"Lake Charles, LA",Southern Union - Trunkline LNG,2.1,Import,Existing
+14,-71.0588801,42.3600825,Offshore Boston,Excelerate Energy - Northeast Gateway,0.8,Import,Existing
+15,-95.3596617,28.9541368,"Freeport, TX",Cheniere/Freeport LNG Dev,1.5,Import,Existing
+16,-93.6509005,30.5639831,"Sabine, LA",Cheniere/Sabine Pass LNG,4,Import,Existing
+17,-93.3420996,29.9960464,"Hackberry, LA",Sempra - Cameron LNG,1.8,Import,Existing
+18,-71.0588801,42.3600825,Offshore Boston,GDF SUEZ - DOMAC,0.4,Import,Existing
+19,-93.8943327,29.7335518,"Sabine Pass, TX",ExxonMobil - Golden Pass,2,Import,Existing
+20,-88.5561272,30.3657552,"Pascagoula, MS",El Paso/Crest/Sonangol - Gulf LNG Energy LLC,1.5,Import,Existing
+21,-66.0633081,45.2733153,"Saint John, NB",Repsol/Fort Reliance - Canaport LNG,1,Import,Existing
+22,-97.9211555,22.4077462,"Altamira, Tamulipas",Shell/Total/Mitsui - Altamira LNG,0.7,Import,Existing
+23,-115.2837585,30.8406338,"Baja California, MX",Sempra - Energia Costa Azul,1,Import,Existing
+24,-104.3384616,19.1138094,"Manzanillo, MX",KMS GNL de Marizanillo,0.5,Import,Existing
+25,-151.2583333,60.5544444,"Kenai, AK",ConocoPhillips,0.2,Export,Existing
+26,-151.2888889,60.6902778,"Nikiski, AK","ExxonMobil, ConocoPhillips, BP, TransCanada, Alaska Gasline",2.55,Export,Proposed

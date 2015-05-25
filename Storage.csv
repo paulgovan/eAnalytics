@@ -1,0 +1,205 @@
+"","lon","lat","Company","Field","Location","Type","Total","Working"
+"1",-85.2264232,43.6203054,"ANR Pipeline Company","Austin","Mecosta, MI","DGF",23.08,7
+"2",-85.696406,42.4605904,"ANR Pipeline Company","Central Charlton","Otsego, MI","DGF",19,12.9
+"3",-85.1842227,44.7352042,"ANR Pipeline Company","Cold Springs 1","Kalkaska, MI","DGF",19.2,14.7
+"4",-85.8000506,43.4197429,"ANR Pipeline Company","Goodwell","Newaygo, MI","DGF",31.7,19.3
+"5",-84.7686281,43.8194703,"ANR Pipeline Company","Lincoln-Freeman","Clare, MI","DGF",35.72,17
+"6",-84.7686281,43.8194703,"ANR Pipeline Company","Loreed","Clare, MI","DGF",45.71,22
+"7",-85.354965,43.9257279,"ANR Pipeline Company","Muttonville","Osceola, MI","DGF",13.41,8.2
+"8",-85.354965,43.9257279,"ANR Pipeline Company","Reed City","Osceola, MI","DGF",28.91,13.2
+"9",-85.696406,42.4605904,"ANR Pipeline Company","South Chester 15","Otsego, MI","DGF",19.46,13.4
+"10",-85.354965,43.9257279,"ANR Pipeline Company","Winfield","Osceola, MI","DGF",15.93,6.8
+"11",-85.1842227,44.7352042,"ANR Storage Company","Cold Springs 12","Kalkaska, MI","DGF",28.88,25.26
+"12",-85.1842227,44.7352042,"ANR Storage Company","Cold Springs 31","Kalkaska, MI","DGF",5.3,4.55
+"13",-85.1842227,44.7352042,"ANR Storage Company","Excelsior 6","Kalkaska, MI","DGF",12.31,10.81
+"14",-85.1842227,44.7352042,"ANR Storage Company","Rapid River 35","Kalkaska, MI","DGF",17.33,15.05
+"15",-75.2829465,43.3200694,"Arlington Storage Company, LLC","Thomas Corners","Steuben, NY","DGF",10,7
+"18",-92.9804374,32.3568222,"Bear Creek Storage Company","Bear Creek","Bienville, LA","DGF",114.9,58
+"20",-85.1842227,44.7352042,"Blue Lake Gas Storage Co.","Blue Lake 18A","Kalkaska, MI","DGF",54.12,47.09
+"21",-82.8963604,42.4974085,"Blue Water Gas Storage, LLC","Kimball/Columbus III","St. Clair, Macomb, MI","DGF",31.32,25.7
+"22",-92.0665197,30.6036535,"Bobcat Gas Storage","Bobcat","St. Landry, LA","SC",21.22,16.63
+"24",-88.4403883,33.473423,"Caledonia Energy Partners, LLC","Caledonia","Lowndes, MS","DGF",24.8,19.9
+"25",-90.1570536,38.6825502,"CenterPoint Energy - Mississippi River Transmission Corporation","St. Jacob","Madison, IL","Aquifer",4.36,1.6
+"26",-118.1751669,33.7809383,"CenterPoint Energy - Mississippi River Transmission Corporation","East Unionville","Lincoln, LA","DGF",55.2,26.52
+"27",-118.1751669,33.7809383,"CenterPoint Energy - Mississippi River Transmission Corporation","West Unionville","Lincoln, LA","DGF",25,11.28
+"28",-118.1751669,33.7809383,"CenterPoint Energy Gas Transmission Company","Ruston","Lincoln, LA","DGF",6,3
+"29",-96.625838,34.4887028,"CenterPoint Energy Gas Transmission Company","Ada ","Pontotoc, OK","DGF",22.41,14
+"30",-96.2800864,34.568577,"CenterPoint Energy Gas Transmission Company","Chiles Dome","Coal, OK","DGF",26,15
+"31",-76.34791,42.056903,"Central New York Oil and Gas Company","Stagecoach","Tioga, NY","DGF",30.54,24.74
+"33",-110.6168921,41.2107397,"Clear Creek Storage Company","Clear Creek","Unita, WY","DGF",8,4
+"34",-102.5298028,37.394731,"Colorado Interstate Gas Company","Flank","Baca, CO","DGF",19.89,7.18
+"35",-103.7289167,40.2989226,"Colorado Interstate Gas Company","Fort Morgan","Morgan, CO","DGF",14.85,8.5
+"36",-104.332644,39.62031,"Colorado Interstate Gas Company","Latigo","Arapahoe, CO","DGF",22.28,9.1
+"37",-104.1930918,39.8398269,"Colorado Interstate Gas Company","Totem","Adams, CO","DGF",10.7,7
+"38",-101.7979613,37.1333387,"Colorado Interstate Gas Company","Boehm","Morton, KS","DGF",12.73,5.23
+"39",-75.0912706,43.0986809,"Columbia Gas Tranmission Corporation","Dundee ","Schuyler, NY","DGF",11.36,3.87
+"40",-75.2829465,43.3200694,"Columbia Gas Tranmission Corporation","Greenwood ","Steuben, NY","DGF",3.32,0.13
+"41",-75.2829465,43.3200694,"Columbia Gas Tranmission Corporation","North Greenwood ","Steuben, NY","DGF",3.2,1.1
+"42",-82.4752757,39.4909358,"Columbia Gas Tranmission Corporation","Benton ","Hocking, OH","DGF",25.1,7.68
+"43",-80.6939643,40.8883931,"Columbia Gas Tranmission Corporation","Brinker ","Columbiana, OH","DGF",7.65,3.07
+"44",-84.5603187,39.3454673,"Columbia Gas Tranmission Corporation","Crawford ","Fairfield, OH","DGF",79.1,31.1
+"45",-81.592343,40.1817377,"Columbia Gas Tranmission Corporation","Guernsey ","Guernsey, , OH","DGF",7.3,2.65
+"46",-81.909826,40.5540928,"Columbia Gas Tranmission Corporation","Holmes ","Holms, OH","DGF",21.7,10.8
+"47",-82.4752757,39.4909358,"Columbia Gas Tranmission Corporation","Laurel ","Hocking, OH","DGF",23.3,8.3
+"48",-82.1823746,41.452819,"Columbia Gas Tranmission Corporation","Lorain ","Lorain, OH","DGF",10.7,3.3
+"49",-82.3182178,40.8686675,"Columbia Gas Tranmission Corporation","Lucas","Ashland, OH","DGF",60.4,25.11
+"50",-82.3415421,38.9764655,"Columbia Gas Tranmission Corporation","McArthur","Vinton, OH","DGF",10.9,5.32
+"51",-81.8552196,41.143245,"Columbia Gas Tranmission Corporation","Medina","Medina, OH","DGF",10.4,4.37
+"52",-82.3182178,40.8686675,"Columbia Gas Tranmission Corporation","Pavonia","Ashland, OH","DGF",49.5,24.3
+"53",-83.4735393,41.3014415,"Columbia Gas Tranmission Corporation","Wayne","Wayne, OH","DGF",17.4,8.2
+"54",-82.3182178,40.8686675,"Columbia Gas Tranmission Corporation","Weaver","Ashland, OH","DGF",50.5,19.02
+"55",-82.1823746,41.452819,"Columbia Gas Tranmission Corporation","Wellington","Lorain, OH","DGF",23.1,8.84
+"56",-78.5039069,40.0186921,"Columbia Gas Tranmission Corporation","Artemas A ","Bedford, PA","DGF",14.46,8.79
+"57",-78.5039069,40.0186921,"Columbia Gas Tranmission Corporation","Artemas B ","Bedford, PA","DGF",2.15,1.23
+"58",-80.2461714,40.17396,"Columbia Gas Tranmission Corporation","Donegal ","Washington, PA","DGF",9.9,4.93
+"59",-80.1875065,39.8113005,"Columbia Gas Tranmission Corporation","Heard ","Greene, PA","DGF",8.9,8.5
+"60",-80.1875065,39.8113005,"Columbia Gas Tranmission Corporation","Holbrook ","Greene, PA","DGF",1.54,0.41
+"61",-78.9061921,40.6855874,"Columbia Gas Tranmission Corporation","Majorsville ","Green, PA","DGF",28.01,26.3
+"62",-81.4278984,38.2556905,"Columbia Gas Tranmission Corporation","Coco A ","Kanawha, WV","DGF",39.14,22.41
+"63",-81.4278984,38.2556905,"Columbia Gas Tranmission Corporation","Coco B ","Kanawha, WV","DGF",9.7,3.2
+"64",-81.4278984,38.2556905,"Columbia Gas Tranmission Corporation","Coco C ","Kanawha, WV","DGF",17.27,8.51
+"65",-80.0087746,38.8092552,"Columbia Gas Tranmission Corporation","Glady ","Randolph, WV","DGF",31.2,12.7
+"66",-81.4278984,38.2556905,"Columbia Gas Tranmission Corporation","Hunt ","Kanawha, WV","DGF",6.14,1.1
+"67",-81.4278984,38.2556905,"Columbia Gas Tranmission Corporation","Lanham ","Kanawha, WV","DGF",4.8,1.5
+"68",-81.647344,38.8139943,"Columbia Gas Tranmission Corporation","Ripley","Jackson, WV","DGF",25.05,10.5
+"69",-81.647344,38.8139943,"Columbia Gas Tranmission Corporation","Rockport","Jackson, WV","DGF",8.16,3.76
+"70",-79.6502105,39.4372135,"Columbia Gas Tranmission Corporation","Terra Alta","Preston, WV","DGF",41.66,11.5
+"71",-79.6502105,39.4372135,"Columbia Gas Tranmission Corporation","Terra Alta South","Preston, WV","DGF",16.6,3.7
+"72",-80.6770787,39.5655978,"Columbia Gas Tranmission Corporation","Victory A","Wetzel, WV","DGF",7.15,2.32
+"73",-80.6770787,39.8926818,"Columbia Gas Tranmission Corporation","Victory B","Marshall, WV","DGF",25.1,10.99
+"75",-78.8680903,42.3292287,"Dominion Transmission, Inc.","Quinlan","Cattaraugas, NY","DGF",7.9,4
+"76",-75.2829465,43.3200694,"Dominion Transmission, Inc.","Woodhull","Steuben, NY","DGF",35.9,20.6
+"77",-77.8367282,41.6682559,"Dominion Transmission, Inc.","Ellisburg","Potter, PA","DGF",76.78,43.31
+"78",-77.8367282,41.6682559,"Dominion Transmission, Inc.","Greenlick","Potter, PA","DGF",55.86,28.83
+"79",-77.8367282,41.6682559,"Dominion Transmission, Inc.","Harrison","Potter, PA","DGF",34.1,20.72
+"80",-80.2973027,40.4913949,"Dominion Transmission, Inc.","Leidy-Tamarack","Clinton, PA","DGF",113.22,61.2
+"81",-79.6502105,39.9272324,"Dominion Transmission, Inc.","North Summit","Fayette, PA","DGF",23,11.5
+"82",-79.4703885,40.2353963,"Dominion Transmission, Inc.","Oakford","Westmoreland, PA","DGF",132.4,81.4
+"83",-77.8367282,41.6682559,"Dominion Transmission, Inc.","Sabinsville","Potter, PA","DGF",35.62,17.7
+"84",-77.8367282,41.6682559,"Dominion Transmission, Inc.","Sharon","Potter, PA","DGF",4.6,2.4
+"85",-79.1525349,40.6214551,"Dominion Transmission, Inc.","South Bend","Indiana, PA","DGF",17.34,5.81
+"86",-77.1330265,41.9086848,"Dominion Transmission, Inc.","Tioga","Tioga, PA","DGF",36,24
+"87",-79.201095,39.3773539,"Dominion Transmission, Inc.","Bridgeport","Harrison, WV","DGF",8.22,4.18
+"88",-79.201095,39.3773539,"Dominion Transmission, Inc.","Fink-Kennedy & Lost Creek ","Harrison, WV","DGF",165.52,87.54
+"89",-81.0312989,39.1822303,"Dominion Transmission, Inc.","Racket-Newberne","Ritchie, WV","DGF",7.91,4.45
+"90",-102.989615,40.7056181,"East Cheyenne Gas Storage, LLC","West Peetz/Lewis Creek","Logan, CO","DGF",17.2,11.5
+"91",-92.3813621,30.2297347,"Egan Hub Partners, LP","Egan Hub","Acadia, LA","SC",36.42,30.11
+"92",-105.950503,35.5541399,"El Paso Natural Gas Company","Washington Ranch","Edd, NM","DGF",68.6,47.6
+"94",-80.0087746,40.4450813,"Equitrans, LP","Bunola","Allegheny, PA","DGF",7.3,4.45
+"95",-80.2461714,40.17396,"Equitrans, LP","Finleyville","Washington, PA","DGF",0.8,0.52
+"96",-80.1875065,39.8113005,"Equitrans, LP","Hunters Cave","Greene, PA","DGF",6.7,3.75
+"97",-80.1875065,39.8113005,"Equitrans, LP","Pratt","Greene, PA","DGF",9.3,4.99
+"98",-80.1875065,39.8113005,"Equitrans, LP","Swarts and Swarts West","Greene, PA","DGF",2.6,1.58
+"99",-80.0087746,40.4450813,"Equitrans, LP","Tepe","Allegheny, PA","DGF",1.28,0.76
+"100",-78.97847,39.047375,"Equitrans, LP","Comet","Taylor, WV","DGF",5.3,3.66
+"101",-80.2321313,39.5288627,"Equitrans, LP","Hayes","Marion, WV","DGF",0.19,0.15
+"102",-80.2321313,39.5288627,"Equitrans, LP","Logansport","Marion, WV","DGF",3.7,2.5
+"103",-78.97847,39.047375,"Equitrans, LP","Maple Lake","Taylor, WV","DGF",2.4,1.25
+"104",-80.6770787,39.5655978,"Equitrans, LP","Mobley","Wetzel, WV","DGF",7.4,5.17
+"105",-78.97847,39.047375,"Equitrans, LP","Rhodes","Taylor, WV","DGF",9.7,5.53
+"106",-80.8543847,39.4977025,"Equitrans, LP","Shirley","Tyler, WV","DGF",3.8,2.26
+"107",-80.543845,39.0196167,"Equitrans, LP","Skin Creek","Lewis, WV","DGF",2.17,1.32
+"108",-102.6207496,38.0872307,"Free Bird Gas Storage, LLC","East Detroit","Lamar","DGF",11,9
+"109",-94.3451926,32.7573626,"Golden Triangle Storage, Inc.","Golden Triangle","Jefferson, TX","SC",8.82,5.87
+"110",-93.6623239,32.7551322,"Gulf South Gas Pipeline Company, LP","Bistineau","Bossier, LA","DGF",141,85.74
+"111",-89.9253233,32.2653668,"Gulf South Gas Pipeline Company, LP","Jackson","Rankin, MS","DGF",7.95,5.13
+"112",-78.5660852,39.3349019,"Hampshire Gas Company","Augusta & Little Capon","Hampshire, WV","DGF",13.7,4.62
+"113",-81.029182,37.314499,"Hardy Gas Storage, LLC","Hardy","Hardy, WV","DGF",29.6,12.3
+"114",-77.2833793,43.2209426,"Honeoye Storage Corporation","Honeoye","Ontario, NY","DGF",11.25,6.57
+"115",-103.0817903,41.2509264,"Kinder Morgan Gas Transmission, LLC","Huntsman","Cheyenne, NE","DGF",34.85,14.82
+"117",-89.5697913,31.7571068,"Leaf River Energy Center","Leaf River","Smith, MS","SC",7.2,5.48
+"120",-89.9253233,31.9017736,"Mississippi Hub, LLC","Mississippi Hub","Simpson, MS","SC",10.61,7.53
+"122",-88.556531,33.8773585,"Monroe Gas Storage Company, LLC","Four Mile Creek","Monroe, MS","DGF",23,12.08
+"123",-78.4941887,42.0900647,"National Fuel Gas Supply Corporation","Beech Hill","Allegany, NY","DGF",23,9.9
+"124",-73.6837399,40.9806535,"National Fuel Gas Supply Corporation","Bennigton","Reie, NY","DGF",5.13,1.8
+"125",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Colden","Erie, NY","DGF",18.72,7.55
+"126",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Collins","Erie, NY","DGF",6.68,2.85
+"127",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Corry","Erie, NY","DGF",1.25,0.2
+"128",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Derby","Erie, NY","DGF",0.47,0.25
+"129",-78.4941887,42.0900647,"National Fuel Gas Supply Corporation","East Independence","Allegany, NY","DGF",6.4,2.2
+"130",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Holland","Erie, NY","DGF",2.67,1.1
+"131",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Lawtons","Erie, NY","DGF",2.85,0.97
+"132",-78.8680903,42.3292287,"National Fuel Gas Supply Corporation","Nashville","Cattaraugus, NY","DGF",8.98,3.93
+"133",-78.8680903,42.3292287,"National Fuel Gas Supply Corporation","Perrysburg","Cattaraugus, NY","DGF",5.05,1.85
+"134",-79.4668445,42.209774,"National Fuel Gas Supply Corporation","Sherdian","Chautaugua, NY","DGF",4.41,1.1
+"135",-78.4941887,42.0900647,"National Fuel Gas Supply Corporation","West Independence","Allegany, NY","DGF",11.8,7.3
+"136",-78.8661589,42.9023958,"National Fuel Gas Supply Corporation","Zoar","Erie, NY","DGF",2.25,0.6
+"137",-79.1590767,40.6178121,"National Fuel Gas Supply Corporation","Belmouth","Ealk, PA","DGF",1.4,0.8
+"138",-78.4342906,41.0305048,"National Fuel Gas Supply Corporation","Boone Mountain","Elk, Clearfield, PA","DGF",2.06,0.93
+"139",-80.1433144,41.9968852,"National Fuel Gas Supply Corporation","East Branch A & B","McKean, PA","DGF",13.81,4.5
+"140",-77.8367282,41.6682559,"National Fuel Gas Supply Corporation","Ellisburg","Potter, PA","DGF",21.65,12.22
+"141",-79.9319942,40.2911809,"National Fuel Gas Supply Corporation","Galbraith","Jefferson, PA","DGF",2.95,1.9
+"142",-80.2397852,41.2270025,"National Fuel Gas Supply Corporation","Henderson","Mercer, PA","DGF",5.31,2.5
+"143",-80.1433144,41.9968852,"National Fuel Gas Supply Corporation","Keelor","McKean, PA","DGF",3.95,2.4
+"144",-79.9319942,40.2911809,"National Fuel Gas Supply Corporation","Markle","Jefferson, PA","DGF",0.34,0.15
+"145",-79.2451149,41.5341012,"National Fuel Gas Supply Corporation","Queen","Forest, PA","DGF",0.95,0.3
+"146",-78.5660852,41.4284924,"National Fuel Gas Supply Corporation","St. Marys","Elk, PA","DGF",0.53,0.22
+"147",-80.085059,42.1292241,"National Fuel Gas Supply Corporation","Summit","Erie, PA","DGF",4.2,1.6
+"148",-80.1433144,41.9968852,"National Fuel Gas Supply Corporation","Swede Hill","McKean, PA","DGF",1.1,0.3
+"149",-79.8184684,41.6952998,"National Fuel Gas Supply Corporation","Tuscorora","Steuben, PA","DGF",6.39,3.8
+"150",-80.1433144,41.9968852,"National Fuel Gas Supply Corporation","Wellendorf","McKean, PA","DGF",1.13,0.45
+"151",-78.1564432,41.4261564,"National Fuel Gas Supply Corporation","Wharton","Cameron, PA","DGF",31.4,16
+"152",-91.2891036,41.1933001,"Natural Gas Pipeline Company of America","Cario","Louisa, IA","Aquifer",94.06,28.42
+"153",-91.2891036,41.1933001,"Natural Gas Pipeline Company of America","Columbus City","Louisa, IA","Aquifer",54.2,16.18
+"154",-91.6916417,41.3014077,"Natural Gas Pipeline Company of America","Keota","Washington, IA","Aquifer",6,2.81
+"155",-90.081779,40.785049,"Natural Gas Pipeline Company of America","Cook Mills","Douglas, IL","DGF",6.4,4.6
+"156",-87.8611531,41.1200325,"Natural Gas Pipeline Company of America","Herscher/Herscher Northwest","Kankakee, IL","Aquifer",132,38.15
+"157",-90.1537229,39.3200466,"Natural Gas Pipeline Company of America","Loudon","Fayette, IL","DGF",80,40
+"158",-99.634135,35.2687266,"Natural Gas Pipeline Company of America","Sayre","Beckham, OK","DGF",84,53.83
+"159",-94.315422,32.5539228,"Natural Gas Pipeline Company of America","North Lansing","Harrison, TX","DGF",156,96
+"160",-81.9534815,39.9478393,"NGO Transmission, Inc.","Muskie","Muskingum, OH","DGF",0.92,0.35
+"161",-81.1409322,41.7603259,"NGO Transmission, Inc.","Perry","Perry, OH","DGF",2.8,1.08
+"162",-81.9534815,39.9478393,"NGO Transmission, Inc.","Zane","Muskingum, OH","DGF",2.15,1.16
+"163",-93.2413191,41.2249966,"Northern Natural Gas Company","Redfield Mt. Simon & St. Peter","Dallas, IA","Aquifer",133.75,43.2
+"164",-98.7375911,37.6439071,"Northern Natural Gas Company","Cunningham","Pratt, KS","DGF",62,40.92
+"165",-97.5555928,39.5722226,"Northern Natural Gas Company","Lyons","Rice, KS","DGF",24,8
+"168",-89.2847251,31.2148677,"Petal Gas Storage, LLC","Petal","Forrest, MS","SC",25.43,16.01
+"169",-91.4048249,30.2899179,"PetroLogistics Natural Gas Storage, LLC","PetroLogistics","Iberville, LA","SC",12.51,8.05
+"170",-92.584277,30.2577813,"Pine Prairie Energy Center","Pine Prairie","Evangeline, LA","SC",29.36,23.86
+"171",-122.4554639,46.6195461,"Puget Sound Energy, Inc.","Jackson Prairie","Lewis, WA","Aquifer",41.31,23.99
+"172",-112.9363354,37.801087,"Questar Pipeline Company","Chalk Creek","Summit, UT","Aquifer",1.98,0.26
+"173",-109.5211063,40.9053845,"Questar Pipeline Company","Clay Basin","Duggett, UT","DGF",117.5,51.2
+"174",-112.9363354,37.801087,"Questar Pipeline Company","Coalville","Summit, UT","Aquifer",10,0.69
+"175",-110.6168921,41.2107397,"Questar Pipeline Company","LeRoy","Unita, WY","Aquifer",10,0.84
+"176",-110.6168921,41.2107397,"Ryckman Creek Resources, LLC","Nugget Field","Unita, WY","DGF",20,10
+"177",-81.5596427,36.8687921,"Saltville Gas Storage Company","Saltville","Smyth, VA","SC",9.5,5.4
+"178",-92.2329655,31.9037122,"SG Resources","Southern Pines ","Greene, LA","SC",20.5,16.24
+"179",-88.556531,33.8773585,"Southern Natural Gas Company","Muldon","Monroe, MS","DGF",92.82,31
+"180",-97.5555928,39.5722226,"Southern Star Central Pipeline, Inc.","Alden","Rice, KS","DGF",14.7,4.2
+"181",-95.3102505,38.2809328,"Southern Star Central Pipeline, Inc.","Colony","Anderson, KS","DGF",12.7,4.6
+"182",-96.1526985,37.3936365,"Southern Star Central Pipeline, Inc.","Elk City","Elk, KS","DGF",33.3,11.8
+"183",-94.9224637,39.3111112,"Southern Star Central Pipeline, Inc.","McLouth","Leavenworth, KS","DGF",14.1,2.2
+"184",-95.8142885,37.9197853,"Southern Star Central Pipeline, Inc.","Piqua","Woodson, KS","DGF",3.2,0.3
+"185",-95.3102505,38.2809328,"Southern Star Central Pipeline, Inc.","Welda North","Anderson, KS","DGF",13.3,4.4
+"186",-95.3102505,38.2809328,"Southern Star Central Pipeline, Inc.","Welda South","Anderson, KS","DGF",18.3,6.7
+"187",-95.5138162,33.9430894,"Southern Star Central Pipeline, Inc.","Webb","Grant, OK","DGF",42.4,12.5
+"188",-90.2244662,39.7341219,"Southwest Gas Storage Company","Waverly","Morgan, IL","Aquifer",51.1,4.48
+"189",-100.3401456,37.2855796,"Southwest Gas Storage Company","Borcher North","Meade, KS","DGF",63.37,28.29
+"190",-83.8473015,42.6207951,"Southwest Gas Storage Company","Howell","Livingston, MI","DGF",31.1,17.69
+"191",-98.7481167,36.7181862,"Southwest Gas Storage Company","North Hopeton","Woods, OK","DGF",18.1,3.5
+"193",-78.5039069,40.0186921,"Steckman Ridge, LP","Steckman Ridge","Bedford, PA","DGF",17.7,12
+"194",-75.2829465,43.3200694,"Steuben Gas Storage Company","Adrian","Steuben, NY","DGF",9,6.2
+"196",-88.556531,33.8773585,"Tarpon Whitetail Gas Storage, LLC","Tarpon Whitetail","Monroe, MS","DGF",25.43,16.1
+"197",-77.8367282,41.6682559,"Tennessee Gas Pipeline Company","Hebron","Potter, PA","DGF",29.3,17.3
+"198",-79.2902133,39.5681243,"Texas Eastern Tranmission","Accident","Garett, MD","DGF",64,18.3
+"199",-86.48233,40.124119,"Texas Gas Transmission Corporation","Alford","Pike, IN","DGF",2.52,0.92
+"200",-86.0252612,39.8386516,"Texas Gas Transmission Corporation","Lessville","Lawrence, IN","Aquifer",3.8,1.79
+"201",-123.4109811,48.1402359,"Texas Gas Transmission Corporation","Oaktown","Know, IN","DGF",1.05,0.3
+"202",-87.4058525,39.0953199,"Texas Gas Transmission Corporation","Wilfred","Sullivan, IN","Aquifer",4.79,1.98
+"203",-87.5900134,37.8361538,"Texas Gas Transmission Corporation","Dixie","Henderson, KY","DGF",7.69,3
+"204",-87.1422895,37.1772501,"Texas Gas Transmission Corporation","Graham Lake","Muhlenberg, KY","DGF",3.8,1.3
+"205",-87.5791287,37.3153093,"Texas Gas Transmission Corporation","Hanson","Hopkins, KY","DGF",12.09,5.59
+"206",-87.1422895,37.1772501,"Texas Gas Transmission Corporation","Midland","Muhlenberg, KY","DGF",136.32,65.18
+"207",-87.1422895,37.1772501,"Texas Gas Transmission Corporation","West Greenville","Muhlenberg, KY","DGF",8.3,4.18
+"208",-90.8308712,29.9828316,"Transcontinental Gas Pipeline Corporation","Hester","St. James, LA","DGF",23.53,12
+"209",-90.8308712,29.9828316,"Transcontinental Gas Pipeline Corporation","Washington","St. James, LA","DGF",120,75
+"210",-89.5874819,31.6732735,"Transcontinental Gas Pipeline Corporation","Eminence Salt Cavern","Covington, MS","SC",22.72,15
+"211",-95.9713474,28.9627682,"Tres Palacios Gas Storage, LLC","Markham","Matagorda
+Wharton, , TX","SC",41.69,27.05
+"213",-90.9907619,29.6877674,"Trunkline Gas Company, LLC","Epps","Caroll, LA","DGF",43,13
+"214",-77.1330265,41.9086848,"UGI Storage Company","Tioga West/Meeker","Tioga, PA","DGF",5.2,3.7
+"216",-105.1213956,46.8349461,"Williston Basin Interstate Pipeline Company","Baker                          ","Fallon, MT","DGF",287.2,164.43
+"217",-106.4272801,43.9557212,"Williston Basin Interstate Pipeline Company","Billy Creek","Johnson, WY","DGF",2.94,0.54
+"218",-109.4579855,44.6782103,"Williston Basin Interstate Pipeline Company","Elk Basin","Park, WY","DGF",63.21,28.38
+"219",-75.2829465,43.3200694,"Wycoff Gas Storage Company","Wycoff","Steuben, NY","DGF",6.97,6.11
+"220",-103.7289167,40.2989226,"Young Gas Storage, LTD","Young","Morgan, CO","DGF",9.95,5.79
