@@ -21,6 +21,7 @@ library(rMaps)
 library(ggmap)
 library(dygraphs)
 library(googleVis)
+library(DT)
 
 dashboardPage(
   dashboardHeader(title = "eAnalytics",
@@ -33,10 +34,10 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("Electric", icon = icon("th"), tabName = "electric", menuSubItem("Trends", tabName = "elecTrends", icon = icon("line-chart"))),
-      menuItem("Hydropower", icon = icon("th"), tabName = "hydroelectric", menuSubItem("Profile", tabName = "hydroProfile", icon = icon("globe"))),
-      menuItem("Natural Gas", icon = icon("th"), tabName = "naturalgas", menuSubItem("Profile", tabName = "gasProfile", icon = icon("globe")), menuSubItem("Performance", tabName = "gasPerform", icon = icon("bar-chart")), menuSubItem("Trends", tabName = "gasTrends", icon = icon("line-chart")), menuSubItem("Explorer", tabName = "gasExplorer", icon = icon("gear"))),
-      menuItem("Oil", icon = icon("th"), tabName = "oil", menuSubItem("Trends", tabName = "oilTrends", icon = icon("line-chart")))
+      menuItem("Electric", icon = icon("th"), tabName = "electric", menuSubItem("Trends", tabName = "elecTrends", icon = icon("line-chart")), menuSubItem("Data", tabName = "elecData", icon = icon("table"))),
+      menuItem("Hydropower", icon = icon("th"), tabName = "hydroelectric", menuSubItem("Profile", tabName = "hydroProfile", icon = icon("globe")), menuSubItem("Data", tabName = "hydroData", icon = icon("table"))),
+      menuItem("Natural Gas", icon = icon("th"), tabName = "naturalgas", menuSubItem("Profile", tabName = "gasProfile", icon = icon("globe")), menuSubItem("Performance", tabName = "gasPerform", icon = icon("bar-chart")), menuSubItem("Trends", tabName = "gasTrends", icon = icon("line-chart")), menuSubItem("Explorer", tabName = "gasExplorer", icon = icon("gear")), menuSubItem("Data", tabName = "gasData", icon = icon("table"))),
+      menuItem("Oil", icon = icon("th"), tabName = "oil", menuSubItem("Trends", tabName = "oilTrends", icon = icon("line-chart")), menuSubItem("Data", tabName = "oilData", icon = icon("table")))
     )),
   dashboardBody(
     tags$head(tags$link(rel = "icon", type = "image/png", href = "favicon.png"),
@@ -74,6 +75,12 @@ dashboardPage(
                 )
               )
       ),
+      tabItem(tabName = "elecData",
+              box(
+                title = "Rates Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                DT::dataTableOutput("elecTable")
+              )
+      ),
       tabItem(tabName = "hydroProfile",
               box(
                 title = "Hydropower", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
@@ -89,6 +96,12 @@ dashboardPage(
                   ),
                   style = "opacity: 0.90"
                 )
+              )
+      ),
+      tabItem(tabName = "hydroData",
+              box(
+                title = "Hydropower Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                DT::dataTableOutput("hydroTable")
               )
       ),
       tabItem(tabName = "gasProfile",
@@ -209,6 +222,16 @@ dashboardPage(
                 htmlOutput("motion1"), style = "overflow:hidden;"
               )
       ),
+      tabItem(tabName = "gasData",
+              tabBox(width = 12,
+                     tabPanel("Project Data",
+                              DT::dataTableOutput("projectTable")
+                     ),
+                     tabPanel("Revenue Data",
+                              DT::dataTableOutput("gasTable")
+                     )
+              )
+      ),
       tabItem(tabName = "oilTrends",
               fluidRow(
                 box(
@@ -224,6 +247,12 @@ dashboardPage(
                                 "Bill"= "Bill"
                               ))
                 )
+              )
+      ),
+      tabItem(tabName = "oilData",
+              box(
+                title = "Rates Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                DT::dataTableOutput("oilTable")
               )
       )
     )

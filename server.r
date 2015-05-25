@@ -19,6 +19,7 @@ library(ggmap)
 library(dygraphs)
 library(xts)
 library(googleVis)
+library(DT)
 
 # Get data
 electric <- data.frame(read.csv("ElectricRates.csv"))
@@ -73,6 +74,12 @@ shinyServer(function(input, output, session) {
     return(h1)
   })
   
+  # Show electric rates table
+  output$elecTable <- DT::renderDataTable({
+      DT::datatable(electric, rownames = FALSE) %>% 
+        formatCurrency(c('Revenue', 'Bill'))
+  })
+  
   # Plot the hydropower map
   output$map1 <- renderLeaflet({
     content <- as.character(tagList(
@@ -100,6 +107,11 @@ shinyServer(function(input, output, session) {
     h2$xAxis(title = list(text = "Capacity (KW)"))
     h2$yAxis(title = list(text = "Frequency"))
     return(h2)
+  })
+  
+  # Show hydropower data table
+  output$hydroTable <- DT::renderDataTable({
+    DT::datatable(hydro[,4:10], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive') 
   })
   
   # Plot the Storage map
@@ -313,12 +325,24 @@ shinyServer(function(input, output, session) {
     return(h8)
   })
   
+  # Show natural gas projects table
+  output$projectTable <- DT::renderDataTable({
+    pipelineProject <- pipelineProject[,!(names(pipelineProject) %in% 'Year')]
+    DT::datatable(pipelineProject, rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive') 
+  })
+  
+  # Show natural gas rates table
+  output$gasTable <- DT::renderDataTable({
+    DT::datatable(pipeline, rownames = FALSE) %>% 
+      formatCurrency(c('Revenue', 'Bill'))
+  })
+  
   # Plot the natural gas project motion chart
   output$motion1 <- renderGvis({
     pipeSum[,"Year"] <- as.Date(pipeSum[,"Year"], format = "%d/%m/%y")
     gvisMotionChart(pipeSum, idvar="Type", 
                     timevar="Year",
-                    options=list(width=1000, height=1000
+                    options=list(width=1000, height=500
                     ))
   })
   
@@ -339,5 +363,11 @@ shinyServer(function(input, output, session) {
       )
     )
     return(h9)
+  })
+  
+  # Show oil rates table
+  output$oilTable <- DT::renderDataTable({
+    DT::datatable(oil, rownames = FALSE) %>% 
+      formatCurrency(c('Revenue', 'Bill'))
   })
 })
