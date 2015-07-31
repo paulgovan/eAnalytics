@@ -17,7 +17,6 @@ library(shinyapps)
 library(shinydashboard)
 library(rCharts)
 library(leaflet)
-library(rMaps)
 library(ggmap)
 library(dygraphs)
 library(googleVis)
@@ -70,8 +69,8 @@ dashboardPage(
                 box(
                   title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
                   selectInput("elec", h5("Select Input:"), 
-                              c("Revenue"="Revenue",
-                                "Bill"= "Bill"))
+                              c("Revenue (USD)"="Revenue",
+                                "Bill (USD)"= "Bill"))
                 )
               )
       ),
@@ -82,20 +81,23 @@ dashboardPage(
               )
       ),
       tabItem(tabName = "hydroProfile",
-              box(
-                title = "Hydropower", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
-                leafletOutput("map1"),
-                absolutePanel(
-                  top = 75, left = 50, width = 250,
-                  draggable = TRUE,
-                  wellPanel(
-                    h4("Hydropower Facilities"),
-                    selectInput("hydroSize", h5("Size:"), 
-                                c("Total Capacity (KW)"="Total")),
-                    showOutput("hist1", "highcharts")
-                  ),
-                  style = "opacity: 0.90"
-                )
+              tabBox(width = 12,
+                     tabPanel("Hydropower", 
+                              leafletOutput("map1"),
+                              absolutePanel(
+                                top = 75, left = 50, width = 250, height = 500,
+                                draggable = TRUE,
+                                wellPanel(
+                                  h4("Hydropower Facilities"),
+                                  selectInput("hydroSize", h5("Size:"), 
+                                              c("Total Capacity (MW)"="Total")),
+                                  selectInput("hydroCol", h5("Color:"), 
+                                              c("Status"="status")),
+                                  showOutput("hist1", "highcharts")
+                                ),
+                                style = "opacity: 0.90"
+                              )
+                     )
               )
       ),
       tabItem(tabName = "hydroData",
@@ -109,13 +111,15 @@ dashboardPage(
                      tabPanel("Storage",
                               leafletOutput("map2"), 
                               absolutePanel(
-                                top = 75, left = 50, width = 250,
+                                top = 75, left = 50, width = 250, height = 500,
                                 draggable = TRUE,
                                 wellPanel(
                                   h4("NG Storage Facilities"),
                                   selectInput("storageSize", h5("Size:"), 
                                               c("Total Capacity (BCF)"="Total",
                                                 "Working Capacity (BCF)"= "Working")),
+                                  selectInput("storageColor", h5("Color:"), 
+                                              c("Storage Type"="type")),
                                   showOutput("hist2", "highcharts")
                                 ),
                                 style = "opacity: 0.90"
@@ -124,21 +128,24 @@ dashboardPage(
                      tabPanel("LNG", 
                               leafletOutput("map3"),
                               absolutePanel(
-                                top = 75, left = 50, width = 250,
+                                top = 75, left = 50, width = 250, height = 500,
                                 draggable = TRUE,
                                 wellPanel(
                                   h4("LNG Facilities"),
                                   selectInput("lngSize", h5("Size:"), 
                                               c("Total Capacity (BCFD)"="Total")),
+                                  selectInput("lngColor", h5("Color:"), 
+                                              c("Facility Type"="type",
+                                                "Status"="status")),
                                   showOutput("hist3", "highcharts")
                                 ),
                                 style = "opacity: 0.90"
                               )
                      ),
                      tabPanel("Projects",
-                              rCharts::chartOutput('choropleth1', 'datamaps'),
+                              showOutput("choropleth1", "datamaps"),
                               absolutePanel(
-                                top = 75, right = 50, width = 250, 
+                                top = 75, right = 50, width = 250, height = 500,
                                 draggable = TRUE,
                                 wellPanel(
                                   h4("NG Projects"),
@@ -169,8 +176,9 @@ dashboardPage(
                 box(
                   title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
                   selectInput("perform", h5("Select Performance Indicator:"), 
-                              c("Cost/Mile ($1000/Mile)"="costMile",
-                                "Cost/Added Capacity ($1000/MMcf/d)"= "costCap"
+                              c("Cost/Mile (kUSD/Mile)"="costMile",
+                                "Cost/Added Capacity (kUSD/MMcf/d)"= "costCap",
+                                "Cost/Added Compression (kUSD/HP)" = "costHP"
                               )),
                   selectInput("sensitivity", h5("Select Type of Sensitivity Analysis:"), 
                               c("Contribution to Variance"="varr",
@@ -192,9 +200,9 @@ dashboardPage(
                                 box(
                                   title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
                                   selectInput("gas", h5("Select Input:"), 
-                                              c("Cost ($MM)"="cost",
-                                                "Cost/Mile ($MM/Mile)"="costMile",
-                                                "Cost/Added Capacity ($MM/MMcf/d)"= "costCap"))
+                                              c("Cost (mUSD)"="cost",
+                                                "Cost/Mile (mUSD/Mile)"="costMile",
+                                                "Cost/Added Capacity (mUSD/MMcf/d)"= "costCap"))
                                 )
                               )
                      ),
@@ -209,8 +217,8 @@ dashboardPage(
                                 box(
                                   title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
                                   selectInput("gasRates", h5("Select Input:"), 
-                                              c("Revenue"="Revenue",
-                                                "Bill"= "Bill"))
+                                              c("Revenue (USD)"="Revenue",
+                                                "Bill (USD)"= "Bill"))
                                 )
                               )
                      )
@@ -243,8 +251,8 @@ dashboardPage(
                 box(
                   title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
                   selectInput("oil", h5("Select Input:"), 
-                              c("Revenue"="Revenue",
-                                "Bill"= "Bill"
+                              c("Revenue (USD)"="Revenue",
+                                "Bill (USD)"= "Bill"
                               ))
                 )
               )

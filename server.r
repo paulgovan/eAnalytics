@@ -14,7 +14,6 @@
 
 library(rCharts)
 library(leaflet)
-library(rMaps)
 library(ggmap)
 library(dygraphs)
 library(xts)
@@ -28,8 +27,8 @@ pipeline <- data.frame(read.csv("PipelineRates.csv"))
 oil <- data.frame(read.csv("OilRates.csv"))
 storage <- data.frame(read.csv("Storage.csv"), na.strings = c("na"))
 pipelineProject <- data.frame(read.csv("PipelineProjects.csv", na.strings = c("na")))
-pipeSum <- data.frame(read.csv("PipelineSummary.csv", na.strings = c("na")))
-pipeSum2 <- data.frame(read.csv("PipelineSummary3.csv", na.strings = c("na")))
+projectTable <- data.frame(read.csv("ProjectTable.csv", na.strings = c("na")))
+projectTable2 <- data.frame(read.csv("ProjectTable2.csv", na.strings = c("na")))
 lng <- data.frame(read.csv("LNG.csv"), na.strings = c("na"))
 
 # Calculate the number of unique companies, projects, and facilities in database
@@ -76,52 +75,73 @@ shinyServer(function(input, output, session) {
   
   # Show electric rates table
   output$elecTable <- DT::renderDataTable({
-      DT::datatable(electric, rownames = FALSE) %>% 
+      DT::datatable(electric, rownames = FALSE, options = list(
+        autoWidth = TRUE, searchHighlight = TRUE)) %>% 
         formatCurrency(c('Revenue', 'Bill'))
   })
   
   # Plot the hydropower map
   output$map1 <- renderLeaflet({
-    content <- as.character(tagList(
-      tags$strong(paste(hydro$Name, sep = '')),
-      tags$br(),
-      tags$p(paste("Company: ", hydro$Company, sep = ''))
-    ))    
+    content <- paste0("<strong>Name: </strong>",
+                      hydro$Name,
+                      "<br><strong>Company: </strong>",
+                      hydro$Company,
+                      "<br><strong>Waterway: </strong>",
+                      hydro$Waterway,
+                      "<br><strong>Capacity (MW): </strong>",
+                      hydro$Capacity/1000)
+    pal <- colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
     leaflet(hydro) %>% addTiles() %>%
       fitBounds(-125, 49, -62, 18) %>%
-      addCircleMarkers(radius = ~Capacity/100000, popup = ~Name)
-  })
+      addCircleMarkers(radius = ~sqrt(Capacity/100000), color = ~pal(Status), popup = ~content) %>%
+      addLegend("topright", pal = pal, values = ~Status,
+                title = "Status"
+      ) 
+    })
   
   # Plot the hydropower histogram
-  output$hist1 <- renderChart2({
-    hst <- as.numeric(hydro$Capacity)
-    hst <- hist(hst, plot = FALSE)
+  output$hist1 <- renderChart({
+    hst <- as.numeric(hydro$Capacity/1000)
+    hst <- hist(hst, breaks = 5, plot = FALSE)
     hst <- data.frame(mid = hst$mids, counts = hst$counts)
     h2 <- hPlot(counts~mid, 
                 data = hst,
                 type = "column"
     )
-    h2$addParams(dom = 'hist1')
+    h2$addParams(dom = 'hist11')
     h2$chart(height = 200, width = 210)
     h2$plotOptions(series = list(name = 'Capacity'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h2$xAxis(title = list(text = "Capacity (KW)"))
+    h2$xAxis(title = list(text = "Capacity (MW)"))
     h2$yAxis(title = list(text = "Frequency"))
     return(h2)
   })
   
   # Show hydropower data table
   output$hydroTable <- DT::renderDataTable({
-    DT::datatable(hydro[,4:10], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive') 
+    DT::datatable(hydro[,4:9], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive') 
   })
   
   # Plot the Storage map
   output$map2 <- renderLeaflet({
+    content <- paste0("<strong>Company: </strong>",
+                      storage$Company,
+                      "<br><strong>Field: </strong>",
+                      storage$Field,
+                      "<br><strong>Total Capacity (BCF): </strong>",
+                      storage$Total)
+    pal <- colorFactor(c("navy", "red", "green"), domain = c("DGF", "SC", "Aquifer"))
     if (input$storageSize == "Total") {
       leaflet(storage) %>% addTiles() %>%
-        addCircleMarkers(radius = ~Total/100, popup = ~Field)
+        addCircleMarkers(radius = ~Total/100, color = ~pal(Type), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Type,
+                  title = "Storage Type"
+        )
     } else if (input$storageSize == "Working") {
       leaflet(storage) %>% addTiles() %>%
-        addCircleMarkers(radius = ~Working/100, popup = ~Field)
+        addCircleMarkers(radius = ~Working/100, color = ~pal(Type), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Type,
+                  title = "Storage Type"
+        )
     }
   })
   
@@ -148,8 +168,25 @@ shinyServer(function(input, output, session) {
   
   # Plot the LNG map
   output$map3 <- renderLeaflet({
+    content <- paste0("<strong>Company: </strong>",
+                      lng$Company,
+                      "<br><strong>Capacity (BCFD): </strong>",
+                      lng$Capacity)
+    if (input$lngColor == "type") {
+    pal <- colorFactor(c("navy", "red"), domain = c("Export", "Import"))
     leaflet(lng) %>% addTiles() %>%
-      addCircleMarkers(radius = ~Capacity, popup = ~Company)
+      addCircleMarkers(radius = ~Capacity, color = ~pal(Type), popup = ~content) %>%
+      addLegend("topright", pal = pal, values = ~Type,
+                title = "Facility Type",
+      )
+    } else if (input$lngColor == "status") {
+      pal <- colorFactor(c("navy", "red", "green", "orange"), domain = c("Not under construction", "Under construction", "Existing", "Proposed"))
+      leaflet(lng) %>% addTiles() %>%
+        addCircleMarkers(radius = ~Capacity, color = ~pal(Status), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Status,
+                  title = "Facility Status",
+        )
+    }
   })
   
   # Plot the LNG capacity histogram
@@ -169,44 +206,46 @@ shinyServer(function(input, output, session) {
     return(h4)
   })
   
-  # Plot the NG projects choropleth
-  output$choropleth1 = rCharts::renderChart2({
+  # Plot the NG projects choropleth. Note: not currently compatable with rCharts
+  choroDat <- reactive({
     if (input$projectCol == "Cost") {
-      pipeSum2 <- subset(pipeSum2, select = c('Year', 'State', 'Cost'))
-      pipeSum2 <- na.omit(pipeSum2)
-      pipeSum2 <- transform(pipeSum2,
+      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Cost'))
+      choroDat <- na.omit(choroDat)
+      choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
                             State = as.character(State),
                             Var = as.numeric(Cost)
       )
     } else if (input$projectCol == "Miles") {
-      pipeSum2 <- subset(pipeSum2, select = c('Year', 'State', 'Miles'))
-      pipeSum2 <- na.omit(pipeSum2)
-      pipeSum2 <- transform(pipeSum2,
+      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Miles'))
+      choroDat <- na.omit(choroDat)
+      choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
                             State = as.character(State),
                             Var = as.numeric(Miles)
       )
     } else if (input$projectCol == "Capacity") {
-      pipeSum2 <- subset(pipeSum2, select = c('Year', 'State', 'Capacity'))
-      pipeSum2 <- na.omit(pipeSum2)
-      pipeSum2 <- transform(pipeSum2,
+      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Capacity'))
+      choroDat <- na.omit(choroDat)
+      choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
                             State = as.character(State),
                             Var = as.numeric(Capacity)
       )
     }
-    pipeSum2 <- subset(pipeSum2, Year == input$projectYear)
-    ichoropleth(
-      Var ~ State, 
-      data = pipeSum2,
-      pal = 'Blues',
-      ncuts = 5
+
+  })
+  
+  output$choropleth1 = rCharts::renderChart2({
+    choropleth(cut(Var, 5, labels = F) ~ State,
+                data = subset(choroDat(), Year == input$projectYear),
+                pal = 'Blues',
+               legend = T
     )
   })
   
   # Plot the NG projects histogram
-  output$hist4 <- renderChart2({
+  output$hist4 <- renderChart({
     pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity"))
     pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
     if (input$projectCol == "Cost") {
@@ -232,12 +271,14 @@ shinyServer(function(input, output, session) {
   
   # Plot the natural gas performance histogram
   output$hist5 <- renderChart({
-    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity"))
-    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
+    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity", "Compression"))
+    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
     if (input$perform == "costMile") {
       hst <- pipelineProject[,"Cost"]/pipelineProject[,"Miles"]
     } else if (input$perform == "costCap") {
       hst <- pipelineProject[,"Cost"]/pipelineProject[,"Capacity"]
+    } else if (input$perform == "costHP") {
+      hst <- pipelineProject[,"Cost"]/pipelineProject[,"Compression"]
     }
     hst <- hist(hst, plot = FALSE)
     hst <- data.frame(mid = hst$mids, counts = hst$counts)
@@ -255,9 +296,9 @@ shinyServer(function(input, output, session) {
   
   # Draw a natural gas sensitivity bar chart
   output$barChart1 <- renderChart({
-    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity"))
-    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
-    dfcor <- round(cor(pipelineProject[,"Cost"], pipelineProject[,2:3], use="complete.obs"), digits=2)
+    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity", "Compression"))
+    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
+    dfcor <- round(cor(pipelineProject[,"Cost"], pipelineProject[,2:4], use="complete.obs"), digits=2)
     dfvar <- round(dfcor^2*100, digits=1)
     
     if (input$sensitivity == "varr") {
@@ -266,7 +307,7 @@ shinyServer(function(input, output, session) {
       df <- dfcor
     }
     
-    bar <- data.frame(Variable = c("Miles", "Capacity"), Value = c(df[1], df[2]))
+    bar <- data.frame(Variable = c("Miles", "Compression", "Capacity"), Value = c(df[1], df[3], df[2]))
     h7 <- hPlot(Value ~ Variable, 
                 data = bar,
                 type = "bar"
@@ -325,6 +366,14 @@ shinyServer(function(input, output, session) {
     return(h8)
   })
   
+  # Plot the natural gas project motion chart
+  output$motion1 <- renderGvis({
+    gvisMotionChart(projectTable, idvar="Type", 
+                    timevar="Year",
+                    options=list(width=1000, height=500
+                    ))
+  })
+  
   # Show natural gas projects table
   output$projectTable <- DT::renderDataTable({
     pipelineProject <- pipelineProject[,!(names(pipelineProject) %in% 'Year')]
@@ -335,15 +384,6 @@ shinyServer(function(input, output, session) {
   output$gasTable <- DT::renderDataTable({
     DT::datatable(pipeline, rownames = FALSE) %>% 
       formatCurrency(c('Revenue', 'Bill'))
-  })
-  
-  # Plot the natural gas project motion chart
-  output$motion1 <- renderGvis({
-    pipeSum[,"Year"] <- as.Date(pipeSum[,"Year"], format = "%d/%m/%y")
-    gvisMotionChart(pipeSum, idvar="Type", 
-                    timevar="Year",
-                    options=list(width=1000, height=500
-                    ))
   })
   
   # Plot the oil rates line chart
