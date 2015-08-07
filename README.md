@@ -8,9 +8,7 @@ Interactive and dynamic web analytics for the energy industry
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, which is powered by the excellent [rCharts](http://rcharts.io), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. 
-
-eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders.
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, which is powered by the excellent [rCharts](http://rcharts.io), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders.
 
 # Getting Started
 You can run eAnalytics in [R](https://www.r-project.org) with:
