@@ -7,15 +7,20 @@ Interactive and dynamic web analytics for the energy industry
 * Trends: identify changes in the industry over time
 * Explorer: discover new relationships in the data
 
+# Overview
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, which is powered by the excellent [rCharts](http://rcharts.io), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. 
+
+eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders.
+
 # Getting Started
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, which is powered by the excellent [rCharts](http://rcharts.io), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. You can run eAnalytics in [R](https://www.r-project.org) with:
+You can run eAnalytics in [R](https://www.r-project.org) with:
 
 ```S
 require(shiny)
 runGitHub('paulgovan/eAnalytics')
 ```
 
-Or you can access the app through your browser at [pgovan.shinyapps.io/eAnalytics](https://pgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site.
+Or you can access the app through your browser at [pgovan.shinyapps.io/eAnalytics](https://pgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
 
 # Source Code
 The source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
