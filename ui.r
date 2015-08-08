@@ -50,16 +50,15 @@ dashboardPage(
                   h3("Welcome to eAnalytics!"),
                   h4("eAnalytics is a ",
                      a(href = 'http://shiny.rstudio.com', 'Shiny'),
-                     "web application, powered by the excellent ",
+                     "web application, powered by ",
                      a(href = 'http://rcharts.io', 'rCharts'),
                      ",",
                      a(href = 'https://rstudio.github.io/leaflet/', 'Leaflet'),
                      ",",
                      a(href = 'https://rstudio.github.io/dygraphs/', 'dygraphs'),
-                     ",",
+                     ", and",
                      a(href = 'https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html', 'googleVis'),
                      "packages."
-                     
                   ),
                   h4("eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders."),
                   h4("Select an industry in the sidepanel to get started."),
