@@ -19,21 +19,22 @@ library(dygraphs)
 library(xts)
 library(googleVis)
 library(DT)
+library(energyr)
 
 # Get data
-electric <- data.frame(read.csv("ElectricRates.csv"))
-hydro <- data.frame(read.csv("Hydropower.csv"), na.strings = c("na"))
-pipeline <- data.frame(read.csv("PipelineRates.csv"))
-oil <- data.frame(read.csv("OilRates.csv"))
-storage <- data.frame(read.csv("Storage.csv"), na.strings = c("na"))
-pipelineProject <- data.frame(read.csv("PipelineProjects.csv", na.strings = c("na")))
+electric <- electric
+hydro <- hydropower
+gas <- gas
+oil <- oil
+storage <- storage
+pipeline <- pipeline
 projectTable <- data.frame(read.csv("ProjectTable.csv", na.strings = c("na")))
 projectTable2 <- data.frame(read.csv("ProjectTable2.csv", na.strings = c("na")))
-lng <- data.frame(read.csv("LNG.csv"), na.strings = c("na"))
+lng <- lng
 
 # Calculate the number of unique companies, projects, and facilities in database
-company <- length(unique(electric[,1])) + length(unique(hydro[,"Company"])) + length(unique(pipeline[,1])) + length(unique(storage[,"Company"])) + length(unique(lng[,"Company"])) + length(unique(oil[,1]))
-project <- length(unique(pipelineProject[,"Name"]))
+company <- length(unique(electric[,1])) + length(unique(hydro[,"Company"])) + length(unique(gas[,1])) + length(unique(storage[,"Company"])) + length(unique(lng[,"Company"])) + length(unique(oil[,1]))
+project <- length(unique(pipeline[,"Name"]))
 facility <- length(unique(hydro[,"Name"])) + length(unique(storage[,"Field"])) + length(unique(lng[,"Company"]))
 
 # Define required server logic
@@ -246,14 +247,14 @@ shinyServer(function(input, output, session) {
   
   # Plot the NG projects histogram
   output$hist4 <- renderChart({
-    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity"))
-    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
+    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
+    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
     if (input$projectCol == "Cost") {
-      hst <- as.numeric(pipelineProject$Cost)
+      hst <- as.numeric(pipeline$Cost)
     } else if (input$projectCol == "Miles") {
-      hst <- as.numeric(pipelineProject$Miles)
+      hst <- as.numeric(pipeline$Miles)
     } else if (input$projectCol == "Capacity") {
-      hst <- as.numeric(pipelineProject$Capacity)
+      hst <- as.numeric(pipeline$Capacity)
     }
     hst <- hist(hst, plot = FALSE)
     hst <- data.frame(mid = hst$mids, counts = hst$counts)
@@ -271,14 +272,14 @@ shinyServer(function(input, output, session) {
   
   # Plot the natural gas performance histogram
   output$hist5 <- renderChart({
-    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity", "Compression"))
-    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
+    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
+    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
     if (input$perform == "costMile") {
-      hst <- pipelineProject[,"Cost"]/pipelineProject[,"Miles"]
+      hst <- pipeline[,"Cost"]/pipeline[,"Miles"]
     } else if (input$perform == "costCap") {
-      hst <- pipelineProject[,"Cost"]/pipelineProject[,"Capacity"]
+      hst <- pipeline[,"Cost"]/pipeline[,"Capacity"]
     } else if (input$perform == "costHP") {
-      hst <- pipelineProject[,"Cost"]/pipelineProject[,"Compression"]
+      hst <- pipeline[,"Cost"]/pipeline[,"Compression"]
     }
     hst <- hist(hst, plot = FALSE)
     hst <- data.frame(mid = hst$mids, counts = hst$counts)
@@ -296,9 +297,9 @@ shinyServer(function(input, output, session) {
   
   # Draw a natural gas sensitivity bar chart
   output$barChart1 <- renderChart({
-    pipelineProject <- subset(pipelineProject, select = c("Cost", "Miles", "Capacity", "Compression"))
-    pipelineProject <- transform(pipelineProject, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
-    dfcor <- round(cor(pipelineProject[,"Cost"], pipelineProject[,2:4], use="complete.obs"), digits=2)
+    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
+    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
+    dfcor <- round(cor(pipeline[,"Cost"], pipeline[,2:4], use="complete.obs"), digits=2)
     dfvar <- round(dfcor^2*100, digits=1)
     
     if (input$sensitivity == "varr") {
@@ -321,21 +322,22 @@ shinyServer(function(input, output, session) {
   
   # Plot the natural gas cost line chart
   output$lineChart2 <- renderDygraph({
-    pipelineProject <- subset(pipelineProject, select = c("Year", "Cost", "Miles", "Capacity"))
-    pipelineProject <- na.omit(pipelineProject)
+    pipeline <- subset(pipeline, select = c("Year", "Cost", "Miles", "Capacity"))
+    pipeline <- na.omit(pipeline)
     if (input$gas == "cost") {
-      cost <- data.frame(Year = pipelineProject[,"Year"], Cost = pipelineProject[,"Cost"])
+      cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"])
     } else if (input$gas == "costMile") {
-      pipelineProject <- pipelineProject[apply(pipelineProject[,-1], 1, function(x) !all(x==0)),]
-      cost <- data.frame(Year = pipelineProject[,"Year"], Cost = pipelineProject[,"Cost"]/pipelineProject[,"Miles"])
+      pipeline <- pipeline[apply(pipeline[,-1], 1, function(x) !all(x==0)),]
+      cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"]/pipeline[,"Miles"])
     } else if (input$gas == "costCap") {
-      pipelineProject <- pipelineProject[apply(pipelineProject[,-1], 1, function(x) !all(x==0)),]
-      cost <- data.frame(Year = pipelineProject[,"Year"], Cost = pipelineProject[,"Cost"]/pipelineProject[,"Capacity"])
+      pipeline <- pipeline[apply(pipeline[,-1], 1, function(x) !all(x==0)),]
+      cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"]/pipeline[,"Capacity"])
     }
     cost <- data.frame(aggregate(cost[,"Cost"], list(cost$Year), FUN=function(x) c(quantile(x, probs = c(0.05, 0.95), na.rm = TRUE), median(x))))
     cost <- do.call(data.frame, cost)
     colnames(cost) <- c("Year", "lwr", "upr", "med")
     cost[,"Year"] <- as.Date(cost[,"Year"], format = "%d/%m/%Y")
+    cost <- na.omit(cost)
     cost <- cbind(xts(cost$lwr, cost$Year), cost$med, cost$upr)
     colnames(cost) <- c("lwr", "med", "upr")
     dygraph(cost) %>%
@@ -350,7 +352,7 @@ shinyServer(function(input, output, session) {
   # Plot the natural gas rates line chart
   output$lineChart3 <- renderChart({
     h8 <- hPlot("Year", input$gasRates, 
-                data = pipeline,
+                data = gas,
                 type = "line",
                 group = "Company"
     )
@@ -376,13 +378,13 @@ shinyServer(function(input, output, session) {
   
   # Show natural gas projects table
   output$projectTable <- DT::renderDataTable({
-    pipelineProject <- pipelineProject[,!(names(pipelineProject) %in% 'Year')]
-    DT::datatable(pipelineProject, rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive') 
+    pipeline <- pipeline[,!(names(pipeline) %in% 'Year')]
+    DT::datatable(pipeline, rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive') 
   })
   
   # Show natural gas rates table
   output$gasTable <- DT::renderDataTable({
-    DT::datatable(pipeline, rownames = FALSE) %>% 
+    DT::datatable(gas, rownames = FALSE) %>% 
       formatCurrency(c('Revenue', 'Bill'))
   })
   
