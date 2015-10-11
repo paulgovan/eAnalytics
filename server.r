@@ -28,8 +28,8 @@ gas <- gas
 oil <- oil
 storage <- storage
 pipeline <- pipeline
-projectTable <- data.frame(read.csv("ProjectTable.csv", na.strings = c("na")))
-projectTable2 <- data.frame(read.csv("ProjectTable2.csv", na.strings = c("na")))
+motionData <- data.frame(read.csv("motionData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+choroData <- data.frame(read.csv("choroData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
 lng <- lng
 
 # Calculate the number of unique companies, projects, and facilities in database
@@ -210,7 +210,7 @@ shinyServer(function(input, output, session) {
   # Plot the NG projects choropleth. Note: not currently compatable with rCharts
   choroDat <- reactive({
     if (input$projectCol == "Cost") {
-      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Cost'))
+      choroDat <- subset(choroData, select = c('Year', 'State', 'Cost'))
       choroDat <- na.omit(choroDat)
       choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
@@ -218,7 +218,7 @@ shinyServer(function(input, output, session) {
                             Var = as.numeric(Cost)
       )
     } else if (input$projectCol == "Miles") {
-      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Miles'))
+      choroDat <- subset(choroData, select = c('Year', 'State', 'Miles'))
       choroDat <- na.omit(choroDat)
       choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
@@ -226,7 +226,7 @@ shinyServer(function(input, output, session) {
                             Var = as.numeric(Miles)
       )
     } else if (input$projectCol == "Capacity") {
-      choroDat <- subset(projectTable2, select = c('Year', 'State', 'Capacity'))
+      choroDat <- subset(choroData, select = c('Year', 'State', 'Capacity'))
       choroDat <- na.omit(choroDat)
       choroDat <- transform(choroDat,
                             Year = as.numeric(substr(Year, 1, 4)),
@@ -248,7 +248,6 @@ shinyServer(function(input, output, session) {
   # Plot the NG projects histogram
   output$hist4 <- renderChart({
     pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
-    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity))
     if (input$projectCol == "Cost") {
       hst <- as.numeric(pipeline$Cost)
     } else if (input$projectCol == "Miles") {
@@ -273,7 +272,6 @@ shinyServer(function(input, output, session) {
   # Plot the natural gas performance histogram
   output$hist5 <- renderChart({
     pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
-    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
     if (input$perform == "costMile") {
       hst <- pipeline[,"Cost"]/pipeline[,"Miles"]
     } else if (input$perform == "costCap") {
@@ -298,7 +296,6 @@ shinyServer(function(input, output, session) {
   # Draw a natural gas sensitivity bar chart
   output$barChart1 <- renderChart({
     pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
-    pipeline <- transform(pipeline, Cost = as.numeric(Cost), Miles = as.numeric(Miles), Capacity = as.numeric(Capacity), Compression = as.numeric(Compression))
     dfcor <- round(cor(pipeline[,"Cost"], pipeline[,2:4], use="complete.obs"), digits=2)
     dfvar <- round(dfcor^2*100, digits=1)
     
@@ -370,7 +367,7 @@ shinyServer(function(input, output, session) {
   
   # Plot the natural gas project motion chart
   output$motion1 <- renderGvis({
-    gvisMotionChart(projectTable, idvar="Type", 
+    gvisMotionChart(motionData, idvar="Type", 
                     timevar="Year",
                     options=list(width=1000, height=500
                     ))
