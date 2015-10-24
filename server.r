@@ -19,6 +19,8 @@ library(dygraphs)
 library(xts)
 library(googleVis)
 library(DT)
+library(devtools)
+install_github('paulgovan/energyr')
 library(energyr)
 
 # Get data
