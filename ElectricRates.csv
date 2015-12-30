@@ -1,0 +1,544 @@
+Company,Revenue,Bill,Year
+AEP Texas North Company,1025802,46974,2007
+AEP Texas North Company,304,15,2008
+AEP Texas North Company,0,0,2009
+Alabama Power Company,30124612,1379477,2007
+Alabama Power Company,28721945,1404710,2008
+Alabama Power Company,29953339,1633368,2009
+Alabama Power Company,29819490,1833453,2010
+Alabama Power Company,25591555,1629587,2011
+Alabama Power Company,24824922,1588202,2012
+Alabama Power Company,21338291,1392414,2013
+Alabama Power Company,24469300,1628305,2014
+Alcoa Generating Division,466049,21341,2007
+Alcoa Generating Division,81883,4005,2008
+Alcoa Generating Division,11277,615,2009
+Alcoa Generating Division,929947,57178,2010
+Alcoa Generating Division,1176043,74887,2011
+Alcoa Generating Division,1213757,77651,2012
+Alcoa Generating Division,1017298,66383,2013
+Alcoa Generating Division,1052055,70009,2014
+Aquila Inc.,2992558,137036,2007
+Aquila Inc.,1988600,97257,2008
+Aquila Inc.,0,0,2009
+Arizona Public Service Company,43549637,1994241,2007
+Arizona Public Service Company,46498819,2274128,2008
+Arizona Public Service Company,40902324,2230420,2009
+Arizona Public Service Company,38627864,2375036,2010
+Arizona Public Service Company,38372953,2443464,2011
+Arizona Public Service Company,37490023,2398466,2012
+Arizona Public Service Company,38093961,2485792,2013
+Arizona Public Service Company,36946845,2458621,2014
+Attala Transmission LLC,2529889,123730,2008
+Attala Transmission LLC,2239855,122140,2009
+Attala Transmission LLC,1629456,100187,2010
+Attala Transmission LLC,1876189,119470,2011
+Attala Transmission LLC,1983642,126906,2012
+Attala Transmission LLC,1937906,126457,2013
+Attala Transmission LLC,2199341,146355,2014
+Avista Corporation,4900745,224417,2007
+Avista Corporation,4977412,243431,2008
+Avista Corporation,4763801,259772,2009
+Avista Corporation,4832271,297112,2010
+Avista Corporation,4897121,311833,2011
+Avista Corporation,4975830,318334,2012
+Avista Corporation,5348674,349024,2013
+Avista Corporation,5569842,370644,2014
+Black Hills Energy,668265,41088,2010
+Black Hills Energy,630058,40120,2011
+Black Hills Energy,458802,29352,2012
+Black Hills Energy,251131,16387,2013
+Black Hills Energy,278371,18524,2014
+"Black Hills Power, Inc.",4406087,201765,2007
+"Black Hills Power, Inc.",4301329,210366,2008
+"Black Hills Power, Inc.",5059223,275881,2009
+"Black Hills Power, Inc.",7049503,433439,2010
+"Black Hills Power, Inc.",7210123,459117,2011
+"Black Hills Power, Inc.",7078663,452865,2012
+"Black Hills Power, Inc.",7386412,481995,2013
+"Black Hills Power, Inc.",6891579,458599,2014
+"Calif. Independent Sys. Operator, Corp",246823798,11302644,2007
+"Calif. Independent Sys. Operator, Corp",249445593,12199688,2008
+"Calif. Independent Sys. Operator, Corp",249205406,13589270,2009
+"Calif. Independent Sys. Operator, Corp",229431860,14106627,2010
+"Calif. Independent Sys. Operator, Corp",221697053,14116944,2011
+"Calif. Independent Sys. Operator, Corp",222868057,14258234,2012
+"Calif. Independent Sys. Operator, Corp",229983085,15007367,2013
+"Calif. Independent Sys. Operator, Corp",229200695,15252119,2014
+"Centerpoint Energy Houston Electric, LLC",385363,17647,2007
+"Centerpoint Energy Houston Electric, LLC",1189116,58156,2008
+"Centerpoint Energy Houston Electric, LLC",1602177,87367,2009
+"Centerpoint Energy Houston Electric, LLC",951828,58523,2010
+"Centerpoint Energy Houston Electric, LLC",962630,61297,2011
+"Centerpoint Energy Houston Electric, LLC",863939,55271,2012
+"Centerpoint Energy Houston Electric, LLC",524842,34248,2013
+"Centerpoint Energy Houston Electric, LLC",379314,25241,2014
+Cleco Power LLC ,4916293,225129,2007
+Cleco Power LLC ,5111321,249980,2008
+Cleco Power LLC ,5224052,284870,2009
+Cleco Power LLC ,5262033,323536,2010
+Cleco Power LLC ,5333182,339600,2011
+Cleco Power LLC ,7470797,477953,2012
+Cleco Power LLC ,8130728,530564,2013
+Cleco Power LLC ,8325288,554005,2014
+Commonwealth Edison Company ,335822,15378,2007
+Commonwealth Edison Company ,306600,14995,2008
+Commonwealth Edison Company ,0,0,2009
+Consolidated Water Power Co ,51655,2365,2007
+Consolidated Water Power Co ,92999,4548,2008
+Consolidated Water Power Co ,43862,2392,2009
+Consolidated Water Power Co ,17802,1095,2010
+Consolidated Water Power Co ,22551,1436,2011
+Consolidated Water Power Co ,20310,1299,2012
+Consolidated Water Power Co ,0,0,2013
+Deseret Generation & Transmission ,4409791,201935,2007
+Deseret Generation & Transmission ,3761044,183942,2008
+Deseret Generation & Transmission ,4211338,229646,2009
+Deseret Generation & Transmission ,3937689,242109,2010
+Deseret Generation & Transmission ,4040082,257259,2011
+Deseret Generation & Transmission ,3892035,248997,2012
+Deseret Generation & Transmission ,4060158,264942,2013
+Deseret Generation & Transmission ,4482882,298313,2014
+Duke Energy Corporation ,0,0,2007
+Duke Energy Corporation ,31382224,1534817,2008
+Duke Energy Corporation ,31827061,1735542,2009
+Duke Energy Corporation ,28879646,1775666,2010
+Duke Energy Corporation ,45199807,2878176,2011
+Duke Energy Corporation ,31018154,1984421,2012
+Duke Energy Corporation ,29623486,1933057,2013
+El Paso Electric Company ,5645797,258534,2007
+El Paso Electric Company ,6642752,324878,2008
+El Paso Electric Company ,11291260,615717,2009
+El Paso Electric Company ,11407977,701420,2010
+El Paso Electric Company ,10341154,658491,2011
+El Paso Electric Company ,7896308,505175,2012
+El Paso Electric Company ,8900191,580775,2013
+El Paso Electric Company ,9687304,644640,2014
+"Electric Energy, Inc ",8273479,378862,2007
+"Electric Energy, Inc ",8014585,391971,2008
+"Electric Energy, Inc ",7966880,434437,2009
+"Electric Energy, Inc ",6999174,430345,2010
+"Electric Energy, Inc ",7750438,493523,2011
+"Electric Energy, Inc ",7633461,488359,2012
+"Electric Energy, Inc ",6420735,418980,2013
+"Electric Energy, Inc ",0,0,2014
+Empire District Electric Co ,339403,15542,2007
+Empire District Electric Co ,803654,39304,2008
+Empire District Electric Co ,1034208,56396,2009
+Empire District Electric Co ,517239,31802,2010
+Empire District Electric Co ,801688,51049,2011
+Empire District Electric Co ,741507,47439,2012
+Empire District Electric Co ,704321,45960,2013
+Empire District Electric Co ,654189,43533,2014
+Entergy Arkansas Inc. ,16906361,774182,2007
+Entergy Arkansas Inc. ,17077473,835212,2008
+Entergy Arkansas Inc. ,17605171,960017,2009
+Entergy Arkansas Inc. ,18747001,1152660,2010
+Entergy Arkansas Inc. ,15089650,960860,2011
+Entergy Arkansas Inc. ,14358458,918598,2012
+Entergy Arkansas Inc. ,15697816,1024349,2013
+Entergy Arkansas Inc. ,15154263,1008438,2014
+Entergy Gulf States Louisiana LLC ,15609250,959735,2010
+Entergy Gulf States Louisiana LLC ,15660811,997229,2011
+Entergy Gulf States Louisiana LLC ,14785863,945942,2012
+Entergy Gulf States Louisiana LLC ,13923294,908554,2013
+Entergy Gulf States Louisiana LLC ,12586828,837588,2014
+"Entergy Gulf States, INC ",14733753,674693,2007
+"Entergy Gulf States, INC ",16150638,789883,2008
+"Entergy Gulf States, INC ",15615785,851535,2009
+Entergy Louisiana LLC ,9604927,590559,2010
+Entergy Louisiana LLC ,10576703,673490,2011
+Entergy Louisiana LLC ,9920877,634699,2012
+Entergy Louisiana LLC ,10360700,676079,2013
+Entergy Louisiana LLC ,9836377,654560,2014
+Entergy Louisiana LLC ,8728287,399689,2007
+Entergy Louisiana LLC ,10318164,504633,2008
+Entergy Louisiana LLC ,10767893,587178,2009
+"Entergy Mississippi , INC. ",4588387,210113,2007
+"Entergy Mississippi , INC. ",5920428,289552,2008
+"Entergy Mississippi , INC. ",5624282,306694,2009
+"Entergy Mississippi , INC. ",4943603,303958,2010
+"Entergy Mississippi , INC. ",4706378,299687,2011
+"Entergy Mississippi , INC. ",4771857,305285,2012
+"Entergy Mississippi , INC. ",4696984,306498,2013
+"Entergy Mississippi , INC. ",5871215,390699,2014
+"Entergy New Orleans, Inc ",2311483,105848,2007
+"Entergy New Orleans, Inc ",2199406,107567,2008
+"Entergy New Orleans, Inc ",2744811,149676,2009
+"Entergy New Orleans, Inc ",2910727,178966,2010
+"Entergy New Orleans, Inc ",2244579,142927,2011
+"Entergy New Orleans, Inc ",2498221,159826,2012
+"Entergy New Orleans, Inc ",2365590,154365,2013
+"Entergy New Orleans, Inc ",1831756,121894,2014
+"Entergy Power, Inc ",841085,38515,2007
+"Entergy Power, Inc ",891856,43618,2008
+"Entergy Power, Inc ",785827,42851,2009
+"Entergy Power, Inc ",907393,55791,2010
+"Entergy Power, Inc ",828267,52741,2011
+"Entergy Power, Inc ",780163,49912,2012
+"Entergy Power, Inc ",771711,50357,2013
+"Entergy Power, Inc ",855298,56916,2014
+"Entergy Texas, Inc. ",8888854,484713,2009
+"Entergy Texas, Inc. ",8560499,526343,2010
+"Entergy Texas, Inc. ",9799381,623993,2011
+"Entergy Texas, Inc. ",10266168,656790,2012
+"Entergy Texas, Inc. ",11563567,754572,2013
+"Entergy Texas, Inc. ",11749548,781872,2014
+Florida Power & Light Company ,13579608,621842,2007
+Florida Power & Light Company ,13791069,674483,2008
+Florida Power & Light Company ,13326832,726717,2009
+Florida Power & Light Company ,12719896,782083,2010
+Florida Power & Light Company ,13902270,885251,2011
+Florida Power & Light Company ,14575938,932512,2012
+Florida Power & Light Company ,14324462,934732,2013
+Florida Power & Light Company ,13648072,908208,2014
+Georgia Power Co ,27259228,1248264,2007
+Georgia Power Co ,34121374,1668781,2008
+Georgia Power Co ,31443277,1714614,2009
+Georgia Power Co ,27154209,1669578,2010
+Georgia Power Co ,31748608,2021648,2011
+Georgia Power Co ,39066670,2499334,2012
+Georgia Power Co ,37090124,2420287,2013
+Georgia Power Co ,34601571,2302555,2014
+Gulf Power Co ,5592135,256077,2007
+Gulf Power Co ,5818148,284549,2008
+Gulf Power Co ,4778744,260587,2009
+Gulf Power Co ,3676787,226067,2010
+Gulf Power Co ,3676787,234126,2011
+Gulf Power Co ,6143476,393036,2012
+Gulf Power Co ,6355617,414731,2013
+Gulf Power Co ,5295594,352394,2014
+Idaho Power Co ,10545058,482883,2007
+Idaho Power Co ,7072956,345919,2008
+Idaho Power Co ,7353815,401006,2009
+Idaho Power Co ,7282123,447742,2010
+Idaho Power Co ,6926034,441027,2011
+Idaho Power Co ,10351637,662258,2012
+Idaho Power Co ,8514534,555609,2013
+Idaho Power Co ,8181559,544440,2014
+"ISO New England, Inc. ",138928869,6361881,2007
+"ISO New England, Inc. ",138928862,6794623,2008
+"ISO New England, Inc. ",137563988,7501419,2009
+"ISO New England, Inc. ",130617424,8031018,2010
+"ISO New England, Inc. ",133390744,8493886,2011
+"ISO New England, Inc. ",133512407,8541606,2012
+"ISO New England, Inc. ",138235253,9198840,2014
+Kentucky Utilities Company ,2471713,113186,2007
+Kentucky Utilities Company ,6163001,301415,2008
+Kentucky Utilities Company ,7306602,398432,2009
+Kentucky Utilities Company ,4896233,301045,2010
+Kentucky Utilities Company ,6605166,420595,2011
+Kentucky Utilities Company ,7486307,478945,2012
+Kentucky Utilities Company ,6970399,463844,2014
+Lockhart Power Company ,137669,6304,2007
+Lockhart Power Company ,146708,7175,2008
+Lockhart Power Company ,171656,9360,2009
+Lockhart Power Company ,195884,12044,2010
+Lockhart Power Company ,218801,13933,2011
+Lockhart Power Company ,199218,12745,2012
+Lockhart Power Company ,260489,17334,2014
+Long Sault Division ,2392765,109570,2007
+Long Sault Division ,616738,30163,2008
+Long Sault Division ,672782,36687,2009
+Long Sault Division ,2495015,153406,2010
+Long Sault Division ,674750,42966,2011
+Long Sault Division ,663622,42456,2012
+Long Sault Division ,830779,55284,2014
+Louisville Gas & Electric Co ,3604230,165046,2007
+Louisville Gas & Electric Co ,7481195,365884,2008
+Louisville Gas & Electric Co ,9326401,508572,2009
+Louisville Gas & Electric Co ,6903345,424452,2010
+Louisville Gas & Electric Co ,7464001,475283,2011
+Louisville Gas & Electric Co ,8504427,544080,2012
+Louisville Gas & Electric Co ,6489420,431837,2014
+Maine Public Service Company ,694042,31782,2007
+Maine Public Service Company ,700068,34238,2008
+Maine Public Service Company ,675834,36853,2009
+Maine Public Service Company ,623042,38308,2010
+Maine Public Service Company ,626846,39916,2011
+Maine Public Service Company ,626985,40112,2012
+Maine Public Service Company ,136134,9059,2014
+"MDU Resources Group, Inc. ",107011,4900,2007
+"MDU Resources Group, Inc. ",0,0,2008
+"MDU Resources Group, Inc. ",78725,5013,2011
+"MDU Resources Group, Inc. ",71831,4595,2012
+"MDU Resources Group, Inc. ",1767254,117602,2014
+MidAmerican Energy Company ,16029282,734019,2007
+MidAmerican Energy Company ,18763313,917661,2008
+MidAmerican Energy Company ,21585870,1177086,2009
+MidAmerican Energy Company ,18424661,1132841,2010
+MidAmerican Energy Company ,2991708,190502,2011
+MidAmerican Energy Company ,2473457,158242,2012
+MidAmerican Energy Company ,1757087,116925,2014
+"Midwest Indep. Trans. Sys.Operator, Inc ",631216305,28904885,2007
+"Midwest Indep. Trans. Sys.Operator, Inc ",641977429,31397326,2008
+"Midwest Indep. Trans. Sys.Operator, Inc ",633391357,34539084,2009
+"Midwest Indep. Trans. Sys.Operator, Inc ",597889162,36761240,2010
+"Midwest Indep. Trans. Sys.Operator, Inc ",628873794,40044627,2011
+"Midwest Indep. Trans. Sys.Operator, Inc ",594116262,38009253,2012
+"Midwest Indep. Trans. Sys.Operator, Inc ",538523017,35835917,2014
+Mississippi Power Company ,6813062,311986,2007
+Mississippi Power Company ,7299178,356982,2008
+Mississippi Power Company ,7066454,385337,2009
+Mississippi Power Company ,5874956,361222,2010
+Mississippi Power Company ,5503156,350423,2011
+Mississippi Power Company ,5144956,329154,2012
+Mississippi Power Company ,5309286,346453,2013
+Mississippi Power Company ,5895328,392304,2014
+Nevada Power Company ,2399974,109900,2007
+Nevada Power Company ,3422295,167375,2008
+Nevada Power Company ,3422295,186619,2009
+Nevada Power Company d/b/a NV Energy ,3482679,214133,2010
+Nevada Power Company d/b/a NV Energy ,2802547,178457,2011
+Nevada Power Company d/b/a NV Energy ,3155834,201898,2012
+Nevada Power Company d/b/a NV Energy ,4561258,297641,2013
+Nevada Power Company d/b/a NV Energy ,4222874,281010,2014
+"New York Independent System Operator, In ",172957839,7920148,2007
+"New York Independent System Operator, In ",181033031,8853821,2008
+"New York Independent System Operator, In ",184385484,10054614,2009
+"New York Independent System Operator, In ",165987634,10205756,2010
+"New York Independent System Operator, In ",172581399,10989419,2011
+"New York Independent System Operator, In ",170645476,10917235,2012
+"New York Independent System Operator, In ",170447330,11122408,2013
+"New York Independent System Operator, In ",175413143,11672836,2014
+"North Central Power Co., Inc. ",182,8,2007
+"North Central Power Co., Inc. ",175047,8561,2008
+"North Central Power Co., Inc. ",41,2,2009
+"North Central Power Co., Inc. ",157,10,2010
+"North Central Power Co., Inc. ",179,11,2011
+"Northbrook Energy, LLC ",184823,8463,2007
+"Northbrook Energy, LLC ",141391,6915,2008
+"Northbrook Energy, LLC ",175763,9584,2009
+"Northbrook Energy, LLC ",133718,8222,2010
+"Northbrook Energy, LLC ",138154,8797,2011
+"Northbrook Energy, LLC ",163028,10430,2012
+"Northbrook Energy, LLC ",116241,7585,2013
+"Northbrook Energy, LLC ",156337,10403,2014
+Northern States Power Co ,608778,27877,2007
+Northern States Power Co ,626543,30642,2008
+Northern States Power Co ,614768,33524,2009
+Northern States Power Co ,600716,36935,2010
+Northern States Power Co ,612010,38971,2011
+Northern States Power Co ,626859,40104,2012
+Northern States Power Co ,612010,39936,2013
+Northern States Power Co ,613484,40824,2014
+NorthWestern Energy's ,11829262,541690,2007
+NorthWestern Energy's ,13225660,646830,2008
+NorthWestern Energy's ,14469229,789013,2009
+NorthWestern Energy's ,11989365,737167,2010
+NorthWestern Energy's ,12222839,778310,2011
+NorthWestern Energy's ,10649473,681312,2012
+NorthWestern Energy's ,11179144,729486,2013
+NorthWestern Energy's ,12405385,825514,2014
+Northwestern Wisconsin Ele. Co ,35277,1615,2007
+Northwestern Wisconsin Ele. Co ,36623,1791,2008
+Northwestern Wisconsin Ele. Co ,37613,2051,2009
+Northwestern Wisconsin Ele. Co ,41347,2542,2010
+Northwestern Wisconsin Ele. Co ,38636,2460,2011
+Northwestern Wisconsin Ele. Co ,40420,2586,2012
+Northwestern Wisconsin Ele. Co ,40674,2654,2013
+Northwestern Wisconsin Ele. Co ,25257,1681,2014
+Ocean State Power Company ,527424,24152,2007
+Ocean State Power Company ,692978,33892,2008
+Ocean State Power Company ,0,0,2009
+Ocean State Power Company II ,478345,21905,2007
+Ocean State Power Company II ,726877,35550,2008
+Ocean State Power Company II ,0,0,2009
+Ohio Valley Electric Corp ,16226777,743062,2007
+Ohio Valley Electric Corp ,14915727,729487,2008
+Ohio Valley Electric Corp ,15026497,819401,2009
+Ohio Valley Electric Corp ,15069699,926561,2010
+Ohio Valley Electric Corp ,14421180,918294,2011
+Ohio Valley Electric Corp ,14199025,908399,2012
+Ohio Valley Electric Corp ,10340568,674766,2013
+Ohio Valley Electric Corp ,10304107,685685,2014
+PacifiCorp ,34540075,1581672,2007
+PacifiCorp ,34893391,1706538,2008
+PacifiCorp ,34227973,1866465,2009
+PacifiCorp ,31425897,1932223,2010
+PacifiCorp ,28449800,1811590,2011
+PacifiCorp ,30244302,1934913,2012
+PacifiCorp ,29314025,1912864,2013
+PacifiCorp ,26613108,1770964,2014
+"Perryville Energy Partners, LLC ",2797320,136809,2008
+"Perryville Energy Partners, LLC ",2243742,122352,2009
+"Perryville Energy Partners, LLC ",1658711,101986,2010
+"Perryville Energy Partners, LLC ",1930509,122929,2011
+"Perryville Energy Partners, LLC ",1532657,98053,2012
+"Perryville Energy Partners, LLC ",2523553,164672,2013
+"Perryville Energy Partners, LLC ",1671445,111226,2014
+"Pilot Power Group, Inc. ",872,40,2007
+"Pilot Power Group, Inc. ",7626,373,2008
+"Pilot Power Group, Inc. ",7626,416,2009
+"Pilot Power Group, Inc. ",13440,826,2010
+"Pilot Power Group, Inc. ",48529,3090,2011
+"Pilot Power Group, Inc. ",169086,10817,2012
+"Pilot Power Group, Inc. ",149328,9744,2013
+"Pilot Power Group, Inc. ",48943,3257,2014
+"PJM Interconnection, L.L.C. ",729139315,33389011,2007
+"PJM Interconnection, L.L.C. ",763486275,37339985,2008
+"PJM Interconnection, L.L.C. ",758831947,41379409,2009
+"PJM Interconnection, L.L.C. ",709500866,43623690,2010
+"PJM Interconnection, L.L.C. ",744873684,47431121,2011
+"PJM Interconnection, L.L.C. ",777727104,49755963,2012
+"PJM Interconnection, L.L.C. ",818759535,53427514,2013
+"PJM Interconnection, L.L.C. ",823403513,54793237,2014
+Portland General Electric Co ,5150874,235871,2007
+Portland General Electric Co ,10265345,502049,2008
+Portland General Electric Co ,9426465,514029,2009
+Portland General Electric Co ,8460989,520224,2010
+Portland General Electric Co ,10415036,663195,2011
+Portland General Electric Co ,8023406,513306,2012
+Portland General Electric Co ,7868014,513421,2013
+Portland General Electric Co ,7963664,529941,2014
+"Progress Energy Carolinas, Inc ",16239857,743661,2007
+"Progress Energy Carolinas, Inc ",16964413,829682,2008
+"Progress Energy Carolinas, Inc ",16484483,898905,2009
+"Progress Energy Carolinas, Inc ",16160332,993619,2010
+"Progress Energy Carolinas, Inc ",16744259,1066220,2011
+"Progress Energy Carolinas, Inc ",15394546,984883,2012
+"Progress Energy Carolinas, Inc ",17437536,1137873,2013
+Progress Energy Florida ,6357095,291106,2007
+Progress Energy Florida ,7903580,386542,2008
+Progress Energy Florida ,9194765,501394,2009
+Progress Energy Florida ,5850555,359722,2010
+Progress Energy Florida ,5391897,343338,2011
+Progress Energy Florida ,4113657,263176,2012
+Progress Energy Florida ,16463314,1074301,2013
+Public Service Co of Colorado ,6942362,317907,2007
+Public Service Co of Colorado ,11633288,568952,2008
+Public Service Co of Colorado ,11204985,611012,2009
+Public Service Co of Colorado ,9021084,554662,2010
+Public Service Co of Colorado ,8669101,552020,2011
+Public Service Co of Colorado ,10113655,647032,2012
+Public Service Co of Colorado ,9542199,622669,2013
+Public Service Co of Colorado ,7922478,527200,2014
+Public Service Co of Oklahoma ,619457,28366,2007
+Public Service Co of Oklahoma ,542592,26537,2008
+Public Service Co of Oklahoma ,385375,21015,2009
+Public Service Co of Oklahoma ,164759,10130,2010
+Public Service Co of Oklahoma ,176817,11259,2011
+Public Service Co of Oklahoma ,184185,11783,2012
+Public Service Co of Oklahoma ,184144,12016,2013
+Public Service Co of Oklahoma ,198458,13206,2014
+Public Service Company of NM ,10069342,461099,2007
+Public Service Company of NM ,8792600,430022,2008
+Public Service Company of NM ,8755037,477416,2009
+Public Service Company of NM ,8157272,501550,2010
+Public Service Company of NM ,9058790,576834,2011
+Public Service Company of NM ,8970759,573914,2012
+Public Service Company of NM ,9972078,650720,2013
+Public Service Company of NM ,10180380,677452,2014
+"Puget Sound Energy, Inc ",9067835,415238,2007
+"Puget Sound Energy, Inc ",9235306,451673,2008
+"Puget Sound Energy, Inc ",8905994,485647,2009
+"Puget Sound Energy, Inc ",9417921,579061,2010
+"Puget Sound Energy, Inc ",8082543,514670,2011
+"Puget Sound Energy, Inc ",8796190,562746,2012
+"Puget Sound Energy, Inc ",10199290,665547,2013
+"Puget Sound Energy, Inc ",10314200,686357,2014
+Safe Harbor Water Power Corp ,1218217,55785,2007
+Safe Harbor Water Power Corp ,1004407,49123,2008
+Safe Harbor Water Power Corp ,1113031,60694,2009
+Safe Harbor Water Power Corp ,1069776,65775,2010
+Safe Harbor Water Power Corp ,988475,62943,2011
+Safe Harbor Water Power Corp ,1641751,105033,2012
+Safe Harbor Water Power Corp ,946733,61778,2013
+Safe Harbor Water Power Corp ,1010056,67214,2014
+Sierra Pacific Power Co d/b/a NV Energy ,3429995,210893,2010
+Sierra Pacific Power Co d/b/a NV Energy ,2366019,150660,2011
+Sierra Pacific Power Co d/b/a NV Energy ,3640382,232898,2012
+Sierra Pacific Power Co d/b/a NV Energy ,4557049,297367,2013
+Sierra Pacific Power Co d/b/a NV Energy ,4250727,282864,2014
+Sierra Pacific Power Company ,3620301,165782,2007
+Sierra Pacific Power Company ,3368947,164766,2008
+Sierra Pacific Power Company ,3368947,183710,2009
+South Carolina Electric&Gas Co ,3624577,165978,2007
+South Carolina Electric&Gas Co ,3484317,170408,2008
+South Carolina Electric&Gas Co ,2816478,153584,2009
+South Carolina Electric&Gas Co ,2189496,134621,2010
+South Carolina Electric&Gas Co ,2339627,148980,2011
+South Carolina Electric&Gas Co ,2363491,151207,2012
+South Carolina Electric&Gas Co ,2798346,182604,2013
+South Carolina Electric&Gas Co ,2154629,143379,2014
+"South Carolina Genertg Co, Inc ",4490686,205639,2007
+"South Carolina Genertg Co, Inc ",3839309,187770,2008
+"South Carolina Genertg Co, Inc ",4118143,224564,2009
+"South Carolina Genertg Co, Inc ",3810036,234260,2010
+"South Carolina Genertg Co, Inc ",3417650,217625,2011
+"South Carolina Genertg Co, Inc ",2739267,175248,2012
+"South Carolina Genertg Co, Inc ",3719747,242729,2013
+"South Carolina Genertg Co, Inc ",3343690,222505,2014
+Southern Electric Generat'g Co ,5605982,256711,2007
+Southern Electric Generat'g Co ,5925261,289788,2008
+Southern Electric Generat'g Co ,5481095,298886,2009
+Southern Electric Generat'g Co ,2908674,178840,2010
+Southern Electric Generat'g Co ,3954155,251788,2011
+Southern Electric Generat'g Co ,5892808,376999,2012
+Southern Electric Generat'g Co ,3190148,208171,2013
+Southern Electric Generat'g Co ,2107334,140232,2014
+Southwest Power Pool ,189991076,8700140,2007
+Southwest Power Pool ,190119302,9298205,2008
+Southwest Power Pool ,201114192,10966837,2009
+Southwest Power Pool ,211717104,13017435,2010
+Southwest Power Pool ,229430732,14609399,2011
+Southwest Power Pool ,229820004,14702992,2012
+Southwest Power Pool ,230226648,15023260,2013
+Southwest Power Pool ,233274517,15523210,2014
+Southwestern Electric Power Co ,2013916,92222,2007
+Southwestern Electric Power Co ,2029904,99277,2008
+Southwestern Electric Power Co ,1037847,56594,2009
+Southwestern Electric Power Co ,651263,40043,2010
+Southwestern Electric Power Co ,648698,41307,2011
+Southwestern Electric Power Company ,575405,36812,2012
+Southwestern Electric Power Company ,516796,33723,2013
+Southwestern Electric Power Company ,526640,35045,2014
+"Superior Water, Light&Power Co ",5453,250,2007
+"Superior Water, Light&Power Co ",5402,264,2008
+"Superior Water, Light&Power Co ",0,0,2009
+"System Energy Resources, Inc ",9726589,445403,2007
+"System Energy Resources, Inc ",8439958,412775,2008
+"System Energy Resources, Inc ",8474978,462144,2009
+"System Energy Resources, Inc ",9898398,608603,2010
+"System Energy Resources, Inc ",8691901,553472,2011
+"System Energy Resources, Inc ",9293410,594556,2012
+"System Energy Resources, Inc ",6602326,430830,2013
+"System Energy Resources, Inc ",9793557,651710,2014
+Tampa Electric Co ,3254954,149052,2007
+Tampa Electric Co ,3769399,184351,2008
+Tampa Electric Co ,3934905,214572,2009
+Tampa Electric Co ,3393531,208651,2010
+Tampa Electric Co ,3323969,211659,2011
+Tampa Electric Co ,3612347,231104,2012
+Tampa Electric Co ,4503050,293843,2013
+Tampa Electric Co ,4081264,271587,2014
+Tapoco Division ,879216,56249,2012
+Tapoco Division ,615225,40146,2013
+Tapoco Division ,0,0,2014
+Tucson Electric Power Company ,7141365,327020,2007
+Tucson Electric Power Company ,9390494,512067,2009
+Tucson Electric Power Company ,9124560,561024,2010
+Tucson Electric Power Company ,13960300,888946,2011
+Tucson Electric Power Company ,12180248,779245,2012
+Tucson Electric Power Company ,12087298,788747,2013
+Tucson Electric Power Company ,15936796,1060511,2014
+Wolverine Creek Goshen Interconnection ,143698,6580,2007
+Wolverine Creek Goshen Interconnection ,170268,9285,2009
+Wolverine Creek Goshen Interconnection ,153752,9453,2010
+Wolverine Creek Goshen Interconnection ,253165,16121,2011
+Wolverine Creek Goshen Interconnection ,0,0,2012
+Wolverine Creek Goshen Interconnection ,577374,37676,2013
+Wolverine Creek Goshen Interconnection ,793800,52823,2014
+"Wolverine Power Supply Corp., Inc's ",3531548,161718,2007
+"Wolverine Power Supply Corp., Inc's ",4744122,258699,2009
+"Wolverine Power Supply Corp., Inc's ",4722596,290369,2010
+"Wolverine Power Supply Corp., Inc's ",5054576,321859,2011
+"Wolverine Power Supply Corp., Inc's ",0,0,2012
+"Wolverine Power Supply Corp., Inc's ",5512165,359692,2013
+"Wolverine Power Supply Corp., Inc's ",5082930,338243,2014
+"Yadkin, Inc ",306584,14039,2007
+"Yadkin, Inc ",737388,45338,2010
+"Yadkin, Inc ",767662,48882,2011
+"Yadkin, Inc ",542145,34684,2012
+"Yadkin, Inc ",590983,38564,2013
+"Yadkin, Inc ",1036168,68952,2014
