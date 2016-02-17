@@ -15,6 +15,8 @@ You can run eAnalytics in [R](https://www.r-project.org) with:
 
 ```S
 require(shiny)
+require(devtools)
+install_github('paulgovan/energyr')
 runGitHub('paulgovan/eAnalytics')
 ```
 
