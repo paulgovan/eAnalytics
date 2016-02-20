@@ -13,11 +13,9 @@
 # limitations under the License.
 
 library(shiny)
-library(shinyapps)
 library(shinydashboard)
 library(rCharts)
 library(leaflet)
-library(ggmap)
 library(dygraphs)
 library(googleVis)
 library(DT)
@@ -93,23 +91,21 @@ dashboardPage(
               )
       ),
       tabItem(tabName = "hydroProfile",
-              tabBox(width = 12,
-                     tabPanel("Hydropower", 
-                              leafletOutput("map1"),
-                              absolutePanel(
-                                top = 75, left = 50, width = 250, height = 500,
-                                draggable = TRUE,
-                                wellPanel(
-                                  h4("Hydropower Facilities"),
-                                  selectInput("hydroSize", h5("Size:"), 
-                                              c("Total Capacity (MW)"="Total")),
-                                  selectInput("hydroCol", h5("Color:"), 
-                                              c("Status"="status")),
-                                  showOutput("hist1", "highcharts")
-                                ),
-                                style = "opacity: 0.90"
-                              )
-                     )
+              tabPanel("Hydropower", 
+                       leafletOutput("map1"),
+                       absolutePanel(
+                         top = 75, left = 300, width = 250, height = 500,
+                         draggable = TRUE,
+                         wellPanel(
+                           h4("Hydropower Facilities"),
+                           selectInput("hydroSize", h5("Size:"), 
+                                       c("Total Capacity (MW)"="Total")),
+                           selectInput("hydroCol", h5("Color:"), 
+                                       c("Status"="status")),
+                           showOutput("hist1", "highcharts")
+                         ),
+                         style = "opacity: 0.90"
+                       )
               )
       ),
       tabItem(tabName = "hydroData",
@@ -150,23 +146,6 @@ dashboardPage(
                                               c("Facility Type"="type",
                                                 "Status"="status")),
                                   showOutput("hist3", "highcharts")
-                                ),
-                                style = "opacity: 0.90"
-                              )
-                     ),
-                     tabPanel("Projects",
-                              showOutput("choropleth1", "datamaps"),
-                              absolutePanel(
-                                top = 75, right = 50, width = 250, height = 500,
-                                draggable = TRUE,
-                                wellPanel(
-                                  h4("NG Projects"),
-                                  selectInput("projectCol", h5("Color:"), 
-                                              c("Project Cost ($MM)"="Cost",
-                                                "Added Miles of Pipeline"="Miles",
-                                                "Added Capacity (MMcf/d)"="Capacity")),
-                                  sliderInput("projectYear", h5("Year:"), min = 2006, max = 2015, value = 2014, step = 1, animate = TRUE, sep = ""),
-                                  showOutput("hist4", "highcharts")
                                 ),
                                 style = "opacity: 0.90"
                               )

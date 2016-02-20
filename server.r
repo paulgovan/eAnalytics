@@ -12,27 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+library(shiny)
 library(rCharts)
+library(dplyr)
 library(leaflet)
-library(ggmap)
 library(dygraphs)
 library(xts)
 library(googleVis)
 library(DT)
 library(devtools)
-install_github('paulgovan/energyr')
-library(energyr)
 
 # Get data
-electric <- electric
-hydro <- hydropower
-gas <- gas
-oil <- oil
-storage <- storage
-pipeline <- pipeline
-motionData <- data.frame(read.csv("motionData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
-choroData <- data.frame(read.csv("choroData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
-lng <- lng
+electric <- data.frame(read.csv("data/ElectricRates.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+hydro <- data.frame(read.csv("data/Hydropower.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+gas <- data.frame(read.csv("data/PipelineRates.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+oil <- data.frame(read.csv("data/OilRates.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+storage <- data.frame(read.csv("data/Storage.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+pipeline <- data.frame(read.csv("data/PipelineProjects.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+motionData <- data.frame(read.csv("data/motionData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+choroData <- data.frame(read.csv("data/choroData.csv", na.strings = c("na")), stringsAsFactors = FALSE)
+lng <- data.frame(read.csv("data/LNG.csv", na.strings = c("na")), stringsAsFactors = FALSE)
 
 # Calculate the number of unique companies, projects, and facilities in database
 company <- length(unique(electric[,1])) + length(unique(hydro[,"Company"])) + length(unique(gas[,1])) + length(unique(storage[,"Company"])) + length(unique(lng[,"Company"])) + length(unique(oil[,1]))
@@ -60,7 +59,7 @@ shinyServer(function(input, output, session) {
   # Plot the electric rates line chart
   output$lineChart1 <- renderChart({
     h1 <- hPlot("Year", input$elec, 
-                data = electric,
+                data = electric, 
                 type = "line",
                 group = "Company"
     )
@@ -105,13 +104,13 @@ shinyServer(function(input, output, session) {
   # Plot the hydropower histogram
   output$hist1 <- renderChart({
     hst <- as.numeric(hydro$Capacity/1000)
-    hst <- hist(hst, breaks = 5, plot = FALSE)
+    hst <- hist(hst, plot = FALSE)
     hst <- data.frame(mid = hst$mids, counts = hst$counts)
     h2 <- hPlot(counts~mid, 
                 data = hst,
                 type = "column"
     )
-    h2$addParams(dom = 'hist11')
+    h2$addParams(dom = 'hist1')
     h2$chart(height = 200, width = 210)
     h2$plotOptions(series = list(name = 'Capacity'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
     h2$xAxis(title = list(text = "Capacity (MW)"))
@@ -180,14 +179,14 @@ shinyServer(function(input, output, session) {
     leaflet(lng) %>% addTiles() %>%
       addCircleMarkers(radius = ~Capacity, color = ~pal(Type), popup = ~content) %>%
       addLegend("topright", pal = pal, values = ~Type,
-                title = "Facility Type",
+                title = "Facility Type"
       )
     } else if (input$lngColor == "status") {
       pal <- colorFactor(c("navy", "red", "green", "orange"), domain = c("Not under construction", "Under construction", "Existing", "Proposed"))
       leaflet(lng) %>% addTiles() %>%
         addCircleMarkers(radius = ~Capacity, color = ~pal(Status), popup = ~content) %>%
         addLegend("topright", pal = pal, values = ~Status,
-                  title = "Facility Status",
+                  title = "Facility Status"
         )
     }
   })
@@ -207,44 +206,6 @@ shinyServer(function(input, output, session) {
     h4$xAxis(title = list(text = "Capacity (BCFD)"))
     h4$yAxis(title = list(text = "Frequency"))
     return(h4)
-  })
-  
-  # Plot the NG projects choropleth. Note: not currently compatable with rCharts
-  choroDat <- reactive({
-    if (input$projectCol == "Cost") {
-      choroDat <- subset(choroData, select = c('Year', 'State', 'Cost'))
-      choroDat <- na.omit(choroDat)
-      choroDat <- transform(choroDat,
-                            Year = as.numeric(substr(Year, 1, 4)),
-                            State = as.character(State),
-                            Var = as.numeric(Cost)
-      )
-    } else if (input$projectCol == "Miles") {
-      choroDat <- subset(choroData, select = c('Year', 'State', 'Miles'))
-      choroDat <- na.omit(choroDat)
-      choroDat <- transform(choroDat,
-                            Year = as.numeric(substr(Year, 1, 4)),
-                            State = as.character(State),
-                            Var = as.numeric(Miles)
-      )
-    } else if (input$projectCol == "Capacity") {
-      choroDat <- subset(choroData, select = c('Year', 'State', 'Capacity'))
-      choroDat <- na.omit(choroDat)
-      choroDat <- transform(choroDat,
-                            Year = as.numeric(substr(Year, 1, 4)),
-                            State = as.character(State),
-                            Var = as.numeric(Capacity)
-      )
-    }
-
-  })
-  
-  output$choropleth1 = rCharts::renderChart2({
-    choropleth(cut(Var, 5, labels = F) ~ State,
-                data = subset(choroDat(), Year == input$projectYear),
-                pal = 'Blues',
-               legend = T
-    )
   })
   
   # Plot the NG projects histogram
