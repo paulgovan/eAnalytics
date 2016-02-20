@@ -14,9 +14,7 @@ eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, powered by th
 You can run eAnalytics in [R](https://www.r-project.org) with:
 
 ```S
-require(shiny)
-require(devtools)
-install_github('paulgovan/energyr')
+install.packages("shiny")
 runGitHub('paulgovan/eAnalytics')
 ```
 
