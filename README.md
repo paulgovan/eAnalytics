@@ -18,7 +18,7 @@ install.packages("shiny")
 runGitHub('paulgovan/eAnalytics')
 ```
 
-Or you can access the app through your browser at [pgovan.shinyapps.io/eAnalytics](https://pgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site. 
+Or you can access the app through your browser at [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site. 
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
