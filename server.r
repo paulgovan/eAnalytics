@@ -69,8 +69,7 @@ shinyServer(function(input, output, session) {
   
   # Show electric rates table
   output$elecTable <- DT::renderDataTable({
-      DT::datatable(electric, rownames = FALSE, options = list(
-        autoWidth = TRUE, searchHighlight = TRUE)) %>% 
+      DT::datatable(electric, rownames = FALSE, options = list(searchHighlight = TRUE)) %>% 
         formatCurrency(c('Revenue', 'Bill'))
   })
   
@@ -100,7 +99,7 @@ shinyServer(function(input, output, session) {
 #   # Plot the hydropower histogram
 #   output$hist1 <- renderPlotly({
 #     Capacity <- hydro$Capacity
-#     p2 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+#     p2 <- plot_ly(x = Capacity, type = "histogram")
 #     p2
 #   })
   
@@ -148,7 +147,7 @@ shinyServer(function(input, output, session) {
     } else if (input$storageSize == "Working") {
       Capacity <- storage$Working
     }
-    p3 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+    p3 <- plot_ly(x = Capacity, type = "histogram")
     p3
   })
     
@@ -187,7 +186,7 @@ shinyServer(function(input, output, session) {
   # Plot the LNG capacity histogram
   output$hist3 <- renderPlotly({
     Capacity <- lng$Capacity
-    p4 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+    p4 <- plot_ly(x = Capacity, type = "histogram")
     p4
   })
   
@@ -247,7 +246,7 @@ shinyServer(function(input, output, session) {
       dyAxis("x", label = "Year") %>%
       dyAxis("y", label = "Project Cost ($MM)") %>%
       dyShading(from = "2015-01-01", to = "2020-01-01") %>%
-      dyEvent(date = "2015-01-01", "Forecasted", labelLoc = "bottom") %>%
+      dyEvent(x = "2015-01-01", "Forecasted", labelLoc = "bottom") %>%
       dyRangeSelector()
   })
   
@@ -265,9 +264,7 @@ shinyServer(function(input, output, session) {
   # Plot the natural gas project motion chart
   output$motion1 <- renderGvis({
     gvisMotionChart(motionData, idvar="Type", 
-                    timevar="Year",
-                    options=list(width=1000, height=500
-                    ))
+                    timevar="Year")
   })
   
   # Show natural gas projects table

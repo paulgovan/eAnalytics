@@ -94,8 +94,7 @@ dashboardPage(
               tabPanel("Hydropower", 
                        leafletOutput("map1"),
                        absolutePanel(
-                         top = 75, left = 300, width = 250, height = 500,
-                         draggable = TRUE,
+                         draggable = TRUE, fixed = TRUE,
                          wellPanel(
                            h4("Hydropower Facilities"),
                            selectInput("hydroSize", h5("Size:"), 
@@ -105,7 +104,7 @@ dashboardPage(
 #                            ,
 #                            plotlyOutput("hist1")
                          ),
-                         style = "opacity: 0.90"
+                         style = "opacity: 0.75"
                        )
               )
       ),
@@ -120,8 +119,7 @@ dashboardPage(
                      tabPanel("Storage",
                               leafletOutput("map2"), 
                               absolutePanel(
-                                top = 75, left = 50, width = 250, height = 500,
-                                draggable = TRUE,
+                                draggable = TRUE, fixed = TRUE,
                                 wellPanel(
                                   h4("NG Storage Facilities"),
                                   selectInput("storageSize", h5("Size:"), 
@@ -131,14 +129,13 @@ dashboardPage(
                                               c("Storage Type"="type")),
                                   plotlyOutput("hist2")
                                 ),
-                                style = "opacity: 0.90"
+                                style = "opacity: 0.75"
                               )
                      ),
                      tabPanel("LNG", 
                               leafletOutput("map3"),
                               absolutePanel(
-                                top = 75, left = 50, width = 250, height = 500,
-                                draggable = TRUE,
+                                draggable = TRUE, fixed = TRUE,
                                 wellPanel(
                                   h4("LNG Facilities"),
                                   selectInput("lngSize", h5("Size:"), 
@@ -148,7 +145,7 @@ dashboardPage(
                                                 "Status"="status")),
                                   plotlyOutput("hist3")
                                 ),
-                                style = "opacity: 0.90"
+                                style = "opacity: 0.75"
                               )
                      )
               )
