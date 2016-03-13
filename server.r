@@ -88,8 +88,13 @@ shinyServer(function(input, output, session) {
     leaflet(hydro) %>% 
       fitBounds(-125, 49, -62, 18) %>%
       addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+      addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
+      addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
       addCircles(radius = ~sqrt(Capacity/10000), color = ~pal(Status), popup = ~content) %>%
-      addLegend("topright", pal = pal, values = ~Status, title = "Status")
+      addLegend("topright", pal = pal, values = ~Status, title = "Status") %>%
+      addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"), 
+                       position = "bottomright", 
+                       options = layersControlOptions(collapsed = TRUE))
   })
   
 #   # Plot the hydropower histogram
