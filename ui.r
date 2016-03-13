@@ -14,7 +14,7 @@
 
 library(shiny)
 library(shinydashboard)
-library(rCharts)
+library(plotly)
 library(leaflet)
 library(dygraphs)
 library(googleVis)
@@ -43,7 +43,7 @@ dashboardPage(
       tabItem(tabName = "dashboard",
               fluidRow(
                 box(
-                  title = "eAnalytics", status = "primary", solidHeader = TRUE, width = 8,
+                  title = "eAnalytics", status = "primary", width = 8,
                   img(src = "favicon.png", height = 50, width = 50),
                   h3("Welcome to eAnalytics!"),
                   h4("eAnalytics is a ",
@@ -71,13 +71,13 @@ dashboardPage(
       tabItem(tabName = "elecTrends",
               fluidRow(
                 box(
-                  title = "Rates", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
-                  showOutput("lineChart1", "highcharts")
+                  title = "Rates", status = "primary", width = 12, collapsible = T,
+                  plotlyOutput("lineChart1")
                 )
               ),
               fluidRow(
                 box(
-                  title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
+                  title = "Controls", status = "primary", width = 4, collapsible = T,
                   selectInput("elec", h5("Select Input:"), 
                               c("Revenue (USD)"="Revenue",
                                 "Bill (USD)"= "Bill"))
@@ -86,7 +86,7 @@ dashboardPage(
       ),
       tabItem(tabName = "elecData",
               box(
-                title = "Rates Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                title = "Rates Data", status = "primary", width = 12, collapsible = T,
                 DT::dataTableOutput("elecTable")
               )
       ),
@@ -101,8 +101,9 @@ dashboardPage(
                            selectInput("hydroSize", h5("Size:"), 
                                        c("Total Capacity (MW)"="Total")),
                            selectInput("hydroCol", h5("Color:"), 
-                                       c("Status"="status")),
-                           showOutput("hist1", "highcharts")
+                                       c("Status"="status"))
+#                            ,
+#                            plotlyOutput("hist1")
                          ),
                          style = "opacity: 0.90"
                        )
@@ -110,7 +111,7 @@ dashboardPage(
       ),
       tabItem(tabName = "hydroData",
               box(
-                title = "Hydropower Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                title = "Hydropower Data", status = "primary", width = 12, collapsible = T,
                 DT::dataTableOutput("hydroTable")
               )
       ),
@@ -128,7 +129,7 @@ dashboardPage(
                                                 "Working Capacity (BCF)"= "Working")),
                                   selectInput("storageColor", h5("Color:"), 
                                               c("Storage Type"="type")),
-                                  showOutput("hist2", "highcharts")
+                                  plotlyOutput("hist2")
                                 ),
                                 style = "opacity: 0.90"
                               )
@@ -145,7 +146,7 @@ dashboardPage(
                                   selectInput("lngColor", h5("Color:"), 
                                               c("Facility Type"="type",
                                                 "Status"="status")),
-                                  showOutput("hist3", "highcharts")
+                                  plotlyOutput("hist3")
                                 ),
                                 style = "opacity: 0.90"
                               )
@@ -155,17 +156,17 @@ dashboardPage(
       tabItem(tabName = "gasPerform",
               fluidRow(
                 box(
-                  title = "Project Performance Indicator", status = "primary", solidHeader = TRUE, width = 6, collapsible = T,
-                  showOutput("hist5", "highcharts")
+                  title = "Project Performance Indicator", status = "primary", width = 6, collapsible = T,
+                  plotlyOutput("hist5")
                 ),
                 box(
-                  title = "Sensitivity Analysis", status = "primary", solidHeader = TRUE, width = 6, collapsible = T,
-                  showOutput("barChart1", "highcharts")
+                  title = "Sensitivity Analysis", status = "primary", width = 6, collapsible = T,
+                  plotlyOutput("barChart1")
                 )
               ),
               fluidRow(
                 box(
-                  title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
+                  title = "Controls", status = "primary", width = 4, collapsible = T,
                   selectInput("perform", h5("Select Performance Indicator:"), 
                               c("Cost/Mile (kUSD/Mile)"="costMile",
                                 "Cost/Added Capacity (kUSD/MMcf/d)"= "costCap",
@@ -183,13 +184,13 @@ dashboardPage(
                      tabPanel("Cost",
                               fluidRow(
                                 box(
-                                  title = "Project Cost", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                                  title = "Project Cost", status = "primary", width = 12, collapsible = T,
                                   dygraphOutput("lineChart2")
                                 )
                               ),
                               fluidRow(
                                 box(
-                                  title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
+                                  title = "Controls", status = "primary", width = 4, collapsible = T,
                                   selectInput("gas", h5("Select Input:"), 
                                               c("Cost (mUSD)"="cost",
                                                 "Cost/Mile (mUSD/Mile)"="costMile",
@@ -200,13 +201,13 @@ dashboardPage(
                      tabPanel("Revenue",
                               fluidRow(
                                 box(
-                                  title = "Rates", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
-                                  showOutput("lineChart3", "highcharts")
+                                  title = "Rates", status = "primary", width = 12, collapsible = T,
+                                  plotlyOutput("lineChart3")
                                 )
                               ),
                               fluidRow(
                                 box(
-                                  title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
+                                  title = "Controls", status = "primary", width = 4, collapsible = T,
                                   selectInput("gasRates", h5("Select Input:"), 
                                               c("Revenue (USD)"="Revenue",
                                                 "Bill (USD)"= "Bill"))
@@ -217,7 +218,7 @@ dashboardPage(
       ),
       tabItem(tabName = "gasExplorer",
               box(
-                title = "Explorer", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                title = "Explorer", status = "primary", width = 12, collapsible = T,
                 htmlOutput("motion1"), style = "overflow:hidden;"
               )
       ),
@@ -234,13 +235,13 @@ dashboardPage(
       tabItem(tabName = "oilTrends",
               fluidRow(
                 box(
-                  title = "Rates", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
-                  showOutput("lineChart4", "highcharts")
+                  title = "Rates", status = "primary", width = 12, collapsible = T,
+                  plotlyOutput("lineChart4")
                 )
               ),
               fluidRow(
                 box(
-                  title = "Controls", status = "primary", solidHeader = TRUE, width = 4, collapsible = T,
+                  title = "Controls", status = "primary", width = 4, collapsible = T,
                   selectInput("oil", h5("Select Input:"), 
                               c("Revenue (USD)"="Revenue",
                                 "Bill (USD)"= "Bill"
@@ -250,7 +251,7 @@ dashboardPage(
       ),
       tabItem(tabName = "oilData",
               box(
-                title = "Rates Data", status = "primary", solidHeader = TRUE, width = 12, collapsible = T,
+                title = "Rates Data", status = "primary", width = 12, collapsible = T,
                 DT::dataTableOutput("oilTable")
               )
       )

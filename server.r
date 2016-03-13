@@ -13,7 +13,7 @@
 # limitations under the License.
 
 library(shiny)
-library(rCharts)
+library(plotly)
 library(dplyr)
 library(leaflet)
 library(dygraphs)
@@ -57,22 +57,14 @@ shinyServer(function(input, output, session) {
   })
   
   # Plot the electric rates line chart
-  output$lineChart1 <- renderChart({
-    h1 <- hPlot("Year", input$elec, 
-                data = electric, 
-                type = "line",
-                group = "Company"
-    )
-    h1$addParams(dom = 'lineChart1')
-    h1$xAxis(type = "date")
-    h1$yAxis(min = 0)
-    h1$legend(layout = "vertical", align = "right", verticalAlign = "middle", borderWidth = 0)
-    h1$plotOptions(
-      line = list(
-        marker = list(enabled = F)
-      )
-    )
-    return(h1)
+  output$lineChart1 <- renderPlotly({
+    if (input$elec == "Revenue") {
+      Rate <- electric$Revenue
+    } else {
+      Rate <- electric$Bill
+    }
+    p1 <- plot_ly(electric, x = Year, y = Rate, group = Company)
+    p1
   })
   
   # Show electric rates table
@@ -90,33 +82,22 @@ shinyServer(function(input, output, session) {
                       hydro$Company,
                       "<br><strong>Waterway: </strong>",
                       hydro$Waterway,
-                      "<br><strong>Capacity (MW): </strong>",
-                      hydro$Capacity/1000)
+                      "<br><strong>Capacity (KW): </strong>",
+                      hydro$Capacity)
     pal <- colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
-    leaflet(hydro) %>% addTiles() %>%
+    leaflet(hydro) %>% 
       fitBounds(-125, 49, -62, 18) %>%
-      addCircleMarkers(radius = ~sqrt(Capacity/100000), color = ~pal(Status), popup = ~content) %>%
-      addLegend("topright", pal = pal, values = ~Status,
-                title = "Status"
-      ) 
-    })
-  
-  # Plot the hydropower histogram
-  output$hist1 <- renderChart({
-    hst <- as.numeric(hydro$Capacity/1000)
-    hst <- hist(hst, plot = FALSE)
-    hst <- data.frame(mid = hst$mids, counts = hst$counts)
-    h2 <- hPlot(counts~mid, 
-                data = hst,
-                type = "column"
-    )
-    h2$addParams(dom = 'hist1')
-    h2$chart(height = 200, width = 210)
-    h2$plotOptions(series = list(name = 'Capacity'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h2$xAxis(title = list(text = "Capacity (MW)"))
-    h2$yAxis(title = list(text = "Frequency"))
-    return(h2)
+      addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+      addCircles(radius = ~sqrt(Capacity/10000), color = ~pal(Status), popup = ~content) %>%
+      addLegend("topright", pal = pal, values = ~Status, title = "Status")
   })
+  
+#   # Plot the hydropower histogram
+#   output$hist1 <- renderPlotly({
+#     Capacity <- hydro$Capacity
+#     p2 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+#     p2
+#   })
   
   # Show hydropower data table
   output$hydroTable <- DT::renderDataTable({
@@ -133,40 +114,39 @@ shinyServer(function(input, output, session) {
                       storage$Total)
     pal <- colorFactor(c("navy", "red", "green"), domain = c("DGF", "SC", "Aquifer"))
     if (input$storageSize == "Total") {
-      leaflet(storage) %>% addTiles() %>%
-        addCircleMarkers(radius = ~Total/100, color = ~pal(Type), popup = ~content) %>%
-        addLegend("topright", pal = pal, values = ~Type,
-                  title = "Storage Type"
-        )
+      leaflet(storage) %>% 
+        addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+        addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
+        addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        addCircles(radius = ~Total/100, color = ~pal(Type), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Type, title = "Storage Type") %>%
+        addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"), 
+                         position = "bottomright", 
+                         options = layersControlOptions(collapsed = TRUE))
     } else if (input$storageSize == "Working") {
-      leaflet(storage) %>% addTiles() %>%
-        addCircleMarkers(radius = ~Working/100, color = ~pal(Type), popup = ~content) %>%
-        addLegend("topright", pal = pal, values = ~Type,
-                  title = "Storage Type"
-        )
+      leaflet(storage) %>% 
+        addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+        addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
+        addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        addCircles(radius = ~Working/100, color = ~pal(Type), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Type, title = "Storage Type") %>%
+        addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"), 
+                         position = "bottomright", 
+                         options = layersControlOptions(collapsed = TRUE))
     }
   })
   
   # Plot the storage histogram
-  output$hist2 <- renderChart({
+  output$hist2 <- renderPlotly({
     if (input$storageSize == "Total") {
-      hst <- as.numeric(storage$Total)
+      Capacity <- storage$Total
     } else if (input$storageSize == "Working") {
-      hst <- as.numeric(storage$Working)
+      Capacity <- storage$Working
     }
-    hst <- hist(hst, plot = FALSE)
-    hst <- data.frame(mid = hst$mids, counts = hst$counts)
-    h3 <- hPlot(counts~mid, 
-                data = hst,
-                type = "column"
-    )
-    h3$addParams(dom = 'hist2')
-    h3$chart(height = 200, width = 210)
-    h3$plotOptions(series = list(name = 'Capacity'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h3$xAxis(title = list(text = "Capacity (BCF)"))
-    h3$yAxis(title = list(text = "Frequency"))
-    return(h3)
+    p3 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+    p3
   })
+    
   
   # Plot the LNG map
   output$map3 <- renderLeaflet({
@@ -176,88 +156,52 @@ shinyServer(function(input, output, session) {
                       lng$Capacity)
     if (input$lngColor == "type") {
     pal <- colorFactor(c("navy", "red"), domain = c("Export", "Import"))
-    leaflet(lng) %>% addTiles() %>%
-      addCircleMarkers(radius = ~Capacity, color = ~pal(Type), popup = ~content) %>%
-      addLegend("topright", pal = pal, values = ~Type,
-                title = "Facility Type"
-      )
+    leaflet(lng) %>% 
+      addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+      addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
+      addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+      addCircles(radius = ~Capacity, color = ~pal(Type), popup = ~content) %>%
+      addLegend("topright", pal = pal, values = ~Type, title = "Facility Type") %>%
+      addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"), 
+                       position = "bottomright", 
+                       options = layersControlOptions(collapsed = TRUE))
     } else if (input$lngColor == "status") {
       pal <- colorFactor(c("navy", "red", "green", "orange"), domain = c("Not under construction", "Under construction", "Existing", "Proposed"))
-      leaflet(lng) %>% addTiles() %>%
-        addCircleMarkers(radius = ~Capacity, color = ~pal(Status), popup = ~content) %>%
-        addLegend("topright", pal = pal, values = ~Status,
-                  title = "Facility Status"
-        )
+      leaflet(lng) %>% 
+        addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
+        addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
+        addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        addCircles(radius = ~Capacity, color = ~pal(Status), popup = ~content) %>%
+        addLegend("topright", pal = pal, values = ~Status, title = "Facility Status") %>%
+        addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"), 
+                         position = "bottomright", 
+                         options = layersControlOptions(collapsed = TRUE))
     }
   })
   
   # Plot the LNG capacity histogram
-  output$hist3 <- renderChart({
-    hst <- as.numeric(lng$Capacity)
-    hst <- hist(hst, plot = FALSE)
-    hst <- data.frame(mid = hst$mids, counts = hst$counts)
-    h4 <- hPlot(counts~mid, 
-                data = hst,
-                type = "column"
-    )
-    h4$addParams(dom = 'hist3')
-    h4$chart(height = 200, width = 210)
-    h4$plotOptions(series = list(name = 'Capacity'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h4$xAxis(title = list(text = "Capacity (BCFD)"))
-    h4$yAxis(title = list(text = "Frequency"))
-    return(h4)
+  output$hist3 <- renderPlotly({
+    Capacity <- lng$Capacity
+    p4 <- plot_ly(x = Capacity, type = "histogram", height = 100)
+    p4
   })
   
   # Plot the NG projects histogram
-  output$hist4 <- renderChart({
-    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
-    if (input$projectCol == "Cost") {
-      hst <- as.numeric(pipeline$Cost)
-    } else if (input$projectCol == "Miles") {
-      hst <- as.numeric(pipeline$Miles)
-    } else if (input$projectCol == "Capacity") {
-      hst <- as.numeric(pipeline$Capacity)
-    }
-    hst <- hist(hst, plot = FALSE)
-    hst <- data.frame(mid = hst$mids, counts = hst$counts)
-    h5 <- hPlot(counts~mid, 
-                data = hst,
-                type = "column"
-    )
-    h5$addParams(dom = 'hist4')
-    h5$chart(height = 200, width = 210)
-    h5$plotOptions(series = list(name = 'Projects'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h5$xAxis(title = list(text = ""))
-    h5$yAxis(title = list(text = "Frequency"))
-    return(h5)
-  })
-  
-  # Plot the natural gas performance histogram
-  output$hist5 <- renderChart({
+  output$hist5 <- renderPlotly({
     pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
     if (input$perform == "costMile") {
-      hst <- pipeline[,"Cost"]/pipeline[,"Miles"]
+      Performance <- pipeline[,"Cost"]/pipeline[,"Miles"]
     } else if (input$perform == "costCap") {
-      hst <- pipeline[,"Cost"]/pipeline[,"Capacity"]
+      Performance <- pipeline[,"Cost"]/pipeline[,"Capacity"]
     } else if (input$perform == "costHP") {
-      hst <- pipeline[,"Cost"]/pipeline[,"Compression"]
+      Performance <- pipeline[,"Cost"]/pipeline[,"Compression"]
     }
-    hst <- hist(hst, plot = FALSE)
-    hst <- data.frame(mid = hst$mids, counts = hst$counts)
-    h6 <- hPlot(counts~mid, 
-                data = hst,
-                type = "column"
-    )
-    h6$addParams(dom = 'hist5')
-    h6$chart(height = 450, width = 450)
-    h6$plotOptions(series = list(name = 'Performance'), column = list(groupPadding = 0, pointPadding = 0, borderWidth = 0.1))
-    h6$xAxis(title = list(text = "Project Performance Indicator"))
-    h6$yAxis(title = list(text = "Frequency"))
-    return(h6)
+    p5 <- plot_ly(x = Performance, type = "histogram")
+    p5
   })
   
   # Draw a natural gas sensitivity bar chart
-  output$barChart1 <- renderChart({
+  output$barChart1 <- renderPlotly({
     pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
     dfcor <- round(cor(pipeline[,"Cost"], pipeline[,2:4], use="complete.obs"), digits=2)
     dfvar <- round(dfcor^2*100, digits=1)
@@ -268,16 +212,9 @@ shinyServer(function(input, output, session) {
       df <- dfcor
     }
     
-    bar <- data.frame(Variable = c("Miles", "Compression", "Capacity"), Value = c(df[1], df[3], df[2]))
-    h7 <- hPlot(Value ~ Variable, 
-                data = bar,
-                type = "bar"
-    )
-    h7$addParams(dom = 'barChart1')
-    h7$chart(height = 450, width = 450)
-    h7$plotOptions(series = list(name = 'Sensitivity', color = '#aaff99'))
-    h7$yAxis(title = list(text = "Project Cost Sensitivity"))
-    return(h7)
+    bar <- data.frame(Indicator = c("Miles", "Compression", "Capacity"), Value = c(df[1], df[3], df[2]))
+    p6 <- plot_ly(bar, x = Value, y = Indicator, type = "bar", color = Indicator, orientation = 'h')
+    p6
   })
   
   # Plot the natural gas cost line chart
@@ -310,22 +247,14 @@ shinyServer(function(input, output, session) {
   })
   
   # Plot the natural gas rates line chart
-  output$lineChart3 <- renderChart({
-    h8 <- hPlot("Year", input$gasRates, 
-                data = gas,
-                type = "line",
-                group = "Company"
-    )
-    h8$addParams(dom = 'lineChart3')
-    h8$xAxis(type = "date")
-    h8$yAxis(min = 0)
-    h8$legend(layout = "vertical", align = "right", verticalAlign = "middle", borderWidth = 0)
-    h8$plotOptions(
-      line = list(
-        marker = list(enabled = F)
-      )
-    )
-    return(h8)
+  output$lineChart3 <- renderPlotly({
+    if (input$gasRates == "Revenue") {
+      Rate <- gas$Revenue
+    } else {
+      Rate <- gas$Bill
+    }
+    p5 <- plot_ly(gas, x = Year, y = Rate, group = Company)
+    p5
   })
   
   # Plot the natural gas project motion chart
@@ -349,22 +278,14 @@ shinyServer(function(input, output, session) {
   })
   
   # Plot the oil rates line chart
-  output$lineChart4 <- renderChart({
-    h9 <- hPlot("Year", input$oil, 
-                data = oil,
-                type = "line",
-                group = "Company"
-    )
-    h9$addParams(dom = 'lineChart4')
-    h9$xAxis(type = "date")
-    h9$yAxis(min = 0)
-    h9$legend(layout = "vertical", align = "right", verticalAlign = "middle", borderWidth = 0)
-    h9$plotOptions(
-      line = list(
-        marker = list(enabled = F)
-      )
-    )
-    return(h9)
+  output$lineChart4 <- renderPlotly({
+    if (input$oil == "Revenue") {
+      Rate <- oil$Revenue
+    } else {
+      Rate <- oil$Bill
+    }
+    p6 <- plot_ly(oil, x = Year, y = Rate, group = Company)
+    p6
   })
   
   # Show oil rates table
