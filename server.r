@@ -13,9 +13,9 @@
 # limitations under the License.
 
 library(shiny)
+library(leaflet)
 library(plotly)
 library(dplyr)
-library(leaflet)
 library(dygraphs)
 library(xts)
 library(googleVis)

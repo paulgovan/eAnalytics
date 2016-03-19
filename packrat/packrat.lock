@@ -235,10 +235,10 @@ Hash: 29eacc43b096c5b1a82c8d54a49b030b
 
 Package: plotly
 Source: CRAN
-Version: 2.0.16
-Hash: d1da2fcfce97913fce2a41fa1e995049
+Version: 3.4.1
+Hash: 01b476a497c739047805c0d9d73365b3
 Requires: base64enc, digest, ggplot2, htmlwidgets, httr, jsonlite,
-    magrittr, plyr, scales, viridis
+    magrittr, plyr, scales, tidyr, viridis
 
 Package: plyr
 Source: CRAN
@@ -312,6 +312,12 @@ Source: CRAN
 Version: 1.0.0
 Hash: 2676dd5f88890910962b733b0f9540e1
 Requires: magrittr, stringi
+
+Package: tidyr
+Source: CRAN
+Version: 0.4.1
+Hash: f7651db13e8cff93626958d4331a21e7
+Requires: Rcpp, dplyr, lazyeval, magrittr, stringi
 
 Package: viridis
 Source: CRAN

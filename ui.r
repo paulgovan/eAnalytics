@@ -14,8 +14,8 @@
 
 library(shiny)
 library(shinydashboard)
-library(plotly)
 library(leaflet)
+library(plotly)
 library(dygraphs)
 library(googleVis)
 library(DT)
@@ -49,7 +49,7 @@ dashboardPage(
                   h4("eAnalytics is a ",
                      a(href = 'http://shiny.rstudio.com', 'Shiny'),
                      "web application, powered by ",
-                     a(href = 'http://rcharts.io', 'rCharts'),
+                     a(href = 'https://plot.ly/r/', 'plotly'),
                      ",",
                      a(href = 'https://rstudio.github.io/leaflet/', 'Leaflet'),
                      ",",
@@ -127,6 +127,7 @@ dashboardPage(
                                                 "Working Capacity (BCF)"= "Working")),
                                   selectInput("storageColor", h5("Color:"), 
                                               c("Storage Type"="type")),
+                                  br(),
                                   plotlyOutput("hist2")
                                 ),
                                 style = "opacity: 0.75"
@@ -143,6 +144,7 @@ dashboardPage(
                                   selectInput("lngColor", h5("Color:"), 
                                               c("Facility Type"="type",
                                                 "Status"="status")),
+                                  br(),
                                   plotlyOutput("hist3")
                                 ),
                                 style = "opacity: 0.75"
