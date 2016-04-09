@@ -69,7 +69,9 @@ shinyServer(function(input, output, session) {
   
   # Show electric rates table
   output$elecTable <- DT::renderDataTable({
-      DT::datatable(electric, rownames = FALSE, options = list(searchHighlight = TRUE)) %>% 
+      DT::datatable(electric, rownames = FALSE, 
+                    options = list(searchHighlight = TRUE,
+                      order = list(list(3, 'desc')))) %>% 
         formatCurrency(c('Revenue', 'Bill'))
   })
   
@@ -275,7 +277,9 @@ shinyServer(function(input, output, session) {
   
   # Show natural gas rates table
   output$gasTable <- DT::renderDataTable({
-    DT::datatable(gas, rownames = FALSE) %>% 
+    DT::datatable(gas, rownames = FALSE,
+                  options = list(searchHighlight = TRUE,
+                                 order = list(list(3, 'desc')))) %>%
       formatCurrency(c('Revenue', 'Bill'))
   })
   
@@ -292,7 +296,9 @@ shinyServer(function(input, output, session) {
   
   # Show oil rates table
   output$oilTable <- DT::renderDataTable({
-    DT::datatable(oil, rownames = FALSE) %>% 
+    DT::datatable(oil, rownames = FALSE,
+                  options = list(searchHighlight = TRUE,
+                                 order = list(list(3, 'desc')))) %>%
       formatCurrency(c('Revenue', 'Bill'))
   })
 })
