@@ -1,6 +1,8 @@
 # eAnalytics
 Interactive and dynamic web analytics for the energy industry
 
+![eAnalytics](https://github.com/paulgovan/eAnalytics/blob/master/images/eAnalytics%20Profile%20Tab.png?raw=true)
+
 # Features
 * Profile: take an overview of the industry
 * Performance: measure key performance indicators
