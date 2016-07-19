@@ -13,6 +13,11 @@ Source: CRAN
 Version: 0.3.1
 Hash: 096699d1ac1cf530acfc646a0c90ee5d
 
+Package: DEoptimR
+Source: CRAN
+Version: 1.0-6
+Hash: 0d74e13bdb47749dc511cee60e1a167e
+
 Package: DT
 Source: CRAN
 Version: 0.1
@@ -71,6 +76,11 @@ Source: CRAN
 Version: 1.0-6
 Hash: 67d0775189fd0041d95abca618c5c07e
 
+Package: brew
+Source: CRAN
+Version: 1.0-6
+Hash: 931f9972deae0f205e1c78a51f33149b
+
 Package: caTools
 Source: CRAN
 Version: 1.17.1
@@ -86,6 +96,18 @@ Package: curl
 Source: CRAN
 Version: 0.9.6
 Hash: 21fb53e12f47bff18a2db6ab69bd87a0
+
+Package: d3heatmap
+Source: CRAN
+Version: 0.6.1.1
+Hash: 7447e0ce63f688d48d6c160f7ba6b398
+Requires: base64enc, dendextend, htmlwidgets, png, scales
+
+Package: dendextend
+Source: CRAN
+Version: 1.2.0
+Hash: fd858c4254ec5c9871a28e902ab01fa2
+Requires: fpc, ggplot2, magrittr, whisker
 
 Package: devtools
 Source: CRAN
@@ -104,6 +126,11 @@ Source: CRAN
 Version: 0.6.9
 Hash: fd55d5a024f160fc001a5ece1e27782d
 
+Package: diptest
+Source: CRAN
+Version: 0.75-7
+Hash: de93e5330ff45c5795d0bae12c8a9695
+
 Package: dplyr
 Source: CRAN
 Version: 0.4.3
@@ -115,6 +142,28 @@ Source: CRAN
 Version: 0.8
 Hash: 3aa8f282d2096ba49123716e2304af7b
 Requires: htmlwidgets, magrittr, xts, zoo
+
+Package: energyr
+Source: github
+Version: 0.1
+Hash: a4437d7d7bddf38c4279f5fd92d0dc48
+GithubRepo: energyr
+GithubUsername: paulgovan
+GithubRef: master
+GithubSha1: 0c0650e0a6f9466cf10ac72ad754dca92061db13
+
+Package: flexmix
+Source: CRAN
+Version: 2.3-13
+Hash: 4c5ae92368e1cc01c26afd1e67b66cd3
+Requires: lattice, modeltools
+
+Package: fpc
+Source: CRAN
+Version: 2.1-10
+Hash: e537c1c8a52f67db5296c272e9090cbc
+Requires: MASS, diptest, flexmix, kernlab, mclust, mvtnorm, prabclus,
+    robustbase, trimcluster
 
 Package: ggplot2
 Source: CRAN
@@ -173,6 +222,11 @@ Source: CRAN
 Version: 0.9.19
 Hash: 4a983f753b6e88ae0f5a6ac152d8cc32
 
+Package: kernlab
+Source: CRAN
+Version: 0.9-24
+Hash: 37726d9307b8183493bb9187ea0cde8c
+
 Package: labeling
 Source: CRAN
 Version: 0.3
@@ -206,6 +260,11 @@ Version: 0.7.7
 Hash: fea2343a1119d61b0cc5c0a950d103a3
 Requires: mime
 
+Package: mclust
+Source: CRAN
+Version: 5.2
+Hash: 77406ad6a64bb972a5e05b658161261d
+
 Package: memoise
 Source: CRAN
 Version: 1.0.0
@@ -217,11 +276,21 @@ Source: CRAN
 Version: 0.4
 Hash: b08c52dae92a0a11e64a4deea032ec33
 
+Package: modeltools
+Source: CRAN
+Version: 0.2-21
+Hash: 3dc03397b2a4375c8a5e5f09c8cf0ae1
+
 Package: munsell
 Source: CRAN
 Version: 0.4.3
 Hash: f96d896947fcaf9b6d0074002e9f4f9d
 Requires: colorspace
+
+Package: mvtnorm
+Source: CRAN
+Version: 1.0-5
+Hash: 55a3581188e15f13f5ba19c18e151ac2
 
 Package: openssl
 Source: CRAN
@@ -251,6 +320,12 @@ Source: CRAN
 Version: 0.1-7
 Hash: 421d7d6e0fb4bd885ecbd909b6456b8b
 
+Package: prabclus
+Source: CRAN
+Version: 2.2-6
+Hash: e646245afbb6b8ed25e22e8a76b781cd
+Requires: MASS, mclust
+
 Package: raster
 Source: CRAN
 Version: 2.5-2
@@ -262,6 +337,18 @@ Source: CRAN
 Version: 1.4.1
 Hash: 55963009094746c3aef64bfbf9eb4731
 Requires: Rcpp, plyr, stringr
+
+Package: robustbase
+Source: CRAN
+Version: 0.92-6
+Hash: 2819fff51bd1e827b611126fc0227d46
+Requires: DEoptimR
+
+Package: roxygen2
+Source: CRAN
+Version: 5.0.1
+Hash: 39ee3aba606f089cb378c4a1cdd6d499
+Requires: Rcpp, brew, digest, stringi, stringr
 
 Package: rsconnect
 Source: github
@@ -318,6 +405,11 @@ Source: CRAN
 Version: 0.4.1
 Hash: f7651db13e8cff93626958d4331a21e7
 Requires: Rcpp, dplyr, lazyeval, magrittr, stringi
+
+Package: trimcluster
+Source: CRAN
+Version: 0.1-2
+Hash: 662a899a1377c7d3f2cef1722e335aff
 
 Package: viridis
 Source: CRAN
