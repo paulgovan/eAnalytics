@@ -1,7 +1,7 @@
 # eAnalytics
 Interactive and dynamic web analytics for the energy industry
 
-![eAnalytics](https://github.com/paulgovan/eAnalytics/blob/master/images/eAnalytics%20Profile%20Tab.png?raw=true)
+![eAnalytics](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile.png?raw=true)
 
 # Features
 * Profile: take an overview of the industry
@@ -13,11 +13,10 @@ Interactive and dynamic web analytics for the energy industry
 eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
 
 # Getting Started
-You can run eAnalytics in [R](https://www.r-project.org) with:
+You can install eAnalytics in [R](https://www.r-project.org) with:
 
 ```S
-install.packages("shiny")
-runGitHub('paulgovan/eAnalytics')
+devtools::install_github('paulgovan/eAnalytics')
 ```
 
 Or you can access the app through your browser at [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site. 
