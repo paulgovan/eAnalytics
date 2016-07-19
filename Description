@@ -11,6 +11,7 @@ License: Apache License | file LICENSE
 LazyData: TRUE
 Imports:
     d3heatmap,
+    dplyr,
     DT,
     energyr,
     googleVis,

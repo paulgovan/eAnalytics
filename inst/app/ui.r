@@ -8,55 +8,55 @@ shinydashboard::dashboardPage(
                                   )),
   shinydashboard::dashboardSidebar(
     shinydashboard::sidebarMenu(
-      shinydashboard::menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      shinydashboard::menuItem("Electric", icon = icon("th"), tabName = "electric", shinydashboard::menuSubItem("Trends", tabName = "elecTrends", icon = icon("line-chart")), shinydashboard::menuSubItem("Data", tabName = "elecData", icon = icon("table"))),
-      shinydashboard::menuItem("Hydropower", icon = icon("th"), tabName = "hydroelectric", shinydashboard::menuSubItem("Profile", tabName = "hydroProfile", icon = icon("globe")), shinydashboard::menuSubItem("Data", tabName = "hydroData", icon = icon("table"))),
-      shinydashboard::menuItem("Natural Gas", icon = icon("th"), tabName = "naturalgas", shinydashboard::menuSubItem("Profile", tabName = "gasProfile", icon = icon("globe")), shinydashboard::menuSubItem("Performance", tabName = "gasPerform", icon = icon("bar-chart")), shinydashboard::menuSubItem("Trends", tabName = "gasTrends", icon = icon("line-chart")), shinydashboard::menuSubItem("Explorer", tabName = "gasExplorer", icon = icon("gear")), shinydashboard::menuSubItem("Data", tabName = "gasData", icon = icon("table"))),
-      shinydashboard::menuItem("Oil", icon = icon("th"), tabName = "oil", shinydashboard::menuSubItem("Trends", tabName = "oilTrends", icon = icon("line-chart")), shinydashboard::menuSubItem("Data", tabName = "oilData", icon = icon("table")))
+      shinydashboard::menuItem("Dashboard", tabName = "dashboard", icon = shiny::icon("dashboard")),
+      shinydashboard::menuItem("Electric", icon = shiny::icon("th"), tabName = "electric", shinydashboard::menuSubItem("Trends", tabName = "elecTrends", icon = shiny::icon("line-chart")), shinydashboard::menuSubItem("Data", tabName = "elecData", icon = shiny::icon("table"))),
+      shinydashboard::menuItem("Hydropower", icon = shiny::icon("th"), tabName = "hydroelectric", shinydashboard::menuSubItem("Profile", tabName = "hydroProfile", icon = shiny::icon("globe")), shinydashboard::menuSubItem("Data", tabName = "hydroData", icon = shiny::icon("table"))),
+      shinydashboard::menuItem("Natural Gas", icon = shiny::icon("th"), tabName = "naturalgas", shinydashboard::menuSubItem("Profile", tabName = "gasProfile", icon = shiny::icon("globe")), shinydashboard::menuSubItem("Performance", tabName = "gasPerform", icon = shiny::icon("bar-chart")), shinydashboard::menuSubItem("Trends", tabName = "gasTrends", icon = shiny::icon("line-chart")), shinydashboard::menuSubItem("Explorer", tabName = "gasExplorer", icon = shiny::icon("gear")), shinydashboard::menuSubItem("Data", tabName = "gasData", icon = shiny::icon("table"))),
+      shinydashboard::menuItem("Oil", icon = shiny::icon("th"), tabName = "oil", shinydashboard::menuSubItem("Trends", tabName = "oilTrends", icon = shiny::icon("line-chart")), shinydashboard::menuSubItem("Data", tabName = "oilData", icon = shiny::icon("table")))
     )),
   shinydashboard::dashboardBody(
     tags$head(tags$link(rel = "icon", type = "image/png", href = "favicon.png"),
               tags$title("eAnalytics")),
     shinydashboard::tabItems(
       shinydashboard::tabItem(tabName = "dashboard",
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "eAnalytics", status = "primary", width = 8,
-                                  img(src = "favicon.png", height = 50, width = 50),
-                                  h3("Welcome to eAnalytics!"),
-                                  h4("eAnalytics is a ",
-                                     a(href = 'http://shiny.rstudio.com', 'Shiny'),
-                                     "web application, powered by the ",
-                                     a(href = 'https://plot.ly/r/', 'plotly'),
-                                     ",",
-                                     a(href = 'https://rstudio.github.io/leaflet/', 'Leaflet'),
-                                     ", and",
-                                     a(href = 'https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html', 'googleVis'),
-                                     "packages."
+                                  shiny::img(src = "favicon.png", height = 50, width = 50),
+                                  shiny::h3("Welcome to eAnalytics!"),
+                                  shiny::h4("eAnalytics is a ",
+                                            shiny::a(href = 'http://shiny.rstudio.com', 'Shiny'),
+                                            "web application, powered by the ",
+                                            shiny::a(href = 'https://plot.ly/r/', 'plotly'),
+                                            ",",
+                                            shiny::a(href = 'https://rstudio.github.io/leaflet/', 'Leaflet'),
+                                            ", and",
+                                            shiny::a(href = 'https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html', 'googleVis'),
+                                            "packages."
                                   ),
-                                  h4("eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders."),
-                                  h4("Select an industry in the sidepanel to get started."),
-                                  h4('Copyright 2015 By Paul Govan. ',
-                                     a(href = 'http://www.apache.org/licenses/LICENSE-2.0', 'Terms of Use.'))
+                                  shiny::h4("eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders."),
+                                  shiny::h4("Select an industry in the sidepanel to get started."),
+                                  shiny::h4('Copyright 2015 By Paul Govan. ',
+                                            shiny::a(href = 'http://www.apache.org/licenses/LICENSE-2.0', 'Terms of Use.'))
                                 ),
-                                uiOutput("projectBox"),
-                                uiOutput("companyBox"),
-                                uiOutput("facilityBox")
+                                shiny::uiOutput("projectBox"),
+                                shiny::uiOutput("companyBox"),
+                                shiny::uiOutput("facilityBox")
                               )
       ),
       shinydashboard::tabItem(tabName = "elecTrends",
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "Rates Trends", status = "primary", width = 12, collapsible = T,
                                   plotly::plotlyOutput("lineChart1")
                                 )
                               ),
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "Control", status = "primary", width = 4, collapsible = T,
-                                  selectInput("elec", h5("Select Input:"),
-                                              c("Revenue (USD)"="Revenue",
-                                                "Bill (USD)"= "Bill"))
+                                  shiny::selectInput("elec", h5("Select Input:"),
+                                                     c("Revenue (USD)"="Revenue",
+                                                       "Bill (USD)"= "Bill"))
                                 )
                               )
       ),
@@ -67,21 +67,21 @@ shinydashboard::dashboardPage(
                               )
       ),
       shinydashboard::tabItem(tabName = "hydroProfile",
-                              tabPanel("Hydropower",
-                                       leaflet::leafletOutput("map1"),
-                                       absolutePanel(
-                                         draggable = TRUE, fixed = TRUE,
-                                         wellPanel(
-                                           h4("Hydropower Facilities"),
-                                           selectInput("hydroSize", h5("Size:"),
-                                                       c("Total Capacity (MW)"="Total")),
-                                           selectInput("hydroCol", h5("Color:"),
-                                                       c("Status"="status"))
-                                           #                            ,
-                                           #                            plotly::plotlyOutput("hist1")
-                                         ),
-                                         style = "opacity: 0.75"
-                                       )
+                              shiny::tabPanel("Hydropower",
+                                              leaflet::leafletOutput("map1"),
+                                              shiny::absolutePanel(
+                                                draggable = TRUE, fixed = TRUE,
+                                                shiny::wellPanel(
+                                                  shiny::h4("Hydropower Facilities"),
+                                                  shiny::selectInput("hydroSize", h5("Size:"),
+                                                                     c("Total Capacity (MW)"="Total")),
+                                                  shiny::selectInput("hydroCol", h5("Color:"),
+                                                                     c("Status"="status"))
+                                                  #                            ,
+                                                  #                            plotly::plotlyOutput("hist1")
+                                                ),
+                                                style = "opacity: 0.75"
+                                              )
                               )
       ),
       shinydashboard::tabItem(tabName = "hydroData",
@@ -92,44 +92,44 @@ shinydashboard::dashboardPage(
       ),
       shinydashboard::tabItem(tabName = "gasProfile",
                               shinydashboard::tabBox(width = 12,
-                                                     tabPanel("Storage Facilities",
-                                                              leaflet::leafletOutput("map2"),
-                                                              absolutePanel(
-                                                                draggable = TRUE, fixed = TRUE,
-                                                                wellPanel(
-                                                                  h4("NG Storage Facilities"),
-                                                                  selectInput("storageSize", h5("Size:"),
-                                                                              c("Total Capacity (BCF)"="Total",
-                                                                                "Working Capacity (BCF)"= "Working")),
-                                                                  selectInput("storageColor", h5("Color:"),
-                                                                              c("Storage Type"="type")),
-                                                                  br(),
-                                                                  plotly::plotlyOutput("hist2")
-                                                                ),
-                                                                style = "opacity: 0.75"
-                                                              )
+                                                     shiny::tabPanel("Storage Facilities",
+                                                                     leaflet::leafletOutput("map2"),
+                                                                     shiny::absolutePanel(
+                                                                       draggable = TRUE, fixed = TRUE,
+                                                                       shiny::wellPanel(
+                                                                         shiny::h4("NG Storage Facilities"),
+                                                                         shiny::selectInput("storageSize", h5("Size:"),
+                                                                                            c("Total Capacity (BCF)"="Total",
+                                                                                              "Working Capacity (BCF)"= "Working")),
+                                                                         shiny::selectInput("storageColor", h5("Color:"),
+                                                                                            c("Storage Type"="type")),
+                                                                         br(),
+                                                                         plotly::plotlyOutput("hist2")
+                                                                       ),
+                                                                       style = "opacity: 0.75"
+                                                                     )
                                                      ),
-                                                     tabPanel("LNG Facilities",
-                                                              leaflet::leafletOutput("map3"),
-                                                              absolutePanel(
-                                                                draggable = TRUE, fixed = TRUE,
-                                                                wellPanel(
-                                                                  h4("LNG Facilities"),
-                                                                  selectInput("lngSize", h5("Size:"),
-                                                                              c("Total Capacity (BCFD)"="Total")),
-                                                                  selectInput("lngColor", h5("Color:"),
-                                                                              c("Facility Type"="type",
-                                                                                "Status"="status")),
-                                                                  br(),
-                                                                  plotly::plotlyOutput("hist3")
-                                                                ),
-                                                                style = "opacity: 0.75"
-                                                              )
+                                                     shiny::tabPanel("LNG Facilities",
+                                                                     leaflet::leafletOutput("map3"),
+                                                                     shiny::absolutePanel(
+                                                                       draggable = TRUE, fixed = TRUE,
+                                                                       shiny::wellPanel(
+                                                                         shiny::h4("LNG Facilities"),
+                                                                         shiny::selectInput("lngSize", h5("Size:"),
+                                                                                            c("Total Capacity (BCFD)"="Total")),
+                                                                         shiny::selectInput("lngColor", h5("Color:"),
+                                                                                            c("Facility Type"="type",
+                                                                                              "Status"="status")),
+                                                                         br(),
+                                                                         plotly::plotlyOutput("hist3")
+                                                                       ),
+                                                                       style = "opacity: 0.75"
+                                                                     )
                                                      )
                               )
       ),
       shinydashboard::tabItem(tabName = "gasPerform",
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "KPI", status = "primary", width = 6, collapsible = T,
                                   plotly::plotlyOutput("hist5")
@@ -139,86 +139,86 @@ shinydashboard::dashboardPage(
                                   d3heatmap::d3heatmapOutput("heatmap")
                                 )
                               ),
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "Controls", status = "primary", width = 4, collapsible = T,
-                                  selectInput("perform", h5("Select KPI:"),
-                                              c("Cost/Mile (kUSD/Mile)"="costMile",
-                                                "Cost/Added Capacity (kUSD/MMcf/d)"= "costCap"
-                                              )),
-                                  selectInput("sensitivity", h5("Select Type of Sensitivity Measure:"),
-                                              c("Contribution to Variance"="varr",
-                                                "Rank Correlation"="corr"
-                                              ))
+                                  shiny::selectInput("perform", h5("Select KPI:"),
+                                                     c("Cost/Mile (kUSD/Mile)"="costMile",
+                                                       "Cost/Added Capacity (kUSD/MMcf/d)"= "costCap"
+                                                     )),
+                                  shiny::selectInput("sensitivity", h5("Select Type of Sensitivity Measure:"),
+                                                     c("Contribution to Variance"="varr",
+                                                       "Rank Correlation"="corr"
+                                                     ))
                                 )
                               )
       ),
       shinydashboard::tabItem(tabName = "gasTrends",
                               shinydashboard::tabBox(width = 12,
-                                                     tabPanel("Cost",
-                                                              fluidRow(
-                                                                shinydashboard::box(
-                                                                  title = "Project Cost Trends", status = "primary", width = 12, collapsible = T,
-                                                                  plotly::plotlyOutput("boxplot")
-                                                                )
-                                                              ),
-                                                              fluidRow(
-                                                                shinydashboard::box(
-                                                                  title = "Control", status = "primary", width = 4, collapsible = T,
-                                                                  selectInput("gas", h5("Select Input:"),
-                                                                              c("Cost (mUSD)"="cost",
-                                                                                "Cost/Mile (mUSD/Mile)"="costMile"))
-                                                                )
-                                                              )
+                                                     shiny::tabPanel("Cost",
+                                                                     shiny::fluidRow(
+                                                                       shinydashboard::box(
+                                                                         title = "Project Cost Trends", status = "primary", width = 12, collapsible = T,
+                                                                         plotly::plotlyOutput("boxplot")
+                                                                       )
+                                                                     ),
+                                                                     shiny::fluidRow(
+                                                                       shinydashboard::box(
+                                                                         title = "Control", status = "primary", width = 4, collapsible = T,
+                                                                         shiny::selectInput("gas", h5("Select Input:"),
+                                                                                            c("Cost (mUSD)"="cost",
+                                                                                              "Cost/Mile (mUSD/Mile)"="costMile"))
+                                                                       )
+                                                                     )
                                                      ),
-                                                     tabPanel("Revenue",
-                                                              fluidRow(
-                                                                shinydashboard::box(
-                                                                  title = "Rates Trends", status = "primary", width = 12, collapsible = T,
-                                                                  plotly::plotlyOutput("lineChart3")
-                                                                )
-                                                              ),
-                                                              fluidRow(
-                                                                shinydashboard::box(
-                                                                  title = "Control", status = "primary", width = 4, collapsible = T,
-                                                                  selectInput("gasRates", h5("Select Input:"),
-                                                                              c("Revenue (USD)"="Revenue",
-                                                                                "Bill (USD)"= "Bill"))
-                                                                )
-                                                              )
+                                                     shiny::tabPanel("Revenue",
+                                                                     fluidRow(
+                                                                       shinydashboard::box(
+                                                                         title = "Rates Trends", status = "primary", width = 12, collapsible = T,
+                                                                         plotly::plotlyOutput("lineChart3")
+                                                                       )
+                                                                     ),
+                                                                     shiny::fluidRow(
+                                                                       shinydashboard::box(
+                                                                         title = "Control", status = "primary", width = 4, collapsible = T,
+                                                                         shiny::selectInput("gasRates", h5("Select Input:"),
+                                                                                            c("Revenue (USD)"="Revenue",
+                                                                                              "Bill (USD)"= "Bill"))
+                                                                       )
+                                                                     )
                                                      )
                               )
       ),
       shinydashboard::tabItem(tabName = "gasExplorer",
                               shinydashboard::box(
                                 title = "Explorer", status = "primary", width = 12, collapsible = T,
-                                htmlOutput("motion1"), style = "overflow:hidden;"
+                                shiny::htmlOutput("motion1"), style = "overflow:hidden;"
                               )
       ),
       shinydashboard::tabItem(tabName = "gasData",
                               shinydashboard::tabBox(width = 12,
-                                                     tabPanel("Project Data",
-                                                              DT::dataTableOutput("pipelineTable")
+                                                     shiny::tabPanel("Project Data",
+                                                                     DT::dataTableOutput("pipelineTable")
                                                      ),
-                                                     tabPanel("Rates Data",
-                                                              DT::dataTableOutput("gasTable")
+                                                     shiny::tabPanel("Rates Data",
+                                                                     DT::dataTableOutput("gasTable")
                                                      )
                               )
       ),
       shinydashboard::tabItem(tabName = "oilTrends",
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "Rates Trends", status = "primary", width = 12, collapsible = T,
                                   plotly::plotlyOutput("lineChart4")
                                 )
                               ),
-                              fluidRow(
+                              shiny::fluidRow(
                                 shinydashboard::box(
                                   title = "Control", status = "primary", width = 4, collapsible = T,
-                                  selectInput("oil", h5("Select Input:"),
-                                              c("Revenue (USD)"="Revenue",
-                                                "Bill (USD)"= "Bill"
-                                              ))
+                                  shiny::selectInput("oil", h5("Select Input:"),
+                                                     c("Revenue (USD)"="Revenue",
+                                                       "Bill (USD)"= "Bill"
+                                                     ))
                                 )
                               )
       ),
