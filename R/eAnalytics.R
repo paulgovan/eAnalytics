@@ -19,6 +19,10 @@
 #'   messageItem dashboardSidebar sidebarMenu menuItem menuSubItem dashboardBody
 #'   tabItems tabItem box tabBox
 #' @export
+#' @examples
+#' if (interactive()) {
+#'   eAnalytics()
+#' }
 eAnalytics <- function() {
   shiny::runApp(system.file('app', package='eAnalytics'))
 }

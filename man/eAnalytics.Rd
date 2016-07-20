@@ -11,4 +11,9 @@ eAnalytics is a shiny web application for energy industry analytics.
 eAnalytics has the largest open database of US energy industry information,
 providing interactive and dynamic web analytics to industry stakeholders.
 }
+\examples{
+if (interactive()) {
+  eAnalytics()
+}
+}
 

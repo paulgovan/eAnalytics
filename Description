@@ -1,6 +1,6 @@
 Package: eAnalytics
 Version: 0.1.0
-Title: Interactive and dynamic web analytics for the energy industry
+Title: Interactive and Dynamic Web Analytics for the Energy Industry
 Description: eAnalytics is a shiny web application for energy industry analytics. eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders.
 URL: https://github.com/paulgovan/eanalytics
 BugReports: https://github.com/paulgovan/eanalytics/issues
