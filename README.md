@@ -78,6 +78,17 @@ Going back to the *Trends* tab, the time-series chart now shows trends that can 
 
 ![Trends2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Trends3.png?raw=true)
 
+## Explorer
+Finally, click the *Explorer* tab. The *Explorer* tab contains a dynamic motion chart to explore several indicators over time, as made famous by Hans Rosling in his 2007 [TED talk](https://www.ted.com/talks/hans_rosling_reveals_new_insights_on_poverty?language=en).
+
+*Note: the Explorer tab is currently only available for the Natural Gas industry.*
+
+![Explorer2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true)
+
+As an example, the screenshot above shows a motion chart with cost on the x-axis, miles on the y-axis, and the type of project (conversion, expansion, lateral, new pipeline, and reversal) represented by the color of the bubble. Pressing the *Play* button would show how the relationship between project cost and miles of pipeline changes over time. 
+
+To learn more about the functionality of the motion chart, visit the  [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) site.
+
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
 
