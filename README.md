@@ -33,6 +33,13 @@ eAnalytics imports the [energyr](https://github.com/paulgovan/energyr) package, 
 * `pipeline`: Natural Gas Pipeline Project Data
 * `storage`: Natural Gas Storage Field Data
 
+# Example
+
+## Dashboard
+Launching the app brings up the Dashboard. The Dashboard is a landing page that gives a brief introduction to the app and shows three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
+
+![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
+
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
 
