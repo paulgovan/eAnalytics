@@ -41,11 +41,18 @@ Launching the app brings up the *Dashboard*. The *Dashboard* is basically a land
 ![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
 
 ## Profile
-Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. A number of options are currently available for customizing the maps, such as choosing the preferred *size* and *color* variables in the movable `wellpanel`, selecting a different basemap in the lower-right control, or actually clicking on a specific facility to view additional information. 
+Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. A number of options are currently available for customizing the maps, such as choosing the preferred *size* and *color* variables in the movable `wellpanel`, selecting different basemaps via the lower-right control, or actually clicking on a specific facility to view additional information. 
+
+Note: industry profiles are currently only available for the Hydropower and Natural Gas industries.
 
 ![Profile](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true)
 
-For example, to view the LNG facilities located along the Gulf Coast, select the *Natural Gas* industry, then the *Profile* tab, then the *LNG Facilities* tab, and then finally zoom into the area of interest using the controls in the upper-left corner. To view the data overlay with satellite imagery, choose *Satellite* in the lower-right control. 
+For example, to view the LNG facilities located along the Gulf Coast, select the *Natural Gas* industry, then the *Profile* tab, then the *LNG Facilities* tab, and then finally zoom into the area of interest using the controls in the upper-left corner. To view the data overlay with satellite imagery, choose *Satellite* via the lower-right control. 
+
+![Profile2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile3.png?raw=true)
+
+## Performance
+Now click the *Performance* tab. The *Performance* tab tracks a number of well-established Key Performance Indicators (KPI's) for the selected industry. Select the preferred KPI using the input controls and interact witht the corresponding charts. 
 
 
 
