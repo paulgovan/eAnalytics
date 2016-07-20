@@ -41,9 +41,13 @@ Launching the app brings up the *Dashboard*. The *Dashboard* is basically a land
 ![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
 
 ## Profile
-Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. Choose the preferred *size* and *color* variables in the movable wellpanel or click on a specific facility to view additional information. 
+Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. A number of options are currently available for customizing the maps, such as choosing the preferred *size* and *color* variables in the movable `wellpanel`, selecting a different basemap in the lower-right control, or actually clicking on a specific facility to view additional information. 
 
 ![Profile](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true)
+
+For example, to view the LNG facilities located along the Gulf Coast, select the *Natural Gas* industry, then the *Profile* tab, then the *LNG Facilities* tab, and then finally zoom into the area of interest using the controls in the upper-left corner. To view the data overlay with satellite imagery, choose *Satellite* in the lower-right control. 
+
+
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
