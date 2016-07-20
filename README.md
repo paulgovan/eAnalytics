@@ -58,7 +58,7 @@ Now click the *Performance* tab. The *Performance* tab tracks a number of well-e
 
 ![Performance](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Performance2.png?raw=true)
 
-For example, the screenshot above shows a histogram of the cost/mile (USD/mile) for all natural gas pipeline projects in the database and a heatmap of the correlation matrix of cost and other highly related variables. 
+For example, the screenshot above shows a histogram of the cost/mile (USD/mile) for all natural gas pipeline projects in the database and a heatmap of the correlation matrix of cost with other highly related variables. 
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
