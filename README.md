@@ -52,7 +52,7 @@ For example, to view the LNG facilities located along the Gulf Coast, select the
 ![Profile2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile3.png?raw=true)
 
 ## Performance
-Now click the *Performance* tab. The *Performance* tab tracks a number of well-established Key Performance Indicators (KPIs) for the selected industry. 
+Now click the *Performance* tab. The *Performance* tab tracks a number of "well-established" Key Performance Indicators (KPIs) for the selected industry. 
 
 *Note: KPIs are currently only available for the Natural Gas industry.*
 
