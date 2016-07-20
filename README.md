@@ -1,11 +1,6 @@
-# eAnalytics
-Interactive and dynamic web analytics for the energy industry
-
-![eAnalytics](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile.png?raw=true)
-
 # Features
 * Profile: take an overview of the industry
-* Performance: measure key performance indicators
+* Performance: measure key performance indicators (KPIs)
 * Trends: identify changes in the industry over time
 * Explorer: discover new relationships in the data
 
@@ -13,13 +8,30 @@ Interactive and dynamic web analytics for the energy industry
 eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [dygraphs](https://rstudio.github.io/dygraphs/), and [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) packages. eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web analytics to industry stakeholders. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
 
 # Getting Started
-You can install eAnalytics in [R](https://www.r-project.org) with:
+To install eAnalytics in [R](https://www.r-project.org):
 
 ```S
 devtools::install_github('paulgovan/eAnalytics')
 ```
 
-Or you can access the app through your browser at [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics). For more information about the app, visit the [eAnalytics](http://paulgovan.wix.com/eAnalytics) site. 
+To launch the app:
+
+```S
+eAnalytics()
+```
+
+Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics).
+
+# Data
+eAnalytics imports the [energyr](https://github.com/paulgovan/energyr) package, which contains data from [www.ferc.gov](www.ferc.gov). energyr contains the following datasets:
+
+* `electric`: Electric Company Financial Data
+* `gas`: Natural Gas Company Financial Data
+* `hydropower`: Hydropower Plant Data
+* `lng`: LNG Plant Data
+* `oil`: Oil Company Financial Data
+* `pipeline`: Natural Gas Pipeline Project Data
+* `storage`: Natural Gas Storage Field Data
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
