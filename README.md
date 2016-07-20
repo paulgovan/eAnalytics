@@ -36,14 +36,14 @@ eAnalytics imports the [energyr](https://github.com/paulgovan/energyr) package, 
 # Example
 
 ## Dashboard
-Launching the app brings up the *Dashboard*. The *Dashboard* is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
+Launching the app first brings up the *Dashboard*. The *Dashboard* is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
 
 ![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
 
 ## Profile
-Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. A number of options are currently available for customizing the maps, such as choosing the preferred *size* and *color* variables in the movable `wellpanel`, selecting different basemaps via the lower-right control, or actually clicking on a specific facility to view additional information. 
+Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. A number of options are currently available for customizing the maps, such as choosing a preferred *size* or *color* variable in the movable `wellpanel`, selecting different basemaps via the lower-right control, or actually clicking on a specific facility and viewing additional information. 
 
-Note: industry profiles are currently only available for the Hydropower and Natural Gas industries.
+*Note: industry profiles are currently only available for the Hydropower and Natural Gas industries.*
 
 ![Profile](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true)
 
@@ -52,9 +52,13 @@ For example, to view the LNG facilities located along the Gulf Coast, select the
 ![Profile2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile3.png?raw=true)
 
 ## Performance
-Now click the *Performance* tab. The *Performance* tab tracks a number of well-established Key Performance Indicators (KPI's) for the selected industry. Select the preferred KPI using the input controls and interact witht the corresponding charts. 
+Now click the *Performance* tab. The *Performance* tab tracks a number of well-established Key Performance Indicators (KPIs) for the selected industry. 
 
+*Note: KPIs are currently only available for the Natural Gas industry.*
 
+![Performance](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Performance2.png?raw=true)
+
+For example, the screenshot above shows a histogram of the cost/mile (USD/mile) for all natural gas pipeline projects in the database and a heatmap of the correlation matrix of cost and other highly related variables. 
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
