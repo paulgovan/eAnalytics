@@ -36,7 +36,7 @@ eAnalytics imports the [energyr](https://github.com/paulgovan/energyr) package, 
 # Example
 
 ## Dashboard
-Launching the app brings up the *Dashboard*. The *Dashboard* is more or less a landing page that gives a brief introduction to the app and shows three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
+Launching the app brings up the *Dashboard*. The *Dashboard* is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
 
 ![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
 
