@@ -68,7 +68,9 @@ Next click the *Trends* tab. The *Trends* tab contains interactive time-series c
 
 ![Trends](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Trends2.png?raw=true)
 
-However, the information above is not very useful as of yet because there are so many data series plotted in the chart. Alternatively, the time-series chart can be controlled through the *Data* tab. Click on the *Data* tab and search, filter, sort the data as preferred. As an example, let the search be for any company with the word "Electric" in the name: 
+However, the information above is not very useful as of yet because there are so many data series plotted in the chart. Alternatively, the time-series chart can be controlled through the *Data* tab. The *Data* tab includes interactive datatables of information for the selected industry. 
+
+Click on the *Data* tab and search, filter, sort the data as preferred. As an example, let the search be for any company with the word "Electric" in the name: 
 
 ![Data](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Data2.png?raw=true)
 
