@@ -36,12 +36,14 @@ eAnalytics imports the [energyr](https://github.com/paulgovan/energyr) package, 
 # Example
 
 ## Dashboard
-Launching the app brings up the *Dashboard*. The *Dashboard* is a landing page that gives a brief introduction to the app and shows three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
+Launching the app brings up the *Dashboard*. The *Dashboard* is more or less a landing page that gives a brief introduction to the app and shows three value boxes for the current number of projects, companies, and facilities, respectively, in the database. 
 
-![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
+![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
 
 ## Profile
-Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains interactive maps of facility information for the selected industry. Choose the preferred *size* and *color* variables and click on a specific facility to view additional information. 
+Select an industry in the sidepanel and then click *Profile*. The *Profile* tab contains a number of interactive maps with information about facilities for the selected industry. Choose the preferred *size* and *color* variables in the movable wellpanel or click on a specific facility to view additional information. 
+
+![Profile](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true)
 
 # Source Code
 eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
