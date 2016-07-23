@@ -8,8 +8,8 @@ data(pipeline, package = "energyr")
 data(lng, package = "energyr")
 
 # Aggregate pipeline data for googleVis chart
-motionData <- dplyr::select(pipeline, Type, Year, Cost, Miles, Capacity) %>%
-  dplyr::filter(!is.na(Year))
+motionData <- dplyr::select(pipeline, Type, Year, Cost, Miles, Capacity)
+motionData <- dplyr::filter(motionData, !is.na(Year))
 motionData[is.na(motionData)] <- 0
 motionData <- aggregate(motionData[,3:5],
                         by = list(Year = motionData$Year, Type = motionData$Type), FUN = sum)
@@ -48,9 +48,7 @@ shiny::shinyServer(function(input, output, session) {
     } else {
       Rate <- electric$Bill
     }
-    p <- plotly::plot_ly(electric, x = Year, y = Rate, group = Company)
-    plotly::as.widget(p) # hack to avoid error message
-    p
+    plotly::plot_ly(electric, x = Year, y = Rate, group = Company)
   })
 
   # Show electric rates table
@@ -63,6 +61,7 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the hydropower map
   output$map1 <- leaflet::renderLeaflet({
+    hydropower <- hydropower[complete.cases(hydropower),]
     content <- paste0("<strong>Name: </strong>",
                       hydropower$Name,
                       "<br><strong>Company: </strong>",
@@ -77,7 +76,7 @@ shiny::shinyServer(function(input, output, session) {
       leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
       leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
       leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
-      leaflet::addCircles(radius = ~sqrt(Capacity/10000), color = ~pal(Status), popup = ~content) %>%
+      leaflet::addCircles(radius = ~sqrt(Capacity/1000), color = ~pal(Status), popup = ~content) %>%
       leaflet::addLegend("topright", pal = pal, values = ~Status, title = "Status") %>%
       leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
                                 position = "bottomright",
@@ -86,31 +85,33 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the hydropower histogram
   output$hist1 <- plotly::renderPlotly({
-    Capacity <- hydro$Capacity
+    hydropower <- hydropower[complete.cases(hydropower),]
+    Capacity <- hydropower$Capacity/1000
     plotly::plot_ly(x = Capacity, type = "histogram", opacity = 0.75) %>%
       layout(autosize = F, width = 300, height = 250)
   })
 
   # Show hydropower data table
   output$hydroTable <- DT::renderDataTable({
-    DT::datatable(hydropower[,4:9], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive')
+    DT::datatable(hydropower[,1:9], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive')
   })
 
   # Plot the storage map
   output$map2 <- leaflet::renderLeaflet({
+    storage <- storage[complete.cases(storage),]
     content <- paste0("<strong>Company: </strong>",
                       storage$Company,
                       "<br><strong>Field: </strong>",
                       storage$Field,
                       "<br><strong>Total Capacity (BCF): </strong>",
                       storage$Total)
-    pal <- leaflet::colorFactor(c("navy", "red", "green"), domain = c("DGF", "SC", "Aquifer"))
+    pal <- leaflet::colorFactor(c("navy", "red", "green"), domain = c("Depleted Field", "Salt Dome", "Aquifer"))
     if (input$storageSize == "Total") {
       leaflet::leaflet(storage) %>%
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
         leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
         leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
-        leaflet::addCircles(radius = ~Total/100, color = ~pal(Type), popup = ~content) %>%
+        leaflet::addCircles(radius = ~Total/1000, color = ~pal(Type), popup = ~content) %>%
         leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
                                   position = "bottomright",
                                   options = leaflet::layersControlOptions(collapsed = TRUE)) %>%
@@ -121,7 +122,7 @@ shiny::shinyServer(function(input, output, session) {
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
         leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
         leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
-        leaflet::addCircles(radius = ~Working/100, color = ~pal(Type), popup = ~content) %>%
+        leaflet::addCircles(radius = ~Working/1000, color = ~pal(Type), popup = ~content) %>%
 
         leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
                                   position = "bottomright",
@@ -132,10 +133,11 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the storage histogram
   output$hist2 <- plotly::renderPlotly({
+    storage <- storage[complete.cases(storage),]
     if (input$storageSize == "Total") {
-      Capacity <- storage$Total
+      Capacity <- storage$Total/1000
     } else if (input$storageSize == "Working") {
-      Capacity <- storage$Working
+      Capacity <- storage$Working/1000
     }
     plotly::plot_ly(x = Capacity, type = "histogram", opacity = 0.75) %>%
       layout(autosize = F, width = 300, height = 250)
@@ -143,6 +145,7 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the LNG map
   output$map3 <- leaflet::renderLeaflet({
+    lng <- lng[complete.cases(lng),]
     content <- paste0("<strong>Company: </strong>",
                       lng$Company,
                       "<br><strong>Capacity (BCFD): </strong>",
@@ -174,6 +177,7 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the LNG capacity histogram
   output$hist3 <- plotly::renderPlotly({
+    lng <- lng[complete.cases(lng),]
     Capacity <- lng$Capacity
     plotly::plot_ly(x = Capacity, type = "histogram", opacity = 0.75) %>%
       layout(autosize = F, width = 300, height = 250)
@@ -191,7 +195,7 @@ shiny::shinyServer(function(input, output, session) {
 
   # Draw a natural gas pipeline heatmap
   output$heatmap <- d3heatmap::renderD3heatmap({
-    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity", "Compression"))
+    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
     dfcor <- cor(pipeline, use="complete.obs")
     dfvar <- dfcor^2*100
 
@@ -209,10 +213,8 @@ shiny::shinyServer(function(input, output, session) {
     if (input$gas == "cost") {
       cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"])
     } else if (input$gas == "costMile") {
-      # pipeline <- pipeline[apply(pipeline[,-1], 1, function(x) !all(x==0)),]
       cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"]/pipeline[,"Miles"])
     } else if (input$gas == "costCap") {
-      # pipeline <- pipeline[apply(pipeline[,-1], 1, function(x) !all(x==0)),]
       cost <- data.frame(Year = pipeline[,"Year"], Cost = pipeline[,"Cost"]/pipeline[,"Capacity"])
     }
     plotly::plot_ly(cost, y = Cost, group = Year, type = "box")
@@ -241,7 +243,7 @@ shiny::shinyServer(function(input, output, session) {
   # Show natural gas pipeline table
   output$pipelineTable <- DT::renderDataTable({
     pipeline <- pipeline[,!(names(pipeline) %in% 'Year')]
-    DT::datatable(pipeline, rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive')
+    DT::datatable(pipeline[,], rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive')
   })
 
   # Show natural gas rates table

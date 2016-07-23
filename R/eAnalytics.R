@@ -5,14 +5,13 @@
 #' providing interactive and dynamic web analytics to industry stakeholders.
 #' @importFrom d3heatmap renderD3heatmap d3heatmap d3heatmapOutput
 #' @importFrom dplyr select filter
-#' @importFrom DT dataTableOutput renderDataTable datatable formatCurrency
+#' @importFrom DT dataTableOutput renderDataTable datatable formatCurrency "%>%"
 #' @import energyr
 #' @importFrom googleVis renderGvis gvisMotionChart
 #' @importFrom leaflet renderLeaflet colorFactor leaflet fitBounds
 #'   addProviderTiles addCircles addLegend addLayersControl layersControlOptions
-#'   leafletOutput
-#' @importFrom magrittr %>%
-#' @importFrom plotly renderPlotly plot_ly as.widget plotlyOutput
+#'   leafletOutput "%>%"
+#' @importFrom plotly as.widget renderPlotly plot_ly plotlyOutput "%>%"
 #' @importFrom shiny shinyServer renderUI icon fluidRow img a uiOutput
 #'   absolutePanel wellPanel selectInput
 #' @importFrom shinydashboard dashboardPage dashboardHeader dropdownMenu

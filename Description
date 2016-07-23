@@ -16,7 +16,6 @@ Imports:
     energyr,
     googleVis,
     leaflet,
-    magrittr,
     plotly,
     shiny,
     shinydashboard

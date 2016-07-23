@@ -76,9 +76,8 @@ shinydashboard::dashboardPage(
                                                   shiny::selectInput("hydroSize", h5("Size:"),
                                                                      c("Total Capacity (MW)"="Total")),
                                                   shiny::selectInput("hydroCol", h5("Color:"),
-                                                                     c("Status"="status"))
-                                                  #                            ,
-                                                  #                            plotly::plotlyOutput("hist1")
+                                                                     c("Status"="status")),
+                                                  plotly::plotlyOutput("hist1")
                                                 ),
                                                 style = "opacity: 0.75"
                                               )
