@@ -3,6 +3,7 @@
 #' eAnalytics is a shiny web application for energy industry analytics.
 #' eAnalytics has the largest open database of US energy industry information,
 #' providing interactive and dynamic web analytics to industry stakeholders.
+#' @importFrom plotly as.widget renderPlotly plot_ly plotlyOutput "%>%"
 #' @importFrom d3heatmap renderD3heatmap d3heatmap d3heatmapOutput
 #' @importFrom dplyr select filter
 #' @importFrom DT dataTableOutput renderDataTable datatable formatCurrency "%>%"
@@ -11,7 +12,6 @@
 #' @importFrom leaflet renderLeaflet colorFactor leaflet fitBounds
 #'   addProviderTiles addCircles addLegend addLayersControl layersControlOptions
 #'   leafletOutput "%>%"
-#' @importFrom plotly as.widget renderPlotly plot_ly plotlyOutput "%>%"
 #' @importFrom shiny shinyServer renderUI icon fluidRow img a uiOutput
 #'   absolutePanel wellPanel selectInput
 #' @importFrom shinydashboard dashboardPage dashboardHeader dropdownMenu
