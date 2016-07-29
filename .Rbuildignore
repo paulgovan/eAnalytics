@@ -2,5 +2,6 @@
 ^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yaml$
+^\.travis\.yaml
+^cran-comments\.md$
 ^LICENSE$
