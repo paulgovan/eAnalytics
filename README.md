@@ -11,6 +11,12 @@ eAnalytics is a [Shiny](http://shiny.rstudio.com) web application, powered by th
 To install eAnalytics in [R](https://www.r-project.org):
 
 ```S
+install.packages("eAnalytics")
+```
+
+Or to install the latest developmental version:
+
+```S
 devtools::install_github('paulgovan/eAnalytics')
 ```
 
