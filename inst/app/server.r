@@ -53,9 +53,13 @@ shiny::shinyServer(function(input, output, session) {
 
   # Show electric rates table
   output$elecTable <- DT::renderDataTable({
-    DT::datatable(electric, rownames = FALSE,
+    DT::datatable(electric, rownames = FALSE, extensions = 'Buttons',
                   options = list(searchHighlight = TRUE,
-                                 order = list(list(3, 'desc')))) %>%
+                                 order = list(list(3, 'desc')),
+                                 dom = 'Bfrtip',
+                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+                  )
+    ) %>%
       DT::formatCurrency(c('Revenue', 'Bill'))
   }, server = FALSE)
 
@@ -73,12 +77,12 @@ shiny::shinyServer(function(input, output, session) {
     pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
     leaflet::leaflet(hydropower) %>%
       leaflet::fitBounds(-125, 49, -62, 18) %>%
-      leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
-      leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
-      leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+      leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
+      leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
+      leaflet::addProviderTiles("Esri.WorldImagery", group = "World Imagery") %>%
       leaflet::addCircles(radius = ~sqrt(Capacity/1000), color = ~pal(Status), popup = ~content) %>%
       leaflet::addLegend("topright", pal = pal, values = ~Status, title = "Status") %>%
-      leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
+      leaflet::addLayersControl(baseGroups = c("World Street Map", "Dark Matter", "World Imagery"),
                                 position = "bottomright",
                                 options = leaflet::layersControlOptions(collapsed = TRUE))
   })
@@ -93,7 +97,12 @@ shiny::shinyServer(function(input, output, session) {
 
   # Show hydropower data table
   output$hydroTable <- DT::renderDataTable({
-    DT::datatable(hydropower[,1:9], rownames = FALSE, colnames = c('Capacity (KW)' = 'Capacity'), extensions = 'Responsive')
+    DT::datatable(hydropower[,1:9], rownames = FALSE,
+                  colnames = c('Capacity (KW)' = 'Capacity'),
+                  extensions = c('Responsive', 'Buttons'),
+                  options = list(searchHighlight = TRUE,
+                                 dom = 'Bfrtip',
+                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
   })
 
   # Plot the storage map
@@ -108,23 +117,23 @@ shiny::shinyServer(function(input, output, session) {
     pal <- leaflet::colorFactor(c("navy", "red", "green"), domain = c("Depleted Field", "Salt Dome", "Aquifer"))
     if (input$storageSize == "Total") {
       leaflet::leaflet(storage) %>%
-        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
-        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
-        leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
+        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
+        leaflet::addProviderTiles("Esri.WorldImagery", group = "World Imagery") %>%
         leaflet::addCircles(radius = ~Total/1000, color = ~pal(Type), popup = ~content) %>%
-        leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
+        leaflet::addLayersControl(baseGroups = c("World Street Map", "Dark Matter", "World Imagery"),
                                   position = "bottomright",
                                   options = leaflet::layersControlOptions(collapsed = TRUE)) %>%
         leaflet::addLegend("topright", pal = pal, values = ~Type, title = "Storage Type")
 
     } else if (input$storageSize == "Working") {
       leaflet::leaflet(storage) %>%
-        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
-        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
-        leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
+        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
+        leaflet::addProviderTiles("Esri.WorldImagery", group = "World Imagery") %>%
         leaflet::addCircles(radius = ~Working/1000, color = ~pal(Type), popup = ~content) %>%
 
-        leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
+        leaflet::addLayersControl(baseGroups = c("World Street Map", "Dark Matter", "World Imagery"),
                                   position = "bottomright",
                                   options = leaflet::layersControlOptions(collapsed = TRUE)) %>%
         leaflet::addLegend("topright", pal = pal, values = ~Type, title = "Storage Type")
@@ -153,23 +162,23 @@ shiny::shinyServer(function(input, output, session) {
     if (input$lngColor == "type") {
       pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Export", "Import"))
       leaflet::leaflet(lng) %>%
-        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
-        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
-        leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
+        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
+        leaflet::addProviderTiles("Esri.WorldImagery", group = "World Imagery") %>%
         leaflet::addCircles(radius = ~Capacity, color = ~pal(Type), popup = ~content) %>%
         leaflet::addLegend("topright", pal = pal, values = ~Type, title = "Facility Type") %>%
-        leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
+        leaflet::addLayersControl(baseGroups = c("World Street Map", "Dark Matter", "World Imagery"),
                                   position = "bottomright",
                                   options = leaflet::layersControlOptions(collapsed = TRUE))
     } else if (input$lngColor == "status") {
       pal <- leaflet::colorFactor(c("navy", "red", "green", "orange"), domain = c("Not under construction", "Under construction", "Existing", "Proposed"))
       leaflet::leaflet(lng) %>%
-        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "WSM") %>%
-        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark") %>%
-        leaflet::addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+        leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
+        leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
+        leaflet::addProviderTiles("Esri.WorldImagery", group = "World Imagery") %>%
         leaflet::addCircles(radius = ~Capacity, color = ~pal(Status), popup = ~content) %>%
         leaflet::addLegend("topright", pal = pal, values = ~Status, title = "Facility Status") %>%
-        leaflet::addLayersControl(baseGroups = c("WSM", "Dark", "Satellite"),
+        leaflet::addLayersControl(baseGroups = c("World Street Map", "Dark Matter", "World Imagery"),
                                   position = "bottomright",
                                   options = leaflet::layersControlOptions(collapsed = TRUE))
     }
@@ -243,14 +252,21 @@ shiny::shinyServer(function(input, output, session) {
   # Show natural gas pipeline table
   output$pipelineTable <- DT::renderDataTable({
     pipeline <- pipeline[,!(names(pipeline) %in% 'Year')]
-    DT::datatable(pipeline[,], rownames = FALSE, colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'), extensions = 'Responsive')
+    DT::datatable(pipeline[,], rownames = FALSE,
+                  colnames = c('Cost ($MM)' = 'Cost', 'Capacity (MMcf/d)' = 'Capacity', 'Diameter (IN)' = 'Diameter'),
+                  extensions = c('Responsive', 'Buttons'),
+                  options = list(searchHighlight = TRUE,
+                                 dom = 'Bfrtip',
+                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
   })
 
   # Show natural gas rates table
   output$gasTable <- DT::renderDataTable({
-    DT::datatable(gas, rownames = FALSE,
+    DT::datatable(gas, rownames = FALSE, extensions = 'Buttons',
                   options = list(searchHighlight = TRUE,
-                                 order = list(list(3, 'desc')))) %>%
+                                 order = list(list(3, 'desc')),
+                                 dom = 'Bfrtip',
+                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print'))) %>%
       DT::formatCurrency(c('Revenue', 'Bill'))
   }, server = FALSE)
 
@@ -270,9 +286,11 @@ shiny::shinyServer(function(input, output, session) {
 
   # Show oil rates table
   output$oilTable <- DT::renderDataTable({
-    DT::datatable(oil, rownames = FALSE,
+    DT::datatable(oil, rownames = FALSE, extensions = 'Buttons',
                   options = list(searchHighlight = TRUE,
-                                 order = list(list(3, 'desc')))) %>%
+                                 order = list(list(3, 'desc')),
+                                 dom = 'Bfrtip',
+                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print'))) %>%
       DT::formatCurrency(c('Revenue', 'Bill'))
   }, server = FALSE)
 })
