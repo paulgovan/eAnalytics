@@ -23,5 +23,5 @@
 #'   eAnalytics()
 #' }
 eAnalytics <- function() {
-  shiny::runApp(system.file('app', package='eAnalytics'))
+  shiny::runApp(system.file('app', package = 'eAnalytics'))
 }

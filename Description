@@ -1,6 +1,6 @@
 Package: eAnalytics
 Version: 0.1.0
-Title: Dynamic Web Analytics for the Energy Industry
+Title: Dynamic Web-Based Analytics for the Energy Industry
 Description: A 'Shiny' web application for energy industry analytics.
       Take an overview of the industry, measure Key Performance Indicators,
       identify changes in the industry over time, and discover new relationships in the data.
