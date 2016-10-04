@@ -44,7 +44,7 @@ eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R
 ## Dashboard
 Launching the app first brings up the Dashboard tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
 
-![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard2.png?raw=true)
+![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
 
 ## Profile
 The Profile tab contains a number of interactive maps with information about facilities for the selected industry. The figure below shows the Profile tab for the Natural Gas Industry.
@@ -69,7 +69,7 @@ The time-series chart in the Trends tab is linked to the data table shown in the
 ## Data 
 The Data tab contains interactive datatables of information for the selected industry. The data can be searched, filtered, and sorted as required. The selected data can then be copied to the clipboard, downloaded to a csv or pdf file, or sent to a local printer. The figure below shows the Data tab for the Hydropower industry.
 
-![Data](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Data2.png?raw=true)
+![Data](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Data.png?raw=true)
 
 ## Explorer
 The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.
