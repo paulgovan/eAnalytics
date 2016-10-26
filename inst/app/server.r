@@ -8,8 +8,7 @@ data(pipeline, package = "energyr")
 data(lng, package = "energyr")
 
 # Aggregate pipeline data for googleVis chart
-motionData <-
-  dplyr::select(pipeline, Type, Year, Cost, Miles, Capacity)
+motionData <- dplyr::select(pipeline, Type, Year, Cost, Miles, Capacity)
 motionData <- dplyr::filter(motionData,!is.na(Year))
 motionData[is.na(motionData)] <- 0
 motionData <- aggregate(
@@ -17,15 +16,12 @@ motionData <- aggregate(
   by = list(Year = motionData$Year, Type = motionData$Type),
   FUN = sum
 )
-motionData$Year <-
-  as.Date(as.character(motionData$Year), format = "%Y")
+motionData$Year <- as.Date(as.character(motionData$Year), format = "%Y")
 
 # Calculate the number of unique companies, projects, and facilities in database
-company <-
-  length(unique(electric[, 1])) + length(unique(hydropower[, "Company"])) + length(unique(gas[, 1])) + length(unique(storage[, "Company"])) + length(unique(lng[, "Company"])) + length(unique(oil[, 1]))
+company <- length(unique(electric[, 1])) + length(unique(hydropower[, "Company"])) + length(unique(gas[, 1])) + length(unique(storage[, "Company"])) + length(unique(lng[, "Company"])) + length(unique(oil[, 1]))
 project <- length(unique(pipeline[, "Name"]))
-facility <-
-  length(unique(hydropower[, "Name"])) + length(unique(storage[, "Field"])) + length(unique(lng[, "Company"]))
+facility <- length(unique(hydropower[, "Name"])) + length(unique(storage[, "Field"])) + length(unique(lng[, "Company"]))
 
 shiny::shinyServer(function(input, output, session) {
   # Create the projects box
@@ -69,7 +65,7 @@ shiny::shinyServer(function(input, output, session) {
     }
     plotly::plot_ly(electric,
                     x = Year,
-                    y = Rate,
+                    y = Revenue,
                     group = Company)
   })
 
@@ -102,8 +98,7 @@ shiny::shinyServer(function(input, output, session) {
       "<br><strong>Capacity (KW): </strong>",
       hydropower$Capacity
     )
-    pal <-
-      leaflet::colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
+    pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
     leaflet::leaflet(hydropower) %>%
       leaflet::fitBounds(-125, 49,-62, 18) %>%
       leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
@@ -165,8 +160,7 @@ shiny::shinyServer(function(input, output, session) {
       "<br><strong>Total Capacity (BCF): </strong>",
       storage$Total
     )
-    pal <-
-      leaflet::colorFactor(c("navy", "red", "green"),
+    pal <- leaflet::colorFactor(c("navy", "red", "green"),
                            domain = c("Depleted Field", "Salt Dome", "Aquifer"))
     if (input$storageSize == "Total") {
       leaflet::leaflet(storage) %>%
@@ -241,8 +235,7 @@ shiny::shinyServer(function(input, output, session) {
       lng$Capacity
     )
     if (input$lngColor == "type") {
-      pal <-
-        leaflet::colorFactor(c("navy", "red"), domain = c("Export", "Import"))
+      pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Export", "Import"))
       leaflet::leaflet(lng) %>%
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
         leaflet::addProviderTiles("CartoDB.DarkMatter", group = "Dark Matter") %>%
@@ -326,8 +319,7 @@ shiny::shinyServer(function(input, output, session) {
 
   # Draw a natural gas pipeline heatmap
   output$heatmap <- d3heatmap::renderD3heatmap({
-    pipeline <-
-      subset(pipeline, select = c("Cost", "Miles", "Capacity"))
+    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
     dfcor <- cor(pipeline, use = "complete.obs")
     dfvar <- dfcor ^ 2 * 100
 
@@ -349,14 +341,11 @@ shiny::shinyServer(function(input, output, session) {
   output$boxplot <- plotly::renderPlotly({
     pipeline <- na.omit(pipeline)
     if (input$gas == "cost") {
-      cost <-
-        data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"])
+      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"])
     } else if (input$gas == "costMile") {
-      cost <-
-        data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Miles"])
+      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Miles"])
     } else if (input$gas == "costCap") {
-      cost <-
-        data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Capacity"])
+      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Capacity"])
     }
     plotly::plot_ly(cost,
                     y = Cost,
