@@ -1,19 +1,10 @@
 shinydashboard::dashboardPage(
-  shinydashboard::dashboardHeader(
-    title = "eAnalytics",
-    shinydashboard::dropdownMenu(
-      type = "messages",
-      shinydashboard::messageItem(from = "Support",
-                                  message = "Welcome to eAnalytics!")
-    )
-  ),
+  shinydashboard::dashboardHeader(title = "eAnalytics"),
   shinydashboard::dashboardSidebar(
     shinydashboard::sidebarMenu(
-      shinydashboard::menuItem(
-        "Dashboard",
-        tabName = "dashboard",
-        icon = shiny::icon("dashboard")
-      ),
+      shinydashboard::menuItem("Home",
+                               tabName = "dashboard",
+                               icon = shiny::icon("home")),
       shinydashboard::menuItem(
         "Electric",
         icon = shiny::icon("th"),
@@ -72,7 +63,14 @@ shinydashboard::dashboardPage(
           icon = shiny::icon("line-chart")
         ),
         shinydashboard::menuSubItem("Data", tabName = "oilData", icon = shiny::icon("table"))
-      )
+      ),
+      br(),
+      shinydashboard::menuItem("Help",
+                               icon = icon("info-circle"),
+                               href = "http://paulgovan.github.io/eAnalytics/"),
+      shinydashboard::menuItem("Source Code",
+                               icon = icon("code"),
+                               href = "https://github.com/paulgovan/eAnalytics")
     )
   ),
   shinydashboard::dashboardBody(
@@ -85,7 +83,7 @@ shinydashboard::dashboardPage(
         tabName = "dashboard",
         shiny::fluidRow(
           shinydashboard::box(
-            title = "eAnalytics",
+            title = "",
             status = "primary",
             width = 8,
             shiny::img(
@@ -94,6 +92,7 @@ shinydashboard::dashboardPage(
               width = 50
             ),
             shiny::h3("Welcome to eAnalytics!"),
+            br(),
             shiny::h4(
               "eAnalytics is a ",
               shiny::a(href = 'http://shiny.rstudio.com', 'Shiny'),
@@ -111,6 +110,7 @@ shinydashboard::dashboardPage(
               "eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web-based analytics to industry stakeholders."
             ),
             shiny::h4("To get started, select an industry in the sidepanel."),
+            br(),
             shiny::h4(
               shiny::HTML('&copy'),
               '2016 By Paul Govan. ',
