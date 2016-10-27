@@ -16,4 +16,7 @@ if (interactive()) {
   eAnalytics()
 }
 }
+\seealso{
+\url{http://paulgovan.github.io/eAnalytics/}
+}
 

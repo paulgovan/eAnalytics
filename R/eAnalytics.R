@@ -18,6 +18,7 @@
 #'   messageItem dashboardSidebar sidebarMenu menuItem menuSubItem dashboardBody
 #'   tabItems tabItem box tabBox
 #' @export
+#' @seealso \url{http://paulgovan.github.io/eAnalytics/}
 #' @examples
 #' if (interactive()) {
 #'   eAnalytics()
