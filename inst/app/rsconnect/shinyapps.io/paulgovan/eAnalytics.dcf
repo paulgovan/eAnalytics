@@ -2,8 +2,8 @@ name: eAnalytics
 account: paulgovan
 server: shinyapps.io
 appId: 21904
-bundleId: 562185
+bundleId: 602589
 url: https://paulgovan.shinyapps.io/eAnalytics/
-when: 1474337146.52181
+when: 1478018708.6706
 asMultiple: FALSE
 asStatic: FALSE
