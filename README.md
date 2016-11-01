@@ -26,7 +26,7 @@ To launch the app:
 eAnalytics()
 ```
 
-Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics).
+Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
 
 # Data
 eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R package of data published by the United States Federal Energy Regulatory Commission [www.ferc.gov](www.ferc.gov). energyr contains several datasets for different industry segments:
