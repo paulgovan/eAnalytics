@@ -17,7 +17,7 @@ Imports:
     energyr,
     googleVis,
     leaflet,
-    plotly,
+    plotly (>= 4.5.2),
     shiny,
     shinydashboard
 RoxygenNote: 5.0.1

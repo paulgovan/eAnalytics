@@ -5,7 +5,7 @@
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy-related data analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
 
 # Getting Started
 To install eAnalytics in R:
@@ -23,7 +23,7 @@ devtools::install_github('paulgovan/eAnalytics')
 To launch the app:
 
 ```S
-eAnalytics()
+eAnalytics::eAnalytics()
 ```
 
 Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
@@ -41,10 +41,10 @@ eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R
 
 # Tutorial
 
-## Dashboard
-Launching the app first brings up the Dashboard tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
+## Home
+Launching the app first brings up the Home tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
 
-![Dashboard](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
+![Home](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
 
 ## Profile
 The Profile tab contains a number of interactive maps with information about facilities for the selected industry. The figure below shows the Profile tab for the Natural Gas Industry.

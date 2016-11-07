@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy-related data analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, see this [publication](http://ascelibrary.org/doi/abs/10.1061/9780784413012.143).
 
 # Getting Started
 To install eAnalytics in R:
@@ -27,7 +27,7 @@ devtools::install_github('paulgovan/eAnalytics')
 To launch the app:
 
 ```c
-eAnalytics()
+eAnalytics::eAnalytics()
 ```
 
 Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics).
@@ -45,8 +45,8 @@ eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R
 
 # Tutorial
 
-## Dashboard
-Launching the app first brings up the Dashboard tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
+## Home
+Launching the app first brings up the Home tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
 
 <img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true" height="500px" />
 
@@ -63,7 +63,6 @@ The Performance tab tracks a number of Key Performance Indicators (KPIs) for the
 <img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Performance2.png?raw=true" height="500px" />
 
 ## Trends
-
 The Trends tab contains multiple interactive time-series charts of financial information for the selected industry. The following figure shows the Performance tab for the Electric industry.
 
 The time-series chart in the Trends tab is linked to the data table shown in the Data tab. Searching, filtering, and sorting the data in the data table will automatically update the time-series chart with the selected data.
