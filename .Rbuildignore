@@ -1,7 +1,7 @@
-^inst/app/rsconnect
 ^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yaml
 ^cran-comments\.md$
 ^LICENSE$
+^.*\.dcf$
