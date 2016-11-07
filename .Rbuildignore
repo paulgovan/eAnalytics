@@ -1,4 +1,4 @@
-^packrat/
+^inst/app/rsconnect
 ^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$

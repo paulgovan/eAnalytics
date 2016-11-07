@@ -1,87 +1,152 @@
+# Dashboard page
 shinydashboard::dashboardPage(
+
+  # Dashboard header
   shinydashboard::dashboardHeader(title = "eAnalytics"),
+
+  # Dashboard sidebar
   shinydashboard::dashboardSidebar(
+
+    # Sidebar menu
     shinydashboard::sidebarMenu(
+
+      # Home menu item
       shinydashboard::menuItem("Home",
-                               tabName = "dashboard",
+                               tabName = "home",
                                icon = shiny::icon("home")),
+
+      # Electric menu item
       shinydashboard::menuItem(
         "Electric",
         icon = shiny::icon("th"),
         tabName = "electric",
+
+        # Electric trends menu sub-item
         shinydashboard::menuSubItem(
           "Trends",
           tabName = "elecTrends",
           icon = shiny::icon("line-chart")
         ),
-        shinydashboard::menuSubItem("Data", tabName = "elecData", icon = shiny::icon("table"))
+
+        # Electric data menu sub-item
+        shinydashboard::menuSubItem(
+          "Data",
+          tabName = "elecData",
+          icon = shiny::icon("table"))
       ),
+
+      # Hydropower menu item
       shinydashboard::menuItem(
         "Hydropower",
         icon = shiny::icon("th"),
         tabName = "hydroelectric",
+
+        # Hydropower profile menu sub-item
         shinydashboard::menuSubItem(
           "Profile",
           tabName = "hydroProfile",
           icon = shiny::icon("globe")
         ),
-        shinydashboard::menuSubItem("Data", tabName = "hydroData", icon = shiny::icon("table"))
+
+        # Hydropower data menu sub-item
+        shinydashboard::menuSubItem(
+          "Data",
+          tabName = "hydroData",
+          icon = shiny::icon("table"))
       ),
+
+      # Natural gas menu item
       shinydashboard::menuItem(
         "Natural Gas",
         icon = shiny::icon("th"),
         tabName = "naturalgas",
+
+        # Natural gas profile menu sub-item
         shinydashboard::menuSubItem(
           "Profile",
           tabName = "gasProfile",
           icon = shiny::icon("globe")
         ),
+
+        # Natural gas performance menu sub-item
         shinydashboard::menuSubItem(
           "Performance",
           tabName = "gasPerform",
           icon = shiny::icon("bar-chart")
         ),
+
+        # Natural gas trends menu sub-item
         shinydashboard::menuSubItem(
           "Trends",
           tabName = "gasTrends",
           icon = shiny::icon("line-chart")
         ),
+
+        # Natural gas explorer menu sub-item
         shinydashboard::menuSubItem(
           "Explorer",
           tabName = "gasExplorer",
           icon = shiny::icon("gear")
         ),
-        shinydashboard::menuSubItem("Data", tabName = "gasData", icon = shiny::icon("table"))
+
+        # Natural gas data menu sub-item
+        shinydashboard::menuSubItem(
+          "Data",
+          tabName = "gasData",
+          icon = shiny::icon("table"))
       ),
+
+      # Oil menu item
       shinydashboard::menuItem(
         "Oil",
         icon = shiny::icon("th"),
         tabName = "oil",
+
+        # Oil trends menu sub-item
         shinydashboard::menuSubItem(
           "Trends",
           tabName = "oilTrends",
           icon = shiny::icon("line-chart")
         ),
-        shinydashboard::menuSubItem("Data", tabName = "oilData", icon = shiny::icon("table"))
+
+        # Oil data menu sub-item
+        shinydashboard::menuSubItem(
+          "Data",
+          tabName = "oilData",
+          icon = shiny::icon("table"))
       ),
       br(),
+
+      # Help menu item
       shinydashboard::menuItem("Help",
                                icon = icon("info-circle"),
                                href = "http://paulgovan.github.io/eAnalytics/"),
+
+      # Source code menu item
       shinydashboard::menuItem("Source Code",
                                icon = icon("code"),
                                href = "https://github.com/paulgovan/eAnalytics")
     )
   ),
+
+  # Dashboard body
   shinydashboard::dashboardBody(
+
+    # Dashboard favicon and title
     tags$head(
       tags$link(rel = "icon", type = "image/png", href = "favicon.png"),
       tags$title("eAnalytics")
     ),
+
+    # Dashboard tab items
     shinydashboard::tabItems(
+
+      # Home tab item
       shinydashboard::tabItem(
-        tabName = "dashboard",
+        tabName = "home",
         shiny::fluidRow(
+
+          # Welcome box
           shinydashboard::box(
             title = "",
             status = "primary",
@@ -117,28 +182,40 @@ shinydashboard::dashboardPage(
               shiny::a(href = 'http://www.apache.org/licenses/LICENSE-2.0', 'Terms of Use.')
             )
           ),
+
+          # Projects, companies, and facilities value boxes
           shiny::uiOutput("projectBox"),
           shiny::uiOutput("companyBox"),
           shiny::uiOutput("facilityBox")
         )
       ),
+
+      # Electric trends tab item
       shinydashboard::tabItem(
         tabName = "elecTrends",
         shiny::fluidRow(
+
+          # Electric trends box
           shinydashboard::box(
-            title = "Rates Trends",
+            title = "Revenue Trends",
             status = "primary",
             width = 12,
             collapsible = T,
+
+            # Electric rates line chart
             plotly::plotlyOutput("lineChart1")
           )
         ),
         shiny::fluidRow(
+
+          # User input box
           shinydashboard::box(
-            title = "Control",
+            title = "",
             status = "primary",
             width = 4,
             collapsible = T,
+
+            # Electric rates input select
             shiny::selectInput(
               "elec",
               h5("Select Input:"),
@@ -149,97 +226,155 @@ shinydashboard::dashboardPage(
           )
         )
       ),
+
+      # Electric data tab item
       shinydashboard::tabItem(
         tabName = "elecData",
+
+        # Electric rates data box
         shinydashboard::box(
-          title = "Rates Data",
+          title = "Revenue Data",
           status = "primary",
           width = 12,
           collapsible = T,
+
+          # Electric rates data table
           DT::dataTableOutput("elecTable")
         )
       ),
+
+      # Hydropower profile tab item
       shinydashboard::tabItem(
         tabName = "hydroProfile",
+
+        # Hydropower profile tab panel
         shiny::tabPanel(
-          "Hydropower",
+          "Hydropower Facilities",
+
+          # Hydropower profile map
           leaflet::leafletOutput("map1"),
+
+          # Hydropower panel
           shiny::absolutePanel(
             draggable = TRUE,
             fixed = TRUE,
+
+            # Moveable hydropower well panel
             shiny::wellPanel(
+
+              # Panel title
               shiny::h4("Hydropower Facilities"),
-              shiny::selectInput("hydroSize", h5("Size:"),
-                                 c("Total Capacity (MW)" =
-                                     "Total")),
-              shiny::selectInput("hydroCol", h5("Color:"),
-                                 c("Status" =
-                                     "status")),
+
+              # Marker size input select
+              shiny::selectInput("hydroSize", h5("Marker Size:"),
+                                 c("Total Capacity (MW)" = "Total")),
+
+              # Marker color input select
+              shiny::selectInput("hydroCol", h5("Marker Color:"),
+                                 c("Status" = "status")),
+
+              # Hydropower capacity histogram
               plotly::plotlyOutput("hist1")
             ),
             style = "opacity: 0.75"
           )
         )
       ),
+
+      # Hydropower data tab item
       shinydashboard::tabItem(
         tabName = "hydroData",
+
+        # Hydropower data box
         shinydashboard::box(
-          title = "Hydropower Data",
+          title = "Hydropower Facility Data",
           status = "primary",
           width = 12,
           collapsible = T,
+
+          # Hydropower data table
           DT::dataTableOutput("hydroTable")
         )
       ),
+
+      # Natural gas profile tab item
       shinydashboard::tabItem(
         tabName = "gasProfile",
+
+        # Natural gas storage facilities tab box
         shinydashboard::tabBox(
           width = 12,
+
+          # Natural gas storage facilities tab panel
           shiny::tabPanel(
             "Storage Facilities",
+
+            # Storage facilities map
             leaflet::leafletOutput("map2"),
+
+            # Storage facilities panel
             shiny::absolutePanel(
               draggable = TRUE,
               fixed = TRUE,
+
+              # Storage facilities panel
               shiny::wellPanel(
+
+                # Panel title
                 shiny::h4("NG Storage Facilities"),
+
+                # Marker size input select
                 shiny::selectInput(
                   "storageSize",
-                  h5("Size:"),
-                  c(
-                    "Total Capacity (BCF)" = "Total",
+                  h5("Marker Size:"),
+                  c("Total Capacity (BCF)" = "Total",
                     "Working Capacity (BCF)" = "Working"
                   )
                 ),
-                shiny::selectInput("storageColor", h5("Color:"),
+
+                # Marker color input select
+                shiny::selectInput("storageColor", h5("Marker Color:"),
                                    c("Storage Type" =
                                        "type")),
                 br(),
+
+                # Storage facilities capacity histogram
                 plotly::plotlyOutput("hist2")
               ),
               style = "opacity: 0.75"
             )
           ),
+
+          # LNG facilities tab panel
           shiny::tabPanel(
             "LNG Facilities",
+
+            # LNG facilities map
             leaflet::leafletOutput("map3"),
+
+            # LNG facilities panel
             shiny::absolutePanel(
               draggable = TRUE,
               fixed = TRUE,
+
+              # LNG facilities moveable panel
               shiny::wellPanel(
+
+                # Panel title
                 shiny::h4("LNG Facilities"),
-                shiny::selectInput("lngSize", h5("Size:"),
-                                   c("Total Capacity (BCFD)" =
-                                       "Total")),
-                shiny::selectInput(
-                  "lngColor",
-                  h5("Color:"),
-                  c("Facility Type" =
-                      "type",
-                    "Status" =
-                      "status")
+
+                # Marker size input select
+                shiny::selectInput("lngSize", h5("Marker Size:"),
+                                   c("Total Capacity (BCFD)" = "Total")),
+
+                # Marker color input select
+                shiny::selectInput("lngColor", h5("Marker Color:"),
+                                   c("Facility Type" = "type",
+                                     "Status" = "status")
                 ),
                 br(),
+
+                # LNG facilities capacity histrogram
                 plotly::plotlyOutput("hist3")
               ),
               style = "opacity: 0.75"
@@ -247,104 +382,140 @@ shinydashboard::dashboardPage(
           )
         )
       ),
+
+      # Natural gas performance tab item
       shinydashboard::tabItem(
         tabName = "gasPerform",
         shiny::fluidRow(
+
+          # Natural gas performance box
           shinydashboard::box(
-            title = "KPI",
+            title = "Performance Indicator",
             status = "primary",
             width = 6,
             collapsible = T,
+
+            # Natural gas performance histogram
             plotly::plotlyOutput("hist5")
           ),
+
+          # Natural gas heatmap box
           shinydashboard::box(
             title = "Heatmap",
             status = "primary",
             width = 6,
             collapsible = T,
-            d3heatmap::d3heatmapOutput("heatmap")
+
+            # Natural gas heatmap
+            plotly::plotlyOutput("heatmap")
           )
         ),
         shiny::fluidRow(
+
+          # User control box
           shinydashboard::box(
-            title = "Controls",
+            title = "User Controls",
             status = "primary",
             width = 4,
             collapsible = T,
+
+            # Performance variable input select
             shiny::selectInput(
               "perform",
-              h5("Select KPI:"),
+              h5("Select Performance Indicator:"),
               c(
                 "Cost/Mile (kUSD/Mile)" = "costMile",
                 "Cost/Added Capacity (kUSD/MMcf/d)" = "costCap"
               )
             ),
+
+            # Heatmap type input select
             shiny::selectInput(
               "sensitivity",
               h5("Select Type of Sensitivity Measure:"),
               c(
                 "Contribution to Variance" = "varr",
-                "Rank Correlation" =
-                  "corr"
+                "Rank Correlation" = "corr"
               )
             )
           )
         )
       ),
+
+      # Natural gas trends tab item
       shinydashboard::tabItem(
         tabName = "gasTrends",
+
+        # Natural gas trends tab box
         shinydashboard::tabBox(
           width = 12,
+
+          # Natural gas cost trends tab panel
           shiny::tabPanel(
-            "Cost",
+            "Cost Trends",
             shiny::fluidRow(
+
+              # Natural gas cost trends box
               shinydashboard::box(
                 title = "Project Cost Trends",
                 status = "primary",
                 width = 12,
                 collapsible = T,
+
+                # Natural gas cost trends box plots
                 plotly::plotlyOutput("boxplot")
               )
             ),
             shiny::fluidRow(
+
+              # User control box
               shinydashboard::box(
-                title = "Control",
+                title = "",
                 status = "primary",
                 width = 4,
                 collapsible = T,
+
+                # Cost variable input select
                 shiny::selectInput(
                   "gas",
                   h5("Select Input:"),
-                  c("Cost (mUSD)" =
-                      "cost",
-                    "Cost/Mile (mUSD/Mile)" =
-                      "costMile")
+                  c("Cost (mUSD)" = "cost",
+                    "Cost/Mile (mUSD/Mile)" = "costMile")
                 )
               )
             )
           ),
+
+          # Natural gas revenue trends tab panel
           shiny::tabPanel(
-            "Revenue",
+            "Revenue Trends",
             fluidRow(
+
+              # Natural gas revenue trends box
               shinydashboard::box(
-                title = "Rates Trends",
+                title = "Revenue Trends",
                 status = "primary",
                 width = 12,
                 collapsible = T,
+
+                # Natural gas revenue line chart
                 plotly::plotlyOutput("lineChart3")
               )
             ),
             shiny::fluidRow(
+
+              # User control box
               shinydashboard::box(
-                title = "Control",
+                title = "",
                 status = "primary",
                 width = 4,
                 collapsible = T,
+
+                # Revenue variable input select
                 shiny::selectInput(
                   "gasRates",
                   h5("Select Input:"),
-                  c("Revenue (USD)" =
-                      "Revenue",
+                  c("Revenue (USD)" = "Revenue",
                     "Bill (USD)" = "Bill")
                 )
               )
@@ -352,61 +523,90 @@ shinydashboard::dashboardPage(
           )
         )
       ),
+
+      # Natural gas explorer tab item
       shinydashboard::tabItem(
         tabName = "gasExplorer",
+
+        # Natural gas explorer box
         shinydashboard::box(
           title = "Explorer",
           status = "primary",
           width = 12,
           collapsible = T,
+
+          # Natural gas googleVis motion chart
           shiny::htmlOutput("motion1"),
           style = "overflow:hidden;"
         )
       ),
+
+      # Natural gas data tab item
       shinydashboard::tabItem(
         tabName = "gasData",
+
+        # Natural gas data tab box
         shinydashboard::tabBox(
           width = 12,
+
+          # Natural gas project data tab panel
           shiny::tabPanel("Project Data",
                           DT::dataTableOutput("pipelineTable")),
-          shiny::tabPanel("Rates Data",
+
+          # Natural gas revenue data tab panel
+          shiny::tabPanel("Revenue Data",
                           DT::dataTableOutput("gasTable"))
         )
       ),
+
+      # Oil trends tab item
       shinydashboard::tabItem(
         tabName = "oilTrends",
         shiny::fluidRow(
+
+          # Oil trends box
           shinydashboard::box(
-            title = "Rates Trends",
+            title = "Revenue Trends",
             status = "primary",
             width = 12,
             collapsible = T,
+
+            # Oil trends line chart
             plotly::plotlyOutput("lineChart4")
           )
         ),
         shiny::fluidRow(
+
+          # User control box
           shinydashboard::box(
-            title = "Control",
+            title = "",
             status = "primary",
             width = 4,
             collapsible = T,
+
+            # Rates variable input select
             shiny::selectInput(
               "oil",
               h5("Select Input:"),
-              c("Revenue (USD)" =
-                  "Revenue",
+              c("Revenue (USD)" = "Revenue",
                 "Bill (USD)" = "Bill")
             )
           )
         )
       ),
+
+      # Oil data tab item
       shinydashboard::tabItem(
         tabName = "oilData",
+
+        # Oil data box
         shinydashboard::box(
-          title = "Rates Data",
+          title = "Revenue Data",
           status = "primary",
           width = 12,
           collapsible = T,
+
+          # Oil data table
           DT::dataTableOutput("oilTable")
         )
       )
