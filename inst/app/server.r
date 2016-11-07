@@ -83,7 +83,6 @@ shiny::shinyServer(function(input, output, session) {
       layout(
         updatemenus = list(
           list(
-            # y = 0.8,
             buttons = list(
 
               list(method = "restyle",
@@ -524,7 +523,6 @@ shiny::shinyServer(function(input, output, session) {
       layout(
         updatemenus = list(
           list(
-            # y = 0.8,
             buttons = list(
 
               list(method = "restyle",
@@ -616,7 +614,6 @@ shiny::shinyServer(function(input, output, session) {
       layout(
         updatemenus = list(
           list(
-            # y = 0.8,
             buttons = list(
 
               list(method = "restyle",
