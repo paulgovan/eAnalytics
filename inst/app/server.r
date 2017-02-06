@@ -119,6 +119,14 @@ shiny::shinyServer(function(input, output, session) {
   # Plot the hydropower map
   output$map1 <- leaflet::renderLeaflet({
 
+    # Get the curently selected table rows from the user
+    s1 <- input$hydroTable_rows_all
+
+    # Subset data based on user selection
+    if (length(s1) > 0 && length(s1) < nrow(hydropower)) {
+      hydropower <- hydropower[s1, ]
+    }
+
     # Get complete cases from hydropower data
     hydropower <- hydropower[complete.cases(hydropower), ]
 
@@ -173,6 +181,14 @@ shiny::shinyServer(function(input, output, session) {
 
   # Plot the hydropower histogram
   output$hist1 <- plotly::renderPlotly({
+
+    # Get the curently selected table rows from the user
+    s1 <- input$hydroTable_rows_all
+
+    # Subset data based on user selection
+    if (length(s1) > 0 && length(s1) < nrow(hydropower)) {
+      hydropower <- hydropower[s1, ]
+    }
 
     # Get the complete cases from hydropower data
     hydropower <- hydropower[complete.cases(hydropower), ]
