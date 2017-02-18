@@ -1,8 +1,9 @@
-# eAnalytics 0.1.2
+# eAnalytics 0.1.3
 
 ## Major Changes
 
-* Updated to be compatible with upstream dependency 'plotly' v4.5.2.
-* Added style options to 'plotly' line charts.
-* Added links to the help pages and the source code. 
-* Minor changes to the user interface. 
+* Linked hydropower data and profile tabs. Now searching, filtering, and sorting the data in the data table will automatically update the data displayed in the interactive map. 
+
+## Minor Changes
+
+* Minor update to home tab
