@@ -156,7 +156,8 @@ shinydashboard::dashboardPage(
               height = 50,
               width = 50
             ),
-            shiny::h3("Welcome to eAnalytics!"),
+            shiny::h2("eAnalyics"),
+            shiny::h4("Dynamic Web-based Analytics for the Energy Industry"),
             br(),
             shiny::h4(
               "eAnalytics is a ",
