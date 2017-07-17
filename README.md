@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
+
 # Features
 * Profile: take an overview of the industry
 * Performance: measure key performance indicators (KPIs)
