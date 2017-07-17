@@ -1,4 +1,4 @@
-[](http://www.r-pkg.org/badges/version/eAnalytics)
+![](http://www.r-pkg.org/badges/version/eAnalytics)
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
 # Features
