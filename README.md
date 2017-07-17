@@ -3,6 +3,7 @@
 ![](https://travis-ci.org/paulgovan/BayesianNetwork.svg?branch=master)
 [![Rdoc](http://www.rdocumentation.org/badges/version/eAnalytics)](http://www.rdocumentation.org/packages/eAnalytics) 
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
+[![DOI](http://doi.org/10.5334/jors.144 )](http://doi.org/10.5334/jors.144 )
 
 # Features
 * Profile: take an overview of the industry
