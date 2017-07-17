@@ -1,3 +1,4 @@
+[](http://www.r-pkg.org/badges/version/{package}       )
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
 # Features
