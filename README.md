@@ -3,7 +3,6 @@
 ![](https://travis-ci.org/paulgovan/BayesianNetwork.svg?branch=master)
 [![Rdoc](http://www.rdocumentation.org/badges/version/eAnalytics)](http://www.rdocumentation.org/packages/eAnalytics) 
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
-[![DOI](http://doi.org/10.5334/jors.144 )](http://doi.org/10.5334/jors.144 )
 
 # Features
 * Profile: take an overview of the industry
@@ -12,7 +11,7 @@
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, check out this [publication](https://openresearchsoftware.metajnl.com/articles/10.5334/jors.144/).
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, check out  [http://doi.org/10.5334/jors.144 ](http://doi.org/10.5334/jors.144 ).
 
 # Getting Started
 To install eAnalytics in R:
