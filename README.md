@@ -1,5 +1,6 @@
 ![](http://www.r-pkg.org/badges/version/eAnalytics)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)
+![](https://travis-ci.org/paulgovan/BayesianNetwork.svg?branch=master)
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
 # Features
