@@ -16,6 +16,7 @@
 #' @importFrom shinydashboard dashboardPage dashboardHeader dropdownMenu
 #'   messageItem dashboardSidebar sidebarMenu menuItem menuSubItem dashboardBody
 #'   tabItems tabItem box tabBox
+#' @importFrom shinyWidgets dropdownButton tooltipOptions
 #' @export
 #' @seealso \url{http://paulgovan.github.io/eAnalytics/}
 #' @examples

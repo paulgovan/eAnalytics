@@ -19,8 +19,9 @@ Imports:
     leaflet,
     plotly (>= 4.5.2),
     shiny,
-    shinydashboard
-RoxygenNote: 5.0.1
+    shinydashboard,
+    shinyWidgets
+RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
