@@ -1,9 +1,9 @@
-# eAnalytics 0.1.3
+# eAnalytics 0.1.4
 
 ## Major Changes
 
-* Linked hydropower data and profile tabs. Now searching, filtering, and sorting the data in the data table will automatically update the data displayed in the interactive map. 
+* Added tests 
 
 ## Minor Changes
 
-* Minor update to home tab
+* Added orcid
