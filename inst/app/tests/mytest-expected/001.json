@@ -1,0 +1,88 @@
+{
+  "input": {
+    "drop287577521": 0,
+    "drop408976922": 0,
+    "drop45556500": 0,
+    "drop528105489": 0,
+    "drop788305136": 0,
+    "drop883017405": 0,
+    "drop892419045": 0,
+    "drop940467285": 0,
+    "elec": "Revenue",
+    "gas": "cost",
+    "gasRates": "Revenue",
+    "hydroCol": "status",
+    "hydroSize": "Total",
+    "lngColor": "type",
+    "lngSize": "Total",
+    "oil": "Revenue",
+    "perform": "costMile",
+    "sensitivity": "varr",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "storageColor": "type",
+    "storageSize": "Total"
+  },
+  "output": {
+    "companyBox": {
+      "html": "<div class=\"col-sm-4\">\n  <div class=\"small-box bg-purple\">\n    <div class=\"inner\">\n      <h3>1098<\/h3>\n      <p>Company Profiles<\/p>\n    <\/div>\n    <div class=\"icon-large\">\n      <i class=\"fa fa-users\"><\/i>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "font-awesome",
+          "version": "4.7.0",
+          "src": {
+            "href": "shared/font-awesome"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/font-awesome.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "facilityBox": {
+      "html": "<div class=\"col-sm-4\">\n  <div class=\"small-box bg-yellow\">\n    <div class=\"inner\">\n      <h3>1264<\/h3>\n      <p>Facility Profiles<\/p>\n    <\/div>\n    <div class=\"icon-large\">\n      <i class=\"fa fa-building\"><\/i>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "font-awesome",
+          "version": "4.7.0",
+          "src": {
+            "href": "shared/font-awesome"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/font-awesome.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "projectBox": {
+      "html": "<div class=\"col-sm-4\">\n  <div class=\"small-box bg-green\">\n    <div class=\"inner\">\n      <h3>940<\/h3>\n      <p>Projects in Database<\/p>\n    <\/div>\n    <div class=\"icon-large\">\n      <i class=\"fa fa-database\"><\/i>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "font-awesome",
+          "version": "4.7.0",
+          "src": {
+            "href": "shared/font-awesome"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/font-awesome.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
