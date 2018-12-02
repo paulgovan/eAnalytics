@@ -1,7 +1,8 @@
 ^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yaml
 ^cran-comments\.md$
-^LICENSE$
+^\.travis\.yml$
+^run_tests\.R$
 ^.*\.dcf$
+^LICENSE$
