@@ -1,6 +1,5 @@
 ![](http://www.r-pkg.org/badges/version/eAnalytics)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)
-![](https://travis-ci.org/paulgovan/eAnalytics.svg?branch=master)
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
 # Features
@@ -10,7 +9,7 @@
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. The app is powered by the excellent [plotly](https://plot.ly/r/), [Leaflet](https://rstudio.github.io/leaflet/), [DT](https://rstudio.github.io/DT/), and [googleVis](https://CRAN.R-project.org/package=googleVis) packages. To learn more about our project, check out this [article](http://doi.org/10.5334/jors.144).
+eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](http://doi.org/10.5334/jors.144).
 
 # Getting Started
 To install eAnalytics in R:
@@ -80,15 +79,3 @@ The Data tab contains interactive datatables of information for the selected ind
 The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.
 
 ![Explorer2](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true)
-
-# Source Code
-eAnalytics is an [open source](http://opensource.org) project, and the source code and project data is available at [https://github.com/paulgovan/eAnalytics](https://github.com/paulgovan/eAnalytics)
-
-# Issues
-For issues or requests, please use the GitHub issue tracker at [https://github.com/paulgovan/eAnalytics/issues](https://github.com/paulgovan/eAnalytics/issues)
-
-# Contributions
-Ccontributions are welcome by sending a [pull request](https://github.com/paulgovan/eAnalytics/pulls)
-
-# License
-eAnalytics is licensed under the [Apache](http://www.apache.org/licenses/LICENSE-2.0) licence. &copy; Paul Govan (2015)
