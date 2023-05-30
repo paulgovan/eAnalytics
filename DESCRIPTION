@@ -6,7 +6,7 @@ Description: A 'Shiny' web application for energy industry analytics.
       identify changes in the industry over time, and discover new relationships in the data.
 URL: https://github.com/paulgovan/eanalytics
 BugReports: https://github.com/paulgovan/eanalytics/issues
-Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1821-8492"))
+Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-1821-8492"))
 Depends:
     R (>= 2.10.0),
 License: Apache License
@@ -20,7 +20,6 @@ Imports:
     plotly (>= 4.5.2),
     shiny,
     shinydashboard,
-    shinytest,
     shinyWidgets
 RoxygenNote: 6.1.1
 Suggests: knitr,
