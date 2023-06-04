@@ -1,5 +1,6 @@
 ![](http://www.r-pkg.org/badges/version/eAnalytics)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)
+![](http://cranlogs.r-pkg.org/badges/eAnalytics)
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
 # Features
