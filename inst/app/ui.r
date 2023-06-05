@@ -156,24 +156,16 @@ shinydashboard::dashboardPage(
               height = 200,
               width = 175
             ),
-            shiny::h2("eAnalyics"),
+            shiny::h2("eAnalytics"),
             shiny::h4("Dynamic Web-based Analytics for the Energy Industry"),
             br(),
             shiny::h4(
               "eAnalytics is a ",
               shiny::a(href = 'http://shiny.rstudio.com', 'Shiny'),
-              "web application built on top of R for energy-related data analytics, powered by the excellent",
-              shiny::a(href = 'https://plot.ly/r/', 'plotly'),
-              ",",
-              shiny::a(href = 'https://rstudio.github.io/leaflet/', 'Leaflet'),
-              ",",
-              shiny::a(href = 'https://rstudio.github.io/DT/', 'DT'),
-              ", and",
-              shiny::a(href = 'https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html', 'googleVis'),
-              "packages."
+              "web application built on top of R for energy-related data analytics"
             ),
             shiny::h4(
-              "eAnalytics has the largest open database of US energy industry information, providing interactive and dynamic web-based analytics to industry stakeholders."
+              "eAnalytics has the largest open database of US energy industry information, providing interactive web-based analytics to industry stakeholders."
             ),
             shiny::h4("To get started, select an industry in the sidepanel."),
             br(),

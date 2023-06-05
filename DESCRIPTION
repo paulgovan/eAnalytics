@@ -4,7 +4,8 @@ Title: Dynamic Web-Based Analytics for the Energy Industry
 Description: A 'Shiny' web application for energy industry analytics.
       Take an overview of the industry, measure Key Performance Indicators,
       identify changes in the industry over time, and discover new relationships in the data.
-URL: https://github.com/paulgovan/eanalytics
+URL: https://github.com/paulgovan/eanalytics,
+    http://paulgovan.github.io/eAnalytics/
 BugReports: https://github.com/paulgovan/eanalytics/issues
 Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-1821-8492"))
 Depends:
@@ -21,7 +22,8 @@ Imports:
     shiny,
     shinydashboard,
     shinyWidgets
-RoxygenNote: 6.1.1
+Encoding: UTF-8
+RoxygenNote: 7.2.3
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

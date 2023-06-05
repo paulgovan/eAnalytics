@@ -2,7 +2,6 @@
 
 export(eAnalytics)
 import(energyr)
-import(shinytest)
 importFrom(DT,"%>%")
 importFrom(DT,dataTableOutput)
 importFrom(DT,datatable)

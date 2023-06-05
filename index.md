@@ -3,9 +3,11 @@
 ![](http://cranlogs.r-pkg.org/badges/eAnalytics)
 [![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
 
+# eAnalytics
+
 <img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/app/www/favicon.png?raw=true" style="width:25.0%" />
 
-# eAnalytics
+# Features
 * Profile: take an overview of the industry
 * Performance: measure key performance indicators (KPIs)
 * Trends: identify changes in the industry over time
