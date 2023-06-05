@@ -153,8 +153,8 @@ shinydashboard::dashboardPage(
             width = 8,
             shiny::img(
               src = "favicon.png",
-              height = 50,
-              width = 50
+              height = 200,
+              width = 175
             ),
             shiny::h2("eAnalyics"),
             shiny::h4("Dynamic Web-based Analytics for the Energy Industry"),
