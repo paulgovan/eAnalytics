@@ -14,7 +14,7 @@
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](http://doi.org/10.5334/jors.144).
+eAnalytics is a [Shiny](https://shiny.posit.co/) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](https://doi.org/10.5334/jors.144).
 
 # Getting Started
 To install eAnalytics in R:
@@ -38,7 +38,7 @@ eAnalytics::eAnalytics()
 Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
 
 # Data
-eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R package of data published by the United States Federal Energy Regulatory Commission [www.ferc.gov](www.ferc.gov). energyr contains several datasets for different industry segments:
+eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R package of data published by the United States Federal Energy Regulatory Commission [www.ferc.gov](https://www.ferc.gov). energyr contains several datasets for different industry segments:
 
 * `electric`: Electric Company Financial Data
 * `gas`: Natural Gas Company Financial Data
