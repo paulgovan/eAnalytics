@@ -12,3 +12,4 @@
 ^\.github$
 ^index\.md$
 ^revdep$
+^CRAN-SUBMISSION$
