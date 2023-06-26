@@ -1,3 +1,5 @@
+# eAnalytics 0.3
+
 # eAnalytics 0.2
 
 ## Minor improvements and bug fixes
