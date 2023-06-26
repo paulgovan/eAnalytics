@@ -14,7 +14,7 @@
 * Explorer: discover new relationships in the data
 
 # Overview
-eAnalytics is a [Shiny](http://shiny.rstudio.com) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](http://doi.org/10.5334/jors.144).
+eAnalytics is a [Shiny](https://shiny.posit.co/) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](https://doi.org/10.5334/jors.144).
 
 # Getting Started
 To install eAnalytics in R:
