@@ -84,3 +84,6 @@ The Data tab contains interactive datatables of information for the selected ind
 The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.
 
 ![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true)
+
+## Code of Conduct
+Please note that the eAnalytics project is released with a [Contributor Code of Conduct](http://paulgovan.github.io/eAnalytics/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
