@@ -1,7 +1,7 @@
 citHeader("To cite eAnalytics in publications use:")
 
-citEntry(
-  entry    = "Article",
+bibentry(
+  bibtype    = "Article",
   title    = "eAnalytics: Dynamic Web-based Analytics for the Energy Industry",
   author   = "Paul Govan",
   journal  = "Journal of Open Research Software",
@@ -10,22 +10,16 @@ citEntry(
   number   = "1",
   pages    = "e45",
   url      = "https://openresearchsoftware.metajnl.com/articles/10.5334/jors.144",
-  doi      = "10.5334/jors.144",
-  textVersion = paste(
-
-  )
+  doi      = "10.5334/jors.144"
 )
 
-citEntry(
-  entry    = "Manual",
-  title    = "eAnalytics: Dynamic Web-based Analytics for the Energy Industry",
-  author   = "Paul Govan",
-  journal  = "Journal of Open Research Software",
-  year     = "2023",
-  note     = "R package version 0.3",
-  url      = "https://CRAN.R-project.org/package=eAnalytics",
-  doi      = "10.5281/zenodo.1495799",
-  textVersion = paste(
-
-  )
+bibentry(
+  bibtype = "Manual",
+  title = "eAnalytics: Dynamic Web-based Analytics for the Energy Industry",
+  author = "Paul Govan",
+  year = "2023",
+  note = "R package version 0.3",
+  url = "https://CRAN.R-project.org/package=eAnalytics",
+  doi = "10.32614/CRAN.package.eAnalytics
 )
+
