@@ -3,9 +3,8 @@
 [![CRAN checks](https://badges.cranchecks.info/summary/eAnalytics.svg)](https://cran.r-project.org/web/checks/check_results_eAnalytics.html)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)](https://cran.r-project.org/package=eAnalytics)
 [![](http://cranlogs.r-pkg.org/badges/last-month/eAnalytics)](https://cran.r-project.org/package=eAnalytics)
-[![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
+[![](https://img.shields.io/badge/doi-10.32614/CRAN.package.eAnalytics-green.svg)](https://doi.org/10.32614/CRAN.package.eAnalytics)
 <!-- badges: end -->
-
 
 # eAnalytics
 
