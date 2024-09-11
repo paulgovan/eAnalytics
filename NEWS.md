@@ -1,7 +1,5 @@
 # eAnalytics 0.3
 
-# eAnalytics 0.2
-
 ## Minor improvements and bug fixes
 
 * `eAnalytics()` now has the same UI locally as on shinyapps.io.

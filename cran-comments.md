@@ -1,9 +1,16 @@
-## Test environments
-* local OS X install, R 4.3.6
-* win-builder (devel and release)
-
 ## R CMD check results
-There were no ERRORs or WARNINGs or NOTEs.
+
+0 errors | 0 warnings | 1 note
+
+* Maintainer: ‘Paul Govan <paul.govan2@gmail.com>’
   
-## Downstream dependencies
-There are currently no downstream dependencies for this package.
+  New maintainer:
+    Paul Govan <paul.govan2@gmail.com>
+  Old maintainer(s):
+    Paul Govan <pgovan1@aggienetwork.com>
+    
+The old email address was deactivated.
+
+## Reverse Dependencies
+
+There are currently no reverse dependencies. 

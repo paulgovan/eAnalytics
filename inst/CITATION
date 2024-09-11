@@ -20,6 +20,6 @@ bibentry(
   year = "2023",
   note = "R package version 0.3",
   url = "https://CRAN.R-project.org/package=eAnalytics",
-  doi = "10.32614/CRAN.package.eAnalytics
+  doi = "10.32614/CRAN.package.eAnalytics"
 )
 
