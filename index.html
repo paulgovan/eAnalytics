@@ -8,17 +8,18 @@
 <title>Dynamic Web-Based Analytics for the Energy Industry • eAnalytics</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Dynamic Web-Based Analytics for the Energy Industry">
 <meta name="description" content="A Shiny web application for energy industry analytics. Take an overview of the industry, measure Key Performance Indicators, identify changes in the industry over time, and discover new relationships in the data.">
 <meta property="og:description" content="A Shiny web application for energy industry analytics. Take an overview of the industry, measure Key Performance Indicators, identify changes in the industry over time, and discover new relationships in the data.">
+<meta property="og:image" content="http://paulgovan.github.io/eAnalytics/logo.png">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">eAnalytics</a>
 
@@ -32,6 +33,18 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/Usage.html">Getting Started</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials">
+<li><a class="dropdown-item" href="tutorials/eAnalytics.html">eAnalytics</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -46,15 +59,17 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-<div class="section level1">
-<div class="page-header"><h1 id="eanalytics">eAnalytics<a class="anchor" aria-label="anchor" href="#eanalytics"></a>
-</h1></div>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/app/www/favicon.png?raw=true" style="width:25.0%"></p>
-</div>
-<div class="section level1">
-<h1 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="eanalytics-">eAnalytics 
+<a class="anchor" aria-label="anchor" href="#eanalytics-"></a>
 </h1>
+</div>
+<!-- badges: start -->
+
+<div class="section level2">
+<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+</h2>
 <ul>
 <li>Profile: take an overview of the industry</li>
 <li>Performance: measure key performance indicators (KPIs)</li>
@@ -62,26 +77,30 @@
 <li>Explorer: discover new relationships in the data</li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h1>
-<p>eAnalytics is a <a href="https://shiny.posit.co/" class="external-link">Shiny</a> web application built on top of <a href="https://www.r-project.org" class="external-link">R</a> for energy analytics. To learn more about this project, check out this <a href="https://doi.org/10.5334/jors.144" class="external-link">article</a>.</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><code>eAnalytics</code> is a <a href="https://shiny.posit.co/" class="external-link">shiny</a> web application built on top of <a href="https://www.r-project.org" class="external-link">R</a> for energy analytics. To learn more about this project, check out this <a href="https://doi.org/10.5334/jors.144" class="external-link">article</a>.</p>
 </div>
-<div class="section level1">
-<h1 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
-</h1>
-<p>To install eAnalytics in R:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode s"><code class="sourceCode gnuassembler"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>install.packages<span class="op">(</span><span class="st">"eAnalytics"</span><span class="op">)</span></span></code></pre></div>
-<p>Or to install the latest developmental version:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode s"><code class="sourceCode gnuassembler"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">devtools::</span>install_github<span class="op">(</span><span class="ch">'p</span>aulgovan<span class="op">/</span>eAnalytics<span class="ch">')</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
+<p>To install <code>eAnalytics</code> in R:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"eAnalytics"</span><span class="op">)</span></span></code></pre></div>
+<p>Or to install the latest development version:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"paulgovan/eAnalytics"</span><span class="op">)</span></span></code></pre></div>
 <p>To launch the app:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode s"><code class="sourceCode gnuassembler"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">eAnalytics::</span>eAnalytics<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">eAnalytics</span><span class="fu">::</span><span class="fu"><a href="reference/eAnalytics.html">eAnalytics</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Or to access the app through a browser, visit <a href="https://paulgovan.shinyapps.io/eAnalytics/" class="external-link">paulgovan.shinyapps.io/eAnalytics</a>.</p>
+</div>
 </div>
 <div class="section level1">
 <h1 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h1>
-<p>eAnalytics is built around the <a href="https://github.com/paulgovan/energyr" class="external-link">energyr</a> R package of data published by the United States Federal Energy Regulatory Commission <a href="https://www.ferc.gov" class="external-link">www.ferc.gov</a>. energyr contains several datasets for different industry segments:</p>
+<p><code>eAnalytics</code> is built on the <a href="https://github.com/paulgovan/energyr" class="external-link">energyr</a> R package of data published by the United States Federal Energy Regulatory Commission <a href="https://www.ferc.gov" class="external-link">www.ferc.gov</a>. <code>energyr</code> contains several datasets for different industry segments:</p>
 <ul>
 <li>
 <code>electric</code>: Electric Company Financial Data</li>
@@ -98,48 +117,6 @@
 <li>
 <code>storage</code>: Natural Gas Storage Field Data</li>
 </ul>
-</div>
-<div class="section level1">
-<h1 id="tutorial">Tutorial<a class="anchor" aria-label="anchor" href="#tutorial"></a>
-</h1>
-<div class="section level2">
-<h2 id="home">Home<a class="anchor" aria-label="anchor" href="#home"></a>
-</h2>
-<p>Launching the app first brings up the Home tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true"></p>
-</div>
-<div class="section level2">
-<h2 id="profile">Profile<a class="anchor" aria-label="anchor" href="#profile"></a>
-</h2>
-<p>The Profile tab contains a number of interactive maps with information about facilities for the selected industry. The figure below shows the Profile tab for the Natural Gas Industry.</p>
-<p>Multiple options are currently available for customizing the maps. Choose a preferred size or color variable in the movable well panel, select from different basemaps via the lower-right control, and click on a specific facility to view additional information.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true"></p>
-</div>
-<div class="section level2">
-<h2 id="performance">Performance<a class="anchor" aria-label="anchor" href="#performance"></a>
-</h2>
-<p>The Performance tab tracks a number of Key Performance Indicators (KPIs) for the selected industry. The following figure shows the Performance tab for the Natural Gas Industry.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Performance2.png?raw=true"></p>
-</div>
-<div class="section level2">
-<h2 id="trends">Trends<a class="anchor" aria-label="anchor" href="#trends"></a>
-</h2>
-<p>The Trends tab contains multiple interactive time-series charts of financial information for the selected industry. The following figure shows the Performance tab for the Electric industry.</p>
-<p>The time-series chart in the Trends tab is linked to the data table shown in the Data tab. Searching, filtering, and sorting the data in the data table will automatically update the time-series chart with the selected data.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Trends2.png?raw=true"></p>
-</div>
-<div class="section level2">
-<h2 id="data-1">Data<a class="anchor" aria-label="anchor" href="#data-1"></a>
-</h2>
-<p>The Data tab contains interactive datatables of information for the selected industry. The data can be searched, filtered, and sorted as required. The selected data can then be copied to the clipboard, downloaded to a csv or pdf file, or sent to a local printer. The figure below shows the Data tab for the Hydropower industry.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Data.png?raw=true"></p>
-</div>
-<div class="section level2">
-<h2 id="explorer">Explorer<a class="anchor" aria-label="anchor" href="#explorer"></a>
-</h2>
-<p>The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.</p>
-<p><img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true"></p>
-</div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
@@ -166,6 +143,7 @@
 <div class="community">
 <h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
@@ -180,7 +158,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Paul Govan <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-1821-8492" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Paul Govan <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-1821-8492" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -195,7 +173,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
