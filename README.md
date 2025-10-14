@@ -1,92 +1,77 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# eAnalytics <a href="http://paulgovan.github.io/eAnalytics/"><img src="man/figures/logo.png" align="right" height="139" alt="eAnalytics website" /></a>
+
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/eAnalytics)](https://CRAN.R-project.org/package=eAnalytics)
-[![CRAN checks](https://badges.cranchecks.info/summary/eAnalytics.svg)](https://cran.r-project.org/web/checks/check_results_eAnalytics.html)
+
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/eAnalytics)](https://CRAN.R-project.org/package=eAnalytics)
+[![R-CMD-check](https://github.com/paulgovan/eAnalytics/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/paulgovan/eAnalytics/actions/workflows/R-CMD-check.yaml)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)](https://cran.r-project.org/package=eAnalytics)
 [![](http://cranlogs.r-pkg.org/badges/last-month/eAnalytics)](https://cran.r-project.org/package=eAnalytics)
-[![](https://img.shields.io/badge/doi-10.32614/CRAN.package.eAnalytics-green.svg)](https://doi.org/10.32614/CRAN.package.eAnalytics)
+[![](https://img.shields.io/badge/doi-10.5334/jors.144-green.svg)](https://doi.org/10.5334/jors.144)
 <!-- badges: end -->
 
-# eAnalytics
+## Features
 
-<img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/app/www/favicon.png?raw=true" style="width:25.0%" />
+- Profile: take an overview of the industry
+- Performance: measure key performance indicators (KPIs)
+- Trends: identify changes in the industry over time
+- Explorer: discover new relationships in the data
 
-# Features
-* Profile: take an overview of the industry
-* Performance: measure key performance indicators (KPIs)
-* Trends: identify changes in the industry over time
-* Explorer: discover new relationships in the data
+## Overview
 
-# Overview
-eAnalytics is a [Shiny](https://shiny.posit.co/) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](https://doi.org/10.5334/jors.144).
+`eAnalytics` is a [shiny](https://shiny.posit.co/) web application built
+on top of [R](https://www.r-project.org) for energy analytics. To learn
+more about this project, check out this
+[article](https://doi.org/10.5334/jors.144).
 
-# Getting Started
-To install eAnalytics in R:
+## Getting Started
 
-```S
+To install `eAnalytics` in R:
+
+``` r
 install.packages("eAnalytics")
 ```
 
-Or to install the latest developmental version:
+Or to install the latest development version:
 
-```S
-devtools::install_github('paulgovan/eAnalytics')
+``` r
+devtools::install_github("paulgovan/eAnalytics")
 ```
 
 To launch the app:
 
-```S
+``` r
 eAnalytics::eAnalytics()
 ```
 
-Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
+Or to access the app through a browser, visit
+[paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
 
 # Data
-eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R package of data published by the United States Federal Energy Regulatory Commission [www.ferc.gov](https://www.ferc.gov). energyr contains several datasets for different industry segments:
 
-* `electric`: Electric Company Financial Data
-* `gas`: Natural Gas Company Financial Data
-* `hydropower`: Hydropower Plant Data
-* `lng`: LNG Plant Data
-* `oil`: Oil Company Financial Data
-* `pipeline`: Natural Gas Pipeline Project Data
-* `storage`: Natural Gas Storage Field Data
+`eAnalytics` is built on the
+[energyr](https://github.com/paulgovan/energyr) R package of data
+published by the United States Federal Energy Regulatory Commission
+[www.ferc.gov](https://www.ferc.gov). `energyr` contains several
+datasets for different industry segments:
 
-# Tutorial
-
-## Home
-Launching the app first brings up the Home tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Dashboard.png?raw=true)
-
-## Profile
-The Profile tab contains a number of interactive maps with information about facilities for the selected industry. The figure below shows the Profile tab for the Natural Gas Industry.
-
-Multiple options are currently available for customizing the maps. Choose a preferred size or color variable in the movable well panel, select from different basemaps via the lower-right control, and click on a specific facility to view additional information.
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Profile2.png?raw=true)
-
-## Performance
-The Performance tab tracks a number of Key Performance Indicators (KPIs) for the selected industry. The following figure shows the Performance tab for the Natural Gas Industry.
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Performance2.png?raw=true) 
-
-## Trends
-
-The Trends tab contains multiple interactive time-series charts of financial information for the selected industry. The following figure shows the Performance tab for the Electric industry.
-
-The time-series chart in the Trends tab is linked to the data table shown in the Data tab. Searching, filtering, and sorting the data in the data table will automatically update the time-series chart with the selected data.
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Trends2.png?raw=true)
-
-## Data 
-The Data tab contains interactive datatables of information for the selected industry. The data can be searched, filtered, and sorted as required. The selected data can then be copied to the clipboard, downloaded to a csv or pdf file, or sent to a local printer. The figure below shows the Data tab for the Hydropower industry.
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Data.png?raw=true)
-
-## Explorer
-The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.
-
-![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true)
+- `electric`: Electric Company Financial Data
+- `gas`: Natural Gas Company Financial Data
+- `hydropower`: Hydropower Plant Data
+- `lng`: LNG Plant Data
+- `oil`: Oil Company Financial Data
+- `pipeline`: Natural Gas Pipeline Project Data
+- `storage`: Natural Gas Storage Field Data
 
 ## Code of Conduct
-Please note that the eAnalytics project is released with a [Contributor Code of Conduct](http://paulgovan.github.io/eAnalytics/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+Please note that the eAnalytics project is released with a [Contributor
+Code of
+Conduct](http://paulgovan.github.io/eAnalytics/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.

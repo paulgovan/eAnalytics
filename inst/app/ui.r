@@ -169,11 +169,6 @@ shinydashboard::dashboardPage(
             ),
             shiny::h4("To get started, select an industry in the sidepanel."),
             br(),
-            shiny::h4(
-              shiny::HTML('&copy'),
-              '2016 By Paul Govan. ',
-              shiny::a(href = 'http://www.apache.org/licenses/LICENSE-2.0', 'Terms of Use.')
-            )
           ),
 
           # Projects, companies, and facilities value boxes

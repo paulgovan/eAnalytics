@@ -1,8 +1,16 @@
-#' Interactive and dynamic web analytics for the energy industry.
+#' Launch eAnalytics Shiny Application
 #'
-#' eAnalytics is a shiny web application for energy industry analytics.
-#' eAnalytics has the largest open database of US energy industry information,
-#' providing interactive and dynamic web analytics to industry stakeholders.
+#' This function launches the eAnalytics Shiny application, which provides
+#' interactive visualizations and analyses of energy data. The application
+#' includes features such as time series plots, motion charts, data tables,
+#' and geographic maps.
+#'
+#' @seealso \url{http://paulgovan.github.io/eAnalytics/}
+#' @examples
+#' if (interactive()) {
+#'   eAnalytics()
+#' }
+#' @return The function does not return a value; it launches the Shiny app.
 #' @importFrom plotly as.widget renderPlotly plot_ly plotlyOutput "%>%"
 #' @importFrom dplyr select filter
 #' @importFrom DT dataTableOutput renderDataTable datatable formatCurrency "%>%"
@@ -18,11 +26,6 @@
 #'   tabItems tabItem box tabBox
 #' @importFrom shinyWidgets dropdownButton tooltipOptions
 #' @export
-#' @seealso \url{http://paulgovan.github.io/eAnalytics/}
-#' @examples
-#' if (interactive()) {
-#'   eAnalytics()
-#' }
 eAnalytics <- function() {
-  shiny::runApp(system.file('app', package = 'eAnalytics'))
+  shiny::runApp(system.file("app", package = "eAnalytics"))
 }

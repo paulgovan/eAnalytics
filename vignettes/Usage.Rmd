@@ -1,54 +1,18 @@
-![](http://www.r-pkg.org/badges/version/eAnalytics)
-![](http://cranlogs.r-pkg.org/badges/grand-total/eAnalytics)
-![](http://cranlogs.r-pkg.org/badges/eAnalytics)
-[![DOI](https://zenodo.org/badge/35055898.svg)](https://zenodo.org/badge/latestdoi/35055898)
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-# eAnalytics
-
-<img src="https://github.com/paulgovan/eAnalytics/blob/master/inst/app/www/favicon.png?raw=true" style="width:25.0%" />
-
-# Features
-* Profile: take an overview of the industry
-* Performance: measure key performance indicators (KPIs)
-* Trends: identify changes in the industry over time
-* Explorer: discover new relationships in the data
-
-# Overview
-eAnalytics is a [Shiny](https://shiny.posit.co/) web application built on top of [R](https://www.r-project.org) for energy analytics. To learn more about this project, check out this [article](https://doi.org/10.5334/jors.144).
-
-# Getting Started
-To install eAnalytics in R:
-
-```S
-install.packages("eAnalytics")
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
-
-Or to install the latest developmental version:
-
-```S
-devtools::install_github('paulgovan/eAnalytics')
-```
-
-To launch the app:
-
-```S
-eAnalytics::eAnalytics()
-```
-
-Or to access the app through a browser, visit [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
-
-# Data
-eAnalytics is built around the [energyr](https://github.com/paulgovan/energyr) R package of data published by the United States Federal Energy Regulatory Commission [www.ferc.gov](https://www.ferc.gov). energyr contains several datasets for different industry segments:
-
-* `electric`: Electric Company Financial Data
-* `gas`: Natural Gas Company Financial Data
-* `hydropower`: Hydropower Plant Data
-* `lng`: LNG Plant Data
-* `oil`: Oil Company Financial Data
-* `pipeline`: Natural Gas Pipeline Project Data
-* `storage`: Natural Gas Storage Field Data
-
-# Tutorial
 
 ## Home
 Launching the app first brings up the Home tab, which is basically a landing page that gives a brief introduction to the app and includes three value boxes for the current number of projects, companies, and facilities in the database. 
@@ -84,6 +48,3 @@ The Data tab contains interactive datatables of information for the selected ind
 The Explorer tab contains a dynamic motion chart for exploring several indicators over time. The following figure shows the Explorer tab for the Natural Gas Industry.
 
 ![](https://github.com/paulgovan/eAnalytics/blob/master/inst/images/Explorer2.png?raw=true)
-
-## Code of Conduct
-Please note that the eAnalytics project is released with a [Contributor Code of Conduct](http://paulgovan.github.io/eAnalytics/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

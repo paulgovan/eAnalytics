@@ -22,5 +22,10 @@ Imports:
     shinyWidgets
 Encoding: UTF-8
 RoxygenNote: 7.2.3
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    shinytest2,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

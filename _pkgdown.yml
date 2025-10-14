@@ -1,6 +1,11 @@
 url: http://paulgovan.github.io/eAnalytics/
 template:
   bootstrap: 5
+  bootswatch: yeti
 development:
   mode: auto
+tutorials:
+- name: eAnalytics
+  title: eAnalytics
+  url: https://paulgovan.shinyapps.io/eAnalytics
 

@@ -14,3 +14,6 @@
 ^revdep$
 ^CRAN-SUBMISSION$
 ^CODE_OF_CONDUCT\.md$
+^README\.Rmd$
+_\.new\.png$
+^codemeta\.json$
