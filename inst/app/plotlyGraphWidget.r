@@ -22,7 +22,7 @@ renderGraph <- function(expr, env=parent.frame(), quoted=FALSE) {
   installExprFunction(expr, "func", env, quoted)
 
   function(){
-    data = func();
+    data = func()
     ## data is the state of the widgets: see server.R
     ## this function returns a list of named lists that descripe
     ## valid postMessage commands to be sent to the embedded iframe.

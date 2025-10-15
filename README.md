@@ -53,7 +53,7 @@ eAnalytics::eAnalytics()
 Or to access the app through a browser, visit
 [paulgovan.shinyapps.io/eAnalytics](https://paulgovan.shinyapps.io/eAnalytics/).
 
-# Data
+## Data
 
 `eAnalytics` is built on the
 [energyr](https://github.com/paulgovan/energyr) R package of data
