@@ -2,14 +2,18 @@
 % Please edit documentation in R/eAnalytics.R
 \name{eAnalytics}
 \alias{eAnalytics}
-\title{Interactive and dynamic web analytics for the energy industry.}
+\title{Launch eAnalytics Shiny Application}
 \usage{
 eAnalytics()
 }
+\value{
+The function does not return a value; it launches the Shiny app.
+}
 \description{
-eAnalytics is a shiny web application for energy industry analytics.
-eAnalytics has the largest open database of US energy industry information,
-providing interactive and dynamic web analytics to industry stakeholders.
+This function launches the eAnalytics Shiny application, which provides
+interactive visualizations and analyses of energy data. The application
+includes features such as time series plots, motion charts, data tables,
+and geographic maps.
 }
 \examples{
 if (interactive()) {

@@ -18,8 +18,28 @@ motionData <- aggregate(
 )
 motionData$Year <- as.Date(as.character(motionData$Year), format = "%Y")
 
+# Aggregate electric data for googleVis motion chart
+elecMotionData <- dplyr::select(electric, Company, Year, Revenue, Bill)
+elecMotionData <- dplyr::filter(elecMotionData, !is.na(Year))
+elecMotionData <- aggregate(
+  elecMotionData[, c("Revenue", "Bill")],
+  by = list(Year = elecMotionData$Year, Company = elecMotionData$Company),
+  FUN = sum
+)
+elecMotionData$Year <- as.Date(as.character(elecMotionData$Year), format = "%Y")
+
+# Aggregate oil data for googleVis motion chart
+oilMotionData <- dplyr::select(oil, Company, Year, Revenue, Bill)
+oilMotionData <- dplyr::filter(oilMotionData, !is.na(Year))
+oilMotionData <- aggregate(
+  oilMotionData[, c("Revenue", "Bill")],
+  by = list(Year = oilMotionData$Year, Company = oilMotionData$Company),
+  FUN = sum
+)
+oilMotionData$Year <- as.Date(as.character(oilMotionData$Year), format = "%Y")
+
 # Calculate the number of unique companies, projects, and facilities in database
-company <- length(unique(electric[, 1])) + length(unique(hydropower[, "Company"])) + length(unique(gas[, 1])) + length(unique(storage[, "Company"])) + length(unique(lng[, "Company"])) + length(unique(oil[, 1]))
+company <- length(unique(electric[, "Company"])) + length(unique(hydropower[, "Company"])) + length(unique(gas[, "Company"])) + length(unique(storage[, "Company"])) + length(unique(lng[, "Company"])) + length(unique(oil[, "Company"]))
 project <- length(unique(pipeline[, "Name"]))
 facility <- length(unique(hydropower[, "Name"])) + length(unique(storage[, "Field"])) + length(unique(lng[, "Company"]))
 
@@ -62,18 +82,25 @@ shiny::shinyServer(function(input, output, session) {
 
     # Subset data based on user selection
     if (length(s1) > 0 && length(s1) < nrow(electric)) {
-      electric <- electric[s1, ]
+      elec_data <- electric[s1, ]
+    } else {
+      elec_data <- electric
+    }
+
+    # Apply company filter if selected
+    if (!is.null(input$elecCompany) && length(input$elecCompany) > 0) {
+      elec_data <- elec_data[elec_data$Company %in% input$elecCompany, ]
     }
 
     # Get the rate variable from the user
     if (input$elec == "Revenue") {
-      Rate <- electric$Revenue
+      Rate <- elec_data$Revenue
     } else {
-      Rate <- electric$Bill
+      Rate <- elec_data$Bill
     }
 
     # Plot the line chart
-    plotly::plot_ly(electric,
+    plotly::plot_ly(elec_data,
                     x = ~Year,
                     y = ~Rate,
                     split = ~Company,
@@ -124,29 +151,31 @@ shiny::shinyServer(function(input, output, session) {
 
     # Subset data based on user selection
     if (length(s1) > 0 && length(s1) < nrow(hydropower)) {
-      hydropower <- hydropower[s1, ]
+      hydro_data <- hydropower[s1, ]
+    } else {
+      hydro_data <- hydropower
     }
 
     # Get complete cases from hydropower data
-    hydropower <- hydropower[complete.cases(hydropower), ]
+    hydro_data <- hydro_data[complete.cases(hydro_data), ]
 
     # Create the popup content
     content <- paste0(
       "<strong>Name: </strong>",
-      hydropower$Name,
+      hydro_data$Name,
       "<br><strong>Company: </strong>",
-      hydropower$Company,
+      hydro_data$Company,
       "<br><strong>Waterway: </strong>",
-      hydropower$Waterway,
+      hydro_data$Waterway,
       "<br><strong>Capacity (KW): </strong>",
-      hydropower$Capacity
+      hydro_data$Capacity
     )
 
     # Create the color palette
     pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Expired", "Active"))
 
     # Create the leaflet map
-    leaflet::leaflet(hydropower) %>%
+    leaflet::leaflet(hydro_data) %>%
 
       # Manually adjust the bounds of the map
       leaflet::fitBounds(-125, 49,-62, 18) %>%
@@ -187,14 +216,16 @@ shiny::shinyServer(function(input, output, session) {
 
     # Subset data based on user selection
     if (length(s1) > 0 && length(s1) < nrow(hydropower)) {
-      hydropower <- hydropower[s1, ]
+      hydro_data <- hydropower[s1, ]
+    } else {
+      hydro_data <- hydropower
     }
 
     # Get the complete cases from hydropower data
-    hydropower <- hydropower[complete.cases(hydropower), ]
+    hydro_data <- hydro_data[complete.cases(hydro_data), ]
 
     # Convert capacity variable
-    Capacity <- hydropower$Capacity / 1000
+    Capacity <- hydro_data$Capacity / 1000
 
     # Plot the histogram
     plotly::plot_ly(x = ~Capacity,
@@ -209,7 +240,7 @@ shiny::shinyServer(function(input, output, session) {
   output$hydroTable <- DT::renderDataTable({
 
     DT::datatable(
-      hydropower[, 1:9],
+      hydropower[, c("Number", "Name", "Expiration", "Issued", "Status", "Capacity", "Company", "Waterway", "State")],
       rownames = FALSE,
       colnames = c('Capacity (KW)' = 'Capacity'),
       extensions = c('Responsive', 'Buttons'),
@@ -225,16 +256,16 @@ shiny::shinyServer(function(input, output, session) {
   output$map2 <- leaflet::renderLeaflet({
 
     # Get the complete cases from storage data
-    storage <- storage[complete.cases(storage), ]
+    stor_data <- storage[complete.cases(storage), ]
 
     # Create the popup content
     content <- paste0(
       "<strong>Company: </strong>",
-      storage$Company,
+      stor_data$Company,
       "<br><strong>Field: </strong>",
-      storage$Field,
+      stor_data$Field,
       "<br><strong>Total Capacity (BCF): </strong>",
-      storage$Total
+      stor_data$Total
     )
 
     # Create the color palette
@@ -244,7 +275,7 @@ shiny::shinyServer(function(input, output, session) {
     # Plot the leaflet map based on 'Total Capacity' variable
     if (input$storageSize == "Total") {
 
-      leaflet::leaflet(storage) %>%
+      leaflet::leaflet(stor_data) %>%
 
         # Add provider tiles to the map
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
@@ -276,7 +307,7 @@ shiny::shinyServer(function(input, output, session) {
       # Plot the leaflet map based on 'Working Capacity' variable
     } else if (input$storageSize == "Working") {
 
-      leaflet::leaflet(storage) %>%
+      leaflet::leaflet(stor_data) %>%
 
         # Add provider tiles to the map
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
@@ -311,13 +342,13 @@ shiny::shinyServer(function(input, output, session) {
   output$hist2 <- plotly::renderPlotly({
 
     # Get the complete cases from storage data
-    storage <- storage[complete.cases(storage), ]
+    stor_data <- storage[complete.cases(storage), ]
 
     # Get the selected variable from the user
     if (input$storageSize == "Total") {
-      Capacity <- storage$Total / 1000
+      Capacity <- stor_data$Total / 1000
     } else if (input$storageSize == "Working") {
-      Capacity <- storage$Working / 1000
+      Capacity <- stor_data$Working / 1000
     }
 
     # Plot the histogram
@@ -333,14 +364,14 @@ shiny::shinyServer(function(input, output, session) {
   output$map3 <- leaflet::renderLeaflet({
 
     # Get the complete cases from lng data
-    lng <- lng[complete.cases(lng), ]
+    lng_data <- lng[complete.cases(lng), ]
 
     # Create the popup content
     content <- paste0(
       "<strong>Company: </strong>",
-      lng$Company,
+      lng_data$Company,
       "<br><strong>Capacity (BCFD): </strong>",
-      lng$Capacity
+      lng_data$Capacity
     )
 
     # Create the leaflet map based on 'type' variable
@@ -349,7 +380,7 @@ shiny::shinyServer(function(input, output, session) {
       # Create the color palette
       pal <- leaflet::colorFactor(c("navy", "red"), domain = c("Export", "Import"))
 
-      leaflet::leaflet(lng) %>%
+      leaflet::leaflet(lng_data) %>%
 
         # Add provider tiles to the map
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
@@ -391,7 +422,7 @@ shiny::shinyServer(function(input, output, session) {
           )
         )
 
-      leaflet::leaflet(lng) %>%
+      leaflet::leaflet(lng_data) %>%
 
         # Add provider tiles to the map
         leaflet::addProviderTiles("Esri.WorldStreetMap", group = "World Street Map") %>%
@@ -426,10 +457,10 @@ shiny::shinyServer(function(input, output, session) {
   output$hist3 <- plotly::renderPlotly({
 
     # Get the complete cases from lng data
-    lng <- lng[complete.cases(lng), ]
+    lng_data <- lng[complete.cases(lng), ]
 
     # Get the selected variable from the user
-    Capacity <- lng$Capacity
+    Capacity <- lng_data$Capacity
 
     # Plot the histogram
     plotly::plot_ly(x = ~Capacity,
@@ -463,10 +494,10 @@ shiny::shinyServer(function(input, output, session) {
   output$heatmap <- plotly::renderPlotly({
 
     # Subset data to get numeric variables
-    pipeline <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
+    pipe_data <- subset(pipeline, select = c("Cost", "Miles", "Capacity"))
 
     # Get correlation matrix
-    dfcor <- cor(pipeline, use = "complete.obs")
+    dfcor <- cor(pipe_data, use = "complete.obs")
 
     # Get covariance matrix
     dfvar <- dfcor ^ 2 * 100
@@ -492,15 +523,15 @@ shiny::shinyServer(function(input, output, session) {
   output$boxplot <- plotly::renderPlotly({
 
     # Omit missing data
-    pipeline <- na.omit(pipeline)
+    pipe_data <- na.omit(pipeline)
 
     # Get selected variable from the user
     if (input$gas == "cost") {
-      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"])
+      cost <- data.frame(Year = pipe_data[, "Year"], Cost = pipe_data[, "Cost"])
     } else if (input$gas == "costMile") {
-      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Miles"])
+      cost <- data.frame(Year = pipe_data[, "Year"], Cost = pipe_data[, "Cost"] / pipe_data[, "Miles"])
     } else if (input$gas == "costCap") {
-      cost <- data.frame(Year = pipeline[, "Year"], Cost = pipeline[, "Cost"] / pipeline[, "Capacity"])
+      cost <- data.frame(Year = pipe_data[, "Year"], Cost = pipe_data[, "Cost"] / pipe_data[, "Capacity"])
     }
 
     # Plot the boxplot
@@ -518,18 +549,25 @@ shiny::shinyServer(function(input, output, session) {
 
     # Subset data based on user selection
     if (length(s2) > 0 && length(s2) < nrow(gas)) {
-      gas <- gas[s2, ]
+      gas_data <- gas[s2, ]
+    } else {
+      gas_data <- gas
+    }
+
+    # Apply company filter if selected
+    if (!is.null(input$gasCompany) && length(input$gasCompany) > 0) {
+      gas_data <- gas_data[gas_data$Company %in% input$gasCompany, ]
     }
 
     # Get the selected variable from the user
     if (input$gasRates == "Revenue") {
-      Rate <- gas$Revenue
+      Rate <- gas_data$Revenue
     } else {
-      Rate <- gas$Bill
+      Rate <- gas_data$Bill
     }
 
     # Plot the line chart
-    plotly::plot_ly(gas,
+    plotly::plot_ly(gas_data,
                     x = ~Year,
                     y = ~Rate,
                     split = ~Company,
@@ -565,10 +603,10 @@ shiny::shinyServer(function(input, output, session) {
   # Show natural gas pipeline table
   output$pipelineTable <- DT::renderDataTable({
 
-    pipeline <- pipeline[, !(names(pipeline) %in% 'Year')]
+    pipe_data <- pipeline[, !(names(pipeline) %in% 'Year')]
 
     DT::datatable(
-      pipeline[, ],
+      pipe_data[, ],
       rownames = FALSE,
       colnames = c(
         'Cost ($MM)' = 'Cost',
@@ -609,18 +647,25 @@ shiny::shinyServer(function(input, output, session) {
 
     # Subset data based on user selection
     if (length(s3) > 0 && length(s3) < nrow(oil)) {
-      oil <- oil[s3, ]
+      oil_data <- oil[s3, ]
+    } else {
+      oil_data <- oil
+    }
+
+    # Apply company filter if selected
+    if (!is.null(input$oilCompany) && length(input$oilCompany) > 0) {
+      oil_data <- oil_data[oil_data$Company %in% input$oilCompany, ]
     }
 
     # Get the type of variable from the user
     if (input$oil == "Revenue") {
-      Rate <- oil$Revenue
+      Rate <- oil_data$Revenue
     } else {
-      Rate <- oil$Bill
+      Rate <- oil_data$Bill
     }
 
     # Plot the line chart
-    plotly::plot_ly(oil,
+    plotly::plot_ly(oil_data,
                     x = ~Year,
                     y = ~Rate,
                     split = ~Company,
@@ -662,4 +707,103 @@ shiny::shinyServer(function(input, output, session) {
     ) %>%
       DT::formatCurrency(c('Revenue', 'Bill'))
   }, server = FALSE)
+
+  # Populate company filter selectize inputs on session start
+  shiny::updateSelectizeInput(session, "elecCompany",
+    choices = sort(unique(electric$Company)), server = TRUE)
+  shiny::updateSelectizeInput(session, "gasCompany",
+    choices = sort(unique(gas$Company)), server = TRUE)
+  shiny::updateSelectizeInput(session, "oilCompany",
+    choices = sort(unique(oil$Company)), server = TRUE)
+
+  # Home page summary bar chart
+  output$homeChart <- plotly::renderPlotly({
+    industry_counts <- data.frame(
+      Industry = c("Electric", "Hydropower", "Natural Gas", "Storage", "LNG", "Oil"),
+      Companies = c(
+        length(unique(electric$Company)),
+        length(unique(hydropower$Company)),
+        length(unique(gas$Company)),
+        length(unique(storage$Company)),
+        length(unique(lng$Company)),
+        length(unique(oil$Company))
+      )
+    )
+    plotly::plot_ly(industry_counts,
+                    x = ~Industry,
+                    y = ~Companies,
+                    type = "bar",
+                    marker = list(color = "steelblue")) %>%
+      plotly::layout(yaxis = list(title = "Number of Companies"))
+  })
+
+  # Plot the electric performance histogram
+  output$elecHist <- plotly::renderPlotly({
+    if (input$elecPerform == "Revenue") {
+      Value <- electric$Revenue
+    } else {
+      Value <- electric$Bill
+    }
+    plotly::plot_ly(x = ~Value, type = "histogram", opacity = 0.75) %>%
+      plotly::layout(xaxis = list(title = input$elecPerform))
+  })
+
+  # Draw the electric heatmap
+  output$elecHeatmap <- plotly::renderPlotly({
+    elec_num <- subset(electric, select = c("Revenue", "Bill", "Year"))
+    dfcor <- cor(elec_num, use = "complete.obs")
+    dfvar <- dfcor ^ 2 * 100
+    if (input$elecSensitivity == "varr") {
+      df <- dfvar
+    } else {
+      df <- dfcor
+    }
+    plotly::plot_ly(
+      x = c("Revenue", "Bill", "Year"),
+      y = c("Revenue", "Bill", "Year"),
+      z = df,
+      colorscale = "Greys",
+      type = "heatmap"
+    )
+  })
+
+  # Plot the electric explorer motion chart
+  output$elecMotion <- googleVis::renderGvis({
+    googleVis::gvisMotionChart(elecMotionData, idvar = "Company", timevar = "Year")
+  })
+
+  # Plot the oil performance histogram
+  output$oilHist <- plotly::renderPlotly({
+    if (input$oilPerform == "Revenue") {
+      Value <- oil$Revenue
+    } else {
+      Value <- oil$Bill
+    }
+    plotly::plot_ly(x = ~Value, type = "histogram", opacity = 0.75) %>%
+      plotly::layout(xaxis = list(title = input$oilPerform))
+  })
+
+  # Draw the oil heatmap
+  output$oilHeatmap <- plotly::renderPlotly({
+    oil_num <- subset(oil, select = c("Revenue", "Bill", "Year"))
+    dfcor <- cor(oil_num, use = "complete.obs")
+    dfvar <- dfcor ^ 2 * 100
+    if (input$oilSensitivity == "varr") {
+      df <- dfvar
+    } else {
+      df <- dfcor
+    }
+    plotly::plot_ly(
+      x = c("Revenue", "Bill", "Year"),
+      y = c("Revenue", "Bill", "Year"),
+      z = df,
+      colorscale = "Greys",
+      type = "heatmap"
+    )
+  })
+
+  # Plot the oil explorer motion chart
+  output$oilMotion <- googleVis::renderGvis({
+    googleVis::gvisMotionChart(oilMotionData, idvar = "Company", timevar = "Year")
+  })
 })

@@ -1,6 +1,2 @@
-# global.R template for Plotly/Shiny apps
-
-library(plotly)
-library(shiny)
-
-source("plotlyGraphWidget.r")
+# global.R — load all app dependencies
+source("dependencies.r")

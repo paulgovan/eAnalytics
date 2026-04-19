@@ -18,7 +18,7 @@ shinydashboard::dashboardPage(
       # Electric menu item
       shinydashboard::menuItem(
         "Electric",
-        icon = shiny::icon("th"),
+        icon = shiny::icon("bolt"),
         tabName = "electric",
 
         # Electric trends menu sub-item
@@ -26,6 +26,20 @@ shinydashboard::dashboardPage(
           "Trends",
           tabName = "elecTrends",
           icon = shiny::icon("line-chart")
+        ),
+
+        # Electric performance menu sub-item
+        shinydashboard::menuSubItem(
+          "Performance",
+          tabName = "elecPerform",
+          icon = shiny::icon("bar-chart")
+        ),
+
+        # Electric explorer menu sub-item
+        shinydashboard::menuSubItem(
+          "Explorer",
+          tabName = "elecExplorer",
+          icon = shiny::icon("gear")
         ),
 
         # Electric data menu sub-item
@@ -38,7 +52,7 @@ shinydashboard::dashboardPage(
       # Hydropower menu item
       shinydashboard::menuItem(
         "Hydropower",
-        icon = shiny::icon("th"),
+        icon = shiny::icon("tint"),
         tabName = "hydroelectric",
 
         # Hydropower profile menu sub-item
@@ -58,7 +72,7 @@ shinydashboard::dashboardPage(
       # Natural gas menu item
       shinydashboard::menuItem(
         "Natural Gas",
-        icon = shiny::icon("th"),
+        icon = shiny::icon("fire"),
         tabName = "naturalgas",
 
         # Natural gas profile menu sub-item
@@ -99,7 +113,7 @@ shinydashboard::dashboardPage(
       # Oil menu item
       shinydashboard::menuItem(
         "Oil",
-        icon = shiny::icon("th"),
+        icon = shiny::icon("flask"),
         tabName = "oil",
 
         # Oil trends menu sub-item
@@ -107,6 +121,20 @@ shinydashboard::dashboardPage(
           "Trends",
           tabName = "oilTrends",
           icon = shiny::icon("line-chart")
+        ),
+
+        # Oil performance menu sub-item
+        shinydashboard::menuSubItem(
+          "Performance",
+          tabName = "oilPerform",
+          icon = shiny::icon("bar-chart")
+        ),
+
+        # Oil explorer menu sub-item
+        shinydashboard::menuSubItem(
+          "Explorer",
+          tabName = "oilExplorer",
+          icon = shiny::icon("gear")
         ),
 
         # Oil data menu sub-item
@@ -175,6 +203,15 @@ shinydashboard::dashboardPage(
           shiny::uiOutput("projectBox"),
           shiny::uiOutput("companyBox"),
           shiny::uiOutput("facilityBox")
+        ),
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Companies by Industry",
+            status = "primary",
+            width = 12,
+            collapsible = TRUE,
+            plotly::plotlyOutput("homeChart")
+          )
         )
       ),
 
@@ -207,11 +244,78 @@ shinydashboard::dashboardPage(
                     "Revenue",
                   "Bill (USD)" = "Bill")
               ),
+
+              # Company filter
+              shiny::selectizeInput(
+                "elecCompany",
+                h5("Filter Companies:"),
+                choices = NULL,
+                multiple = TRUE,
+                options = list(placeholder = "All companies")
+              ),
               circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
               tooltip = shinyWidgets::tooltipOptions(title = "Click to see inputs"),
               up = TRUE
             )
           )
+        )
+      ),
+
+      # Electric performance tab item
+      shinydashboard::tabItem(
+        tabName = "elecPerform",
+        shiny::fluidRow(
+
+          # Electric performance histogram box
+          shinydashboard::box(
+            title = "Performance Indicator",
+            status = "primary",
+            width = 6,
+            collapsible = TRUE,
+            plotly::plotlyOutput("elecHist")
+          ),
+
+          # Electric heatmap box
+          shinydashboard::box(
+            title = "Heatmap",
+            status = "primary",
+            width = 6,
+            collapsible = TRUE,
+            plotly::plotlyOutput("elecHeatmap")
+          )
+        ),
+        shiny::fluidRow(
+          shinyWidgets::dropdownButton(
+            shiny::h4("List of Inputs"),
+            shiny::selectInput(
+              "elecPerform",
+              h5("Select Performance Indicator:"),
+              c("Revenue Distribution" = "Revenue",
+                "Bill Distribution" = "Bill")
+            ),
+            shiny::selectInput(
+              "elecSensitivity",
+              h5("Select Type of Sensitivity Measure:"),
+              c("Contribution to Variance" = "varr",
+                "Rank Correlation" = "corr")
+            ),
+            circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
+            tooltip = shinyWidgets::tooltipOptions(title = "Click to see inputs"),
+            up = TRUE
+          )
+        )
+      ),
+
+      # Electric explorer tab item
+      shinydashboard::tabItem(
+        tabName = "elecExplorer",
+        shinydashboard::box(
+          title = "Explorer",
+          status = "primary",
+          width = 12,
+          collapsible = TRUE,
+          shiny::htmlOutput("elecMotion"),
+          style = "overflow:hidden;"
         )
       ),
 
@@ -480,6 +584,15 @@ shinydashboard::dashboardPage(
                     c("Revenue (USD)" = "Revenue",
                       "Bill (USD)" = "Bill")
                   ),
+
+                  # Company filter
+                  shiny::selectizeInput(
+                    "gasCompany",
+                    h5("Filter Companies:"),
+                    choices = NULL,
+                    multiple = TRUE,
+                    options = list(placeholder = "All companies")
+                  ),
                   circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
                   tooltip = shinyWidgets::tooltipOptions(title = "Click to see inputs"),
                   up = TRUE
@@ -552,11 +665,78 @@ shinydashboard::dashboardPage(
                   c("Revenue (USD)" = "Revenue",
                     "Bill (USD)" = "Bill")
                 ),
+
+                # Company filter
+                shiny::selectizeInput(
+                  "oilCompany",
+                  h5("Filter Companies:"),
+                  choices = NULL,
+                  multiple = TRUE,
+                  options = list(placeholder = "All companies")
+                ),
                 circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
                 tooltip = shinyWidgets::tooltipOptions(title = "Click to see inputs"),
                 up = TRUE
               )
             )
+          )
+        ),
+
+        # Oil performance tab item
+        shinydashboard::tabItem(
+          tabName = "oilPerform",
+          shiny::fluidRow(
+
+            # Oil performance histogram box
+            shinydashboard::box(
+              title = "Performance Indicator",
+              status = "primary",
+              width = 6,
+              collapsible = TRUE,
+              plotly::plotlyOutput("oilHist")
+            ),
+
+            # Oil heatmap box
+            shinydashboard::box(
+              title = "Heatmap",
+              status = "primary",
+              width = 6,
+              collapsible = TRUE,
+              plotly::plotlyOutput("oilHeatmap")
+            )
+          ),
+          shiny::fluidRow(
+            shinyWidgets::dropdownButton(
+              shiny::h4("List of Inputs"),
+              shiny::selectInput(
+                "oilPerform",
+                h5("Select Performance Indicator:"),
+                c("Revenue Distribution" = "Revenue",
+                  "Bill Distribution" = "Bill")
+              ),
+              shiny::selectInput(
+                "oilSensitivity",
+                h5("Select Type of Sensitivity Measure:"),
+                c("Contribution to Variance" = "varr",
+                  "Rank Correlation" = "corr")
+              ),
+              circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
+              tooltip = shinyWidgets::tooltipOptions(title = "Click to see inputs"),
+              up = TRUE
+            )
+          )
+        ),
+
+        # Oil explorer tab item
+        shinydashboard::tabItem(
+          tabName = "oilExplorer",
+          shinydashboard::box(
+            title = "Explorer",
+            status = "primary",
+            width = 12,
+            collapsible = TRUE,
+            shiny::htmlOutput("oilMotion"),
+            style = "overflow:hidden;"
           )
         ),
 
